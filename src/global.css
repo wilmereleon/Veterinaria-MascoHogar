@@ -24,14 +24,8 @@ body {
   --font-size-3xl: 22px;
   --font-size-5xl: 24px;
   --font-size-11xl: 30px;
-  --font-size-12xl: 31px;
-  --font-size-15xl: 34px;
-  --font-size-22xl: 41px;
-  --font-size-24xl: 43px;
-  --font-size-26xl: 45px;
   --font-size-32xl: 51px;
   --font-size-37xl: 56px;
-  --font-size-39xl: 58px;
   --font-size-53xl: 72px;
 
   /* Colors */
@@ -56,7 +50,7 @@ body {
 
   /* Gaps */
   --gap-0: 0px;
-  --gap-10xs: 3px;
+  --gap-9xs: 4px;
   --gap-5xs: 8px;
   --gap-xs: 12px;
   --gap-base: 16px;
@@ -68,34 +62,21 @@ body {
   --gap-45xl: 64px;
 
   /* Paddings */
-  --padding-10xs: 3px;
   --padding-9xs: 4px;
   --padding-7xs: 6px;
   --padding-6xs: 7px;
   --padding-5xs: 8px;
-  --padding-3xs: 10px;
   --padding-xs: 12px;
-  --padding-sm: 14px;
-  --padding-mini: 15px;
   --padding-base: 16px;
-  --padding-lgi: 19px;
   --padding-xl: 20px;
   --padding-5xl: 24px;
   --padding-9xl: 28px;
-  --padding-12xl: 31px;
   --padding-13xl: 32px;
   --padding-21xl: 40px;
-  --padding-23xl: 42px;
-  --padding-28xl: 47px;
   --padding-29xl: 48px;
   --padding-31xl-6: 50.6px;
-  --padding-32xl: 51px;
-  --padding-33xl: 52px;
   --padding-45xl: 64px;
   --padding-53xl: 72px;
-  --padding-54xl: 73px;
-  --padding-59xl: 78px;
-  --padding-85xl: 104px;
   --padding-93xl: 112px;
   --padding-101xl: 120px;
   --padding-141xl: 160px;

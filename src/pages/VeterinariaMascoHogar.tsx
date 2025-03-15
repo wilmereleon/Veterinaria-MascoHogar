@@ -18,7 +18,7 @@ const VeterinariaMascoHogar: FunctionComponent = () => {
       <TypeImageGridTitleDescri />
       <Property1SoftwareHeroTripl />
       <TypeSubscribePillInputCT />
-      <section className={styles.typestackedSimpleFooter}>
+      <div className={styles.typestackedSimpleFooter}>
         <div className={styles.content}>
           <div className={styles.logo}>
             <div className={styles.brandname}>PetCare Team</div>
@@ -30,7 +30,7 @@ const VeterinariaMascoHogar: FunctionComponent = () => {
             <div className={styles.link}>Contact Us</div>
           </div>
         </div>
-        <footer className={styles.credits}>
+        <div className={styles.credits}>
           <div className={styles.divider} />
           <div className={styles.row}>
             <div className={styles.brandNameAll}>
@@ -42,8 +42,8 @@ const VeterinariaMascoHogar: FunctionComponent = () => {
               <div className={styles.brandNameAll}>Cookies Settings</div>
             </div>
           </div>
-        </footer>
-      </section>
+        </div>
+      </div>
     </div>
   );
 };
