@@ -16,7 +16,7 @@
   align-items: center;
   justify-content: flex-start;
   padding: 0px var(--padding-base) 0px var(--padding-5xs);
-  gap: var(--gap-10xs);
+  gap: 3px;
 }
 .navLink {
   align-self: stretch;
@@ -51,7 +51,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding: var(--padding-3xs) var(--padding-lgi);
+  padding: 10px 19px;
   text-align: center;
 }
 .textContainer1 {
@@ -90,14 +90,15 @@
   justify-content: flex-end;
 }
 .typefloatingHeaderWithNavi {
-  align-self: stretch;
+  width: 100%;
+  position: relative;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   padding: var(--padding-5xs);
+  box-sizing: border-box;
   gap: var(--gap-0);
-  z-index: 7;
   text-align: left;
   font-size: var(--font-size-xs);
   color: var(--color-darkslategray-100);

@@ -48,7 +48,7 @@
   height: 56px;
   border-radius: var(--br-980xl);
   background-color: var(--color-mintcream);
-  border: 1px solid var(--color-aquamarine);
+  border: 1px solid #a7f3d0;
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
@@ -96,7 +96,7 @@
   z-index: 1;
   text-align: center;
   font-size: var(--font-size-xs);
-  color: var(--color-honeydew-200);
+  color: #d1fae5;
 }
 .inputButtonCombo {
   width: 100%;
@@ -132,28 +132,29 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: var(--padding-53xl) var(--padding-5xl);
+  padding: 72px var(--padding-5xl);
   box-sizing: border-box;
   max-width: 1280px;
 }
 .typesubscribePillInputCt {
-  align-self: stretch;
+  width: 100%;
+  position: relative;
   background-color: var(--color-mintcream);
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   padding: var(--padding-45xl);
-  z-index: 1;
+  box-sizing: border-box;
   text-align: center;
-  font-size: var(--font-size-32xl);
+  font-size: 51px;
   color: var(--color-darkslategray-100);
   font-family: var(--font-inter);
 }
 
 @media screen and (max-width: 750px) {
   .heading {
-    font-size: var(--font-size-22xl);
+    font-size: 41px;
     line-height: 49px;
   }
 
@@ -178,7 +179,7 @@
 }
 @media screen and (max-width: 450px) {
   .heading {
-    font-size: var(--font-size-12xl);
+    font-size: 31px;
     line-height: 37px;
   }
 

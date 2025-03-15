@@ -66,13 +66,13 @@
   height: 53px;
   flex: 1;
   border-radius: var(--br-5xs);
-  border: 1px solid var(--color-mediumseagreen);
+  border: 1px solid #34d399;
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding: var(--padding-sm) var(--padding-5xl);
+  padding: 14px var(--padding-5xl);
   min-width: 140px;
   color: var(--color-darkslategray-100);
 }
@@ -118,7 +118,7 @@
   top: calc(50% - 252.25px);
   left: calc(50% - 252px);
   border-radius: 50%;
-  background-color: var(--color-lavenderblush);
+  background-color: #fce7f3;
   height: 504px;
   z-index: 0;
 }
@@ -166,7 +166,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding: 0px 0px var(--padding-31xl-6);
+  padding: 0px 0px 50.6px;
   z-index: 2;
   margin-left: -120px;
   position: relative;
@@ -210,7 +210,8 @@
   gap: var(--gap-0);
 }
 .property1softwareHeroTripl {
-  align-self: stretch;
+  width: 100%;
+  position: relative;
   background-color: var(--color-mintcream);
   overflow: hidden;
   display: flex;
@@ -219,9 +220,8 @@
   justify-content: center;
   flex-wrap: wrap;
   align-content: center;
-  z-index: 2;
   text-align: center;
-  font-size: var(--font-size-53xl);
+  font-size: 72px;
   color: var(--color-darkslategray-100);
   font-family: var(--font-playfair-display);
 }
@@ -233,7 +233,7 @@
 }
 @media screen and (max-width: 750px) {
   .heading {
-    font-size: var(--font-size-39xl);
+    font-size: 58px;
     line-height: 62px;
   }
 
@@ -255,7 +255,7 @@
 }
 @media screen and (max-width: 450px) {
   .heading {
-    font-size: var(--font-size-24xl);
+    font-size: 43px;
     line-height: 47px;
   }
 
@@ -266,7 +266,7 @@
 
   .copyContainer {
     padding-top: var(--padding-23xl);
-    padding-bottom: var(--padding-12xl);
+    padding-bottom: 31px;
     box-sizing: border-box;
   }
 }

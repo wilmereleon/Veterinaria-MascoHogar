@@ -60,15 +60,16 @@
   font-family: var(--font-inter);
 }
 .property1cardsTestimonials {
-  align-self: stretch;
+  width: 100%;
+  position: relative;
   background-color: var(--color-mintcream);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: var(--padding-101xl) var(--padding-base);
+  box-sizing: border-box;
   gap: var(--gap-21xl);
-  z-index: 4;
   text-align: center;
   font-size: var(--font-size-37xl);
   color: var(--color-darkslategray-100);

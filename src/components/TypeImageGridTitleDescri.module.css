@@ -100,20 +100,21 @@
   justify-content: flex-start;
   flex-wrap: wrap;
   align-content: center;
-  padding: var(--padding-93xl) 0px;
+  padding: 112px 0px;
   box-sizing: border-box;
   gap: var(--gap-45xl);
   max-width: 1152px;
 }
 .typeimageGridTitleDescri {
-  align-self: stretch;
+  width: 100%;
+  position: relative;
   background-color: var(--color-mintcream);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 0px var(--padding-5xl);
-  z-index: 3;
+  box-sizing: border-box;
   text-align: left;
   font-size: var(--font-size-37xl);
   color: var(--color-darkslategray-100);

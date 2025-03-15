@@ -40,7 +40,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding: var(--padding-xl) var(--padding-9xl);
+  padding: var(--padding-xl) 28px;
   box-sizing: border-box;
 }
 .buttonCombo {
@@ -91,7 +91,7 @@
   bottom: 0px;
   left: 0px;
   border-radius: var(--br-99980xl);
-  background-color: var(--color-gray-100);
+  background-color: rgba(0, 0, 0, 0.25);
   z-index: 1;
 }
 .videoContainer {
@@ -114,14 +114,15 @@
   max-width: 1280px;
 }
 .typestackedMediumTitleAnd {
-  align-self: stretch;
+  width: 100%;
+  position: relative;
   background-color: var(--color-mintcream);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   padding: var(--padding-101xl) var(--padding-21xl);
-  z-index: 6;
+  box-sizing: border-box;
   text-align: center;
   font-size: var(--font-size-37xl);
   color: var(--color-darkslategray-100);
