@@ -16,7 +16,7 @@
   align-items: center;
   justify-content: flex-start;
   padding: 0px var(--padding-base) 0px var(--padding-5xs);
-  gap: 3px;
+  gap: var(--gap-9xs);
 }
 .navLink {
   align-self: stretch;
@@ -26,14 +26,6 @@
   justify-content: flex-start;
   padding: 0px var(--padding-base);
 }
-.navLink2 {
-  align-self: stretch;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 0px var(--padding-mini);
-}
 .textContainer {
   display: flex;
   flex-direction: row;
@@ -42,24 +34,17 @@
   padding: 0px var(--padding-9xs);
 }
 .button {
-  height: 43px;
   border-radius: var(--br-5xs);
   background-color: var(--color-mintcream);
   border: 1px solid var(--color-darkslategray-100);
   box-sizing: border-box;
+  height: 43px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding: 10px 19px;
+  padding: var(--padding-xs) var(--padding-xl);
   text-align: center;
-}
-.textContainer1 {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  padding: 0px var(--padding-10xs);
 }
 .button1 {
   border-radius: var(--br-5xs);
@@ -79,7 +64,6 @@
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
-  padding: 0px 0px 0px var(--padding-xl);
   gap: var(--gap-xs);
 }
 .navLinks {
@@ -90,23 +74,16 @@
   justify-content: flex-end;
 }
 .typefloatingHeaderWithNavi {
-  width: 100%;
-  position: relative;
+  align-self: stretch;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   padding: var(--padding-5xs);
-  box-sizing: border-box;
   gap: var(--gap-0);
+  z-index: 7;
   text-align: left;
   font-size: var(--font-size-xs);
   color: var(--color-darkslategray-100);
   font-family: var(--font-lato);
-}
-
-@media screen and (max-width: 1250px) {
-  .navLinks1 {
-    display: none;
-  }
 }

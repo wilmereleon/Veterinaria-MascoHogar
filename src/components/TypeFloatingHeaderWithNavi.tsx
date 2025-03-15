@@ -9,12 +9,10 @@ const TypeFloatingHeaderWithNavi: FunctionComponent<
   TypeFloatingHeaderWithNaviType
 > = ({ className = "" }) => {
   return (
-    <header
-      className={[styles.typefloatingHeaderWithNavi, className].join(" ")}
-    >
+    <div className={[styles.typefloatingHeaderWithNavi, className].join(" ")}>
       <div className={styles.brand}>
-        <img className={styles.icon} loading="lazy" alt="" src="/icon.svg" />
-        <div className={styles.brandname}>PetCare Hub</div>
+        <img className={styles.icon} alt="" src="/icon.svg" />
+        <div className={styles.brandname}>Veterinaria MascoHogar</div>
       </div>
       <div className={styles.navLinks}>
         <div className={styles.navLinks1}>
@@ -24,7 +22,7 @@ const TypeFloatingHeaderWithNavi: FunctionComponent<
           <div className={styles.navLink}>
             <div className={styles.brandname}>About Us</div>
           </div>
-          <div className={styles.navLink2}>
+          <div className={styles.navLink}>
             <div className={styles.brandname}>Our Team</div>
           </div>
           <div className={styles.button}>
@@ -33,13 +31,13 @@ const TypeFloatingHeaderWithNavi: FunctionComponent<
             </div>
           </div>
           <div className={styles.button1}>
-            <div className={styles.textContainer1}>
+            <div className={styles.textContainer}>
               <div className={styles.brandname}>Register Now</div>
             </div>
           </div>
         </div>
       </div>
-    </header>
+    </div>
   );
 };
 

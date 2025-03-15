@@ -9,11 +9,13 @@ const TypeImageGridTitleDescri: FunctionComponent<
   TypeImageGridTitleDescriType
 > = ({ className = "" }) => {
   return (
-    <section className={[styles.typeimageGridTitleDescri, className].join(" ")}>
+    <div className={[styles.typeimageGridTitleDescri, className].join(" ")}>
       <div className={styles.content}>
         <div className={styles.textContainer}>
           <div className={styles.bio}>
-            <h1 className={styles.thisIsA}>Join Our Community of Pet Lovers</h1>
+            <div className={styles.thisIsA}>
+              Join Our Community of Pet Lovers
+            </div>
             <div className={styles.aMediumLength}>
               Discover a platform that connects you with your pet's needs.
             </div>
@@ -28,7 +30,6 @@ const TypeImageGridTitleDescri: FunctionComponent<
           <div className={styles.image}>
             <img
               className={styles.imageLummiIcon}
-              loading="lazy"
               alt=""
               src="/image-lummi-1@2x.png"
             />
@@ -36,7 +37,6 @@ const TypeImageGridTitleDescri: FunctionComponent<
           <div className={styles.image}>
             <img
               className={styles.imageLummiIcon}
-              loading="lazy"
               alt=""
               src="/image-lummi-2@2x.png"
             />
@@ -44,7 +44,6 @@ const TypeImageGridTitleDescri: FunctionComponent<
           <div className={styles.image}>
             <img
               className={styles.imageLummiIcon}
-              loading="lazy"
               alt=""
               src="/image-lummi-3@2x.png"
             />
@@ -52,7 +51,6 @@ const TypeImageGridTitleDescri: FunctionComponent<
           <div className={styles.image}>
             <img
               className={styles.imageLummiIcon}
-              loading="lazy"
               alt=""
               src="/image-lummi-4@2x.png"
             />
@@ -60,7 +58,6 @@ const TypeImageGridTitleDescri: FunctionComponent<
           <div className={styles.image}>
             <img
               className={styles.imageLummiIcon}
-              loading="lazy"
               alt=""
               src="/image-lummi-5@2x.png"
             />
@@ -68,14 +65,13 @@ const TypeImageGridTitleDescri: FunctionComponent<
           <div className={styles.image}>
             <img
               className={styles.imageLummiIcon}
-              loading="lazy"
               alt=""
               src="/image-lummi-6@2x.png"
             />
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

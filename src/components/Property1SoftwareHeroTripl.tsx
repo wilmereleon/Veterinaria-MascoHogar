@@ -9,17 +9,15 @@ const Property1SoftwareHeroTripl: FunctionComponent<
   Property1SoftwareHeroTriplType
 > = ({ className = "" }) => {
   return (
-    <section
-      className={[styles.property1softwareHeroTripl, className].join(" ")}
-    >
+    <div className={[styles.property1softwareHeroTripl, className].join(" ")}>
       <div className={styles.wrapper}>
         <div className={styles.copyContainer}>
           <div className={styles.copyComponent}>
             <div className={styles.headingText}>
-              <h1 className={styles.heading}>Stay Updated with Our News</h1>
-              <h3 className={styles.subheading}>
+              <div className={styles.heading}>Stay Updated with Our News</div>
+              <div className={styles.subheading}>
                 Subscribe to receive the latest updates and tips.
-              </h3>
+              </div>
             </div>
             <div className={styles.buttonCombo}>
               <div className={styles.ctaButton}>
@@ -53,16 +51,11 @@ const Property1SoftwareHeroTripl: FunctionComponent<
                 />
               </div>
             </div>
-            <img
-              className={styles.deviceIcon1}
-              loading="lazy"
-              alt=""
-              src="/device-1@2x.png"
-            />
+            <img className={styles.deviceIcon1} alt="" src="/device-1@2x.png" />
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

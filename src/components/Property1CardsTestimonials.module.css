@@ -1,17 +1,14 @@
 .heading {
-  margin: 0;
   align-self: stretch;
   position: relative;
-  font-size: inherit;
   line-height: 120%;
   font-weight: 900;
-  font-family: inherit;
 }
 .imageLummiCategoryavata {
   width: 120px;
-  height: 120px;
   position: relative;
   border-radius: var(--br-29xl);
+  height: 120px;
   object-fit: cover;
 }
 .name {
@@ -24,12 +21,10 @@
   white-space: nowrap;
 }
 .shortTestimonial {
-  margin: 0;
   align-self: stretch;
   position: relative;
   font-size: var(--font-size-3xl);
   line-height: 140%;
-  font-weight: 400;
   font-family: var(--font-lato);
 }
 .testimonial {
@@ -60,61 +55,17 @@
   font-family: var(--font-inter);
 }
 .property1cardsTestimonials {
-  width: 100%;
-  position: relative;
+  align-self: stretch;
   background-color: var(--color-mintcream);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: var(--padding-101xl) var(--padding-base);
-  box-sizing: border-box;
   gap: var(--gap-21xl);
+  z-index: 4;
   text-align: center;
   font-size: var(--font-size-37xl);
   color: var(--color-darkslategray-100);
   font-family: var(--font-playfair-display);
-}
-
-@media screen and (max-width: 1250px) {
-  .testimonialsGrid {
-    max-width: 100%;
-  }
-}
-@media screen and (max-width: 1050px) {
-  .testimonial {
-    max-width: 100%;
-  }
-}
-@media screen and (max-width: 750px) {
-  .heading {
-    font-size: var(--font-size-26xl);
-    line-height: 54px;
-  }
-
-  .testimonialsGrid {
-    gap: var(--gap-xl);
-  }
-
-  .property1cardsTestimonials {
-    gap: var(--gap-xl);
-    padding-top: var(--padding-59xl);
-    padding-bottom: var(--padding-59xl);
-    box-sizing: border-box;
-  }
-}
-@media screen and (max-width: 450px) {
-  .heading {
-    font-size: var(--font-size-15xl);
-    line-height: 40px;
-  }
-
-  .shortTestimonial {
-    font-size: var(--font-size-lg);
-    line-height: 25px;
-  }
-
-  .testimonial {
-    width: calc(100% - 40px);
-  }
 }

@@ -9,11 +9,11 @@ const TypeSubscribePillInputCT: FunctionComponent<
   TypeSubscribePillInputCTType
 > = ({ className = "" }) => {
   return (
-    <section className={[styles.typesubscribePillInputCt, className].join(" ")}>
+    <div className={[styles.typesubscribePillInputCt, className].join(" ")}>
       <div className={styles.container}>
         <div className={styles.copyComponent}>
           <div className={styles.headingText}>
-            <h1 className={styles.heading}>Join our newsletter today!</h1>
+            <b className={styles.heading}>Join our newsletter today!</b>
             <div className={styles.subheading}>
               Stay informed with our latest news and offers.
             </div>
@@ -36,7 +36,7 @@ const TypeSubscribePillInputCT: FunctionComponent<
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

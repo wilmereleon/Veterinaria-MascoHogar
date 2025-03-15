@@ -1,20 +1,25 @@
 import { FunctionComponent } from "react";
 import styles from "./Cards.module.css";
 
-const Cards: FunctionComponent = ({ className = "" }) => {
+export type CardsType = {
+  className?: string;
+  imageLummi?: string;
+  featureTitle?: string;
+  featureDescription?: string;
+};
+
+const Cards: FunctionComponent<CardsType> = ({
+  className = "",
+  imageLummi,
+  featureTitle,
+  featureDescription,
+}) => {
   return (
     <div className={[styles.cards, className].join(" ")}>
-      <img
-        className={styles.imageLummi}
-        loading="lazy"
-        alt=""
-        src="/image--lummi@2x.png"
-      />
+      <img className={styles.imageLummi} alt="" src={imageLummi} />
       <div className={styles.copy}>
-        <div className={styles.featureTitle}>User-Friendly Interface</div>
-        <div className={styles.featureDescription}>
-          Navigate effortlessly through our intuitive design.
-        </div>
+        <div className={styles.featureTitle}>{featureTitle}</div>
+        <div className={styles.featureDescription}>{featureDescription}</div>
       </div>
     </div>
   );

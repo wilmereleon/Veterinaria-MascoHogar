@@ -10,13 +10,13 @@ const TypeSideBySideImages: FunctionComponent<TypeSideBySideImagesType> = ({
   className = "",
 }) => {
   return (
-    <section className={[styles.typesideBySideImages, className].join(" ")}>
+    <div className={[styles.typesideBySideImages, className].join(" ")}>
       <div className={styles.container}>
         <div className={styles.headingContainer}>
-          <h1 className={styles.heading}>Manage Your Pets</h1>
-          <h3 className={styles.subheading}>
+          <div className={styles.heading}>Manage Your Pets</div>
+          <div className={styles.subheading}>
             Easily register and track your pet's health.
-          </h3>
+          </div>
         </div>
         <div className={styles.featureGrid}>
           <Cards
@@ -31,7 +31,7 @@ const TypeSideBySideImages: FunctionComponent<TypeSideBySideImagesType> = ({
           />
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

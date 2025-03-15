@@ -10,22 +10,19 @@ const Property1CardsTestimonials: FunctionComponent<
   Property1CardsTestimonialsType
 > = ({ className = "" }) => {
   return (
-    <section
-      className={[styles.property1cardsTestimonials, className].join(" ")}
-    >
-      <h1 className={styles.heading}>What Our Clients Say</h1>
+    <div className={[styles.property1cardsTestimonials, className].join(" ")}>
+      <div className={styles.heading}>What Our Clients Say</div>
       <div className={styles.testimonialsGrid}>
         <div className={styles.testimonial}>
           <img
             className={styles.imageLummiCategoryavata}
-            loading="lazy"
             alt=""
             src="/image-lummi-categoryavatars@2x.png"
           />
           <div className={styles.name}>Maria Lopez, Pet Owner</div>
-          <h3 className={styles.shortTestimonial}>
+          <div className={styles.shortTestimonial}>
             “This platform has transformed how I manage my pets!”
-          </h3>
+          </div>
         </div>
         <Testimonial
           imageLummiCategoryavatars="/image-lummi-categoryavatars-1@2x.png"
@@ -38,7 +35,7 @@ const Property1CardsTestimonials: FunctionComponent<
           shortTestimonial="“I love the ease of use and the great features!”"
         />
       </div>
-    </section>
+    </div>
   );
 };
 

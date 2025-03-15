@@ -1,12 +1,9 @@
 .heading {
-  margin: 0;
   align-self: stretch;
   position: relative;
-  font-size: inherit;
   letter-spacing: -0.01em;
   line-height: 108%;
   font-weight: 900;
-  font-family: inherit;
   display: -webkit-inline-box;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -14,12 +11,10 @@
   -webkit-box-orient: vertical;
 }
 .subheading {
-  margin: 0;
   align-self: stretch;
   position: relative;
   font-size: var(--font-size-3xl);
   line-height: 140%;
-  font-weight: 400;
   font-family: var(--font-lato);
   color: var(--color-seagreen);
 }
@@ -40,13 +35,13 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding: var(--padding-9xs) var(--padding-10xs);
+  padding: var(--padding-9xs);
 }
 .ctaButton {
-  height: 53px;
   flex: 1;
   border-radius: var(--br-5xs);
   background-color: var(--color-yellowgreen);
+  height: 53px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -63,16 +58,16 @@
   padding: 0px var(--padding-9xs);
 }
 .secondaryButton {
-  height: 53px;
   flex: 1;
   border-radius: var(--br-5xs);
-  border: 1px solid #34d399;
+  border: 1px solid var(--color-mediumseagreen);
   box-sizing: border-box;
+  height: 53px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding: 14px var(--padding-5xl);
+  padding: var(--padding-base) var(--padding-5xl);
   min-width: 140px;
   color: var(--color-darkslategray-100);
 }
@@ -118,7 +113,7 @@
   top: calc(50% - 252.25px);
   left: calc(50% - 252px);
   border-radius: 50%;
-  background-color: #fce7f3;
+  background-color: var(--color-lavenderblush);
   height: 504px;
   z-index: 0;
 }
@@ -154,7 +149,6 @@
   overflow: hidden;
   max-height: 100%;
   object-fit: cover;
-  z-index: 1;
 }
 .device {
   width: 208.9px;
@@ -166,7 +160,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding: 0px 0px 50.6px;
+  padding: 0px 0px var(--padding-31xl-6);
   z-index: 2;
   margin-left: -120px;
   position: relative;
@@ -210,8 +204,7 @@
   gap: var(--gap-0);
 }
 .property1softwareHeroTripl {
-  width: 100%;
-  position: relative;
+  align-self: stretch;
   background-color: var(--color-mintcream);
   overflow: hidden;
   display: flex;
@@ -220,53 +213,9 @@
   justify-content: center;
   flex-wrap: wrap;
   align-content: center;
+  z-index: 2;
   text-align: center;
-  font-size: 72px;
+  font-size: var(--font-size-53xl);
   color: var(--color-darkslategray-100);
   font-family: var(--font-playfair-display);
-}
-
-@media screen and (max-width: 1050px) {
-  .copyComponent {
-    max-width: 100%;
-  }
-}
-@media screen and (max-width: 750px) {
-  .heading {
-    font-size: 58px;
-    line-height: 62px;
-  }
-
-  .buttonCombo {
-    max-width: 100%;
-  }
-
-  .copyComponent {
-    gap: var(--gap-xl);
-  }
-
-  .copyContainer {
-    gap: var(--gap-base);
-  }
-
-  .mediaLayouts {
-    max-width: 100%;
-  }
-}
-@media screen and (max-width: 450px) {
-  .heading {
-    font-size: 43px;
-    line-height: 47px;
-  }
-
-  .subheading {
-    font-size: var(--font-size-lg);
-    line-height: 25px;
-  }
-
-  .copyContainer {
-    padding-top: var(--padding-23xl);
-    padding-bottom: 31px;
-    box-sizing: border-box;
-  }
 }

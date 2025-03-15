@@ -9,17 +9,15 @@ const TypeStackedMediumTitleAnd: FunctionComponent<
   TypeStackedMediumTitleAndType
 > = ({ className = "" }) => {
   return (
-    <section
-      className={[styles.typestackedMediumTitleAnd, className].join(" ")}
-    >
+    <div className={[styles.typestackedMediumTitleAnd, className].join(" ")}>
       <div className={styles.content}>
         <div className={styles.textContainer}>
-          <h1 className={styles.figmaIpsumComponent}>
+          <div className={styles.figmaIpsumComponent}>
             Welcome to our platform designed for pet lovers.
-          </h1>
-          <h3 className={styles.figmaIpsumComponent1}>
+          </div>
+          <div className={styles.figmaIpsumComponent1}>
             Manage your pets and appointments with ease and efficiency.
-          </h3>
+          </div>
           <div className={styles.buttonCombo}>
             <div className={styles.ctaButton}>
               <div className={styles.textContainer1}>
@@ -35,16 +33,11 @@ const TypeStackedMediumTitleAnd: FunctionComponent<
             src="/image-lummi@2x.png"
           />
           <div className={styles.overlay}>
-            <img
-              className={styles.playIcon}
-              loading="lazy"
-              alt=""
-              src="/play-icon.svg"
-            />
+            <img className={styles.playIcon} alt="" src="/play-icon.svg" />
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

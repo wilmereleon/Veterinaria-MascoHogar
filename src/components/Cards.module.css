@@ -1,10 +1,10 @@
 .imageLummi {
   align-self: stretch;
-  height: 224px;
   position: relative;
   border-radius: var(--br-13xl);
   max-width: 100%;
   overflow: hidden;
+  height: 224px;
   flex-shrink: 0;
   object-fit: cover;
 }
@@ -20,7 +20,6 @@
   align-self: stretch;
   position: relative;
   font-size: var(--font-size-sm);
-  letter-spacing: -0.04px;
   line-height: 160%;
   color: var(--color-seagreen);
   display: -webkit-inline-box;
@@ -39,8 +38,6 @@
 }
 .cards {
   flex: 1;
-  width: 100%;
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -52,10 +49,4 @@
   font-size: var(--font-size-lg);
   color: var(--color-darkslategray-100);
   font-family: var(--font-lato);
-}
-
-@media screen and (max-width: 750px) {
-  .cards {
-    max-width: 100%;
-  }
 }

@@ -18,12 +18,11 @@ const Testimonial: FunctionComponent<TestimonialType> = ({
     <div className={[styles.testimonial, className].join(" ")}>
       <img
         className={styles.imageLummiCategoryavata}
-        loading="lazy"
         alt=""
         src={imageLummiCategoryavatars}
       />
       <div className={styles.name}>{name1}</div>
-      <h3 className={styles.shortTestimonial}>{shortTestimonial}</h3>
+      <div className={styles.shortTestimonial}>{shortTestimonial}</div>
     </div>
   );
 };

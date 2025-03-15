@@ -1,8 +1,8 @@
 .imageLummiCategoryavata {
   width: 120px;
-  height: 120px;
   position: relative;
   border-radius: var(--br-29xl);
+  height: 120px;
   object-fit: cover;
 }
 .name {
@@ -14,13 +14,10 @@
   white-space: nowrap;
 }
 .shortTestimonial {
-  margin: 0;
   align-self: stretch;
   position: relative;
   font-size: var(--font-size-3xl);
   line-height: 140%;
-  font-weight: 400;
-  font-family: inherit;
 }
 .testimonial {
   flex: 1;
@@ -39,20 +36,4 @@
   font-size: var(--font-size-sm);
   color: var(--color-darkslategray-100);
   font-family: var(--font-lato);
-}
-
-@media screen and (max-width: 1050px) {
-  .testimonial {
-    max-width: 100%;
-  }
-}
-@media screen and (max-width: 450px) {
-  .shortTestimonial {
-    font-size: var(--font-size-lg);
-    line-height: 25px;
-  }
-
-  .testimonial {
-    width: calc(100% - 40px);
-  }
 }

@@ -1,12 +1,8 @@
 .heading {
-  margin: 0;
   align-self: stretch;
   position: relative;
-  font-size: inherit;
   letter-spacing: -0.02em;
   line-height: 120%;
-  font-weight: 700;
-  font-family: inherit;
   display: -webkit-inline-box;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -41,20 +37,20 @@
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-  padding: 0px var(--padding-10xs);
+  padding: 0px var(--padding-9xs);
 }
 .inputForm {
   align-self: stretch;
-  height: 56px;
   border-radius: var(--br-980xl);
   background-color: var(--color-mintcream);
-  border: 1px solid #a7f3d0;
+  border: 1px solid var(--color-aquamarine);
   box-sizing: border-box;
+  height: 56px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-  padding: var(--padding-base) var(--padding-mini);
+  padding: var(--padding-base);
 }
 .input {
   flex: 1;
@@ -77,7 +73,6 @@
   padding: var(--padding-9xs);
 }
 .button {
-  height: 40px;
   width: 192px;
   margin: 0 !important;
   position: absolute;
@@ -85,6 +80,7 @@
   bottom: 8px;
   border-radius: var(--br-980xl);
   background-color: var(--color-yellowgreen);
+  height: 40px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -96,7 +92,7 @@
   z-index: 1;
   text-align: center;
   font-size: var(--font-size-xs);
-  color: #d1fae5;
+  color: var(--color-honeydew-200);
 }
 .inputButtonCombo {
   width: 100%;
@@ -132,60 +128,21 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 72px var(--padding-5xl);
+  padding: var(--padding-53xl) var(--padding-5xl);
   box-sizing: border-box;
   max-width: 1280px;
 }
 .typesubscribePillInputCt {
-  width: 100%;
-  position: relative;
+  align-self: stretch;
   background-color: var(--color-mintcream);
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   padding: var(--padding-45xl);
-  box-sizing: border-box;
+  z-index: 1;
   text-align: center;
-  font-size: 51px;
+  font-size: var(--font-size-32xl);
   color: var(--color-darkslategray-100);
   font-family: var(--font-inter);
-}
-
-@media screen and (max-width: 750px) {
-  .heading {
-    font-size: 41px;
-    line-height: 49px;
-  }
-
-  .inputButtonCombo {
-    max-width: 100%;
-  }
-
-  .copyComponent {
-    gap: var(--gap-base);
-    max-width: 100%;
-  }
-
-  .container {
-    gap: var(--gap-xl);
-  }
-
-  .typesubscribePillInputCt {
-    gap: var(--gap-5xl);
-    padding: var(--padding-23xl) var(--padding-13xl);
-    box-sizing: border-box;
-  }
-}
-@media screen and (max-width: 450px) {
-  .heading {
-    font-size: 31px;
-    line-height: 37px;
-  }
-
-  .container {
-    padding-top: var(--padding-28xl);
-    padding-bottom: var(--padding-28xl);
-    box-sizing: border-box;
-  }
 }
