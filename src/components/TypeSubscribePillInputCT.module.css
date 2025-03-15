@@ -1,0 +1,190 @@
+.heading {
+  margin: 0;
+  align-self: stretch;
+  position: relative;
+  font-size: inherit;
+  letter-spacing: -0.02em;
+  line-height: 120%;
+  font-weight: 700;
+  font-family: inherit;
+  display: -webkit-inline-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+.subheading {
+  align-self: stretch;
+  position: relative;
+  font-size: var(--font-size-base);
+  line-height: 150%;
+  font-family: var(--font-lato);
+}
+.headingText {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap-base);
+}
+.placeholderText {
+  position: relative;
+  line-height: 160%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.textContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0px var(--padding-10xs);
+}
+.inputForm {
+  align-self: stretch;
+  height: 56px;
+  border-radius: var(--br-980xl);
+  background-color: var(--color-mintcream);
+  border: 1px solid var(--color-aquamarine);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-base) var(--padding-mini);
+}
+.input {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-width: 280px;
+  z-index: 0;
+}
+.cta {
+  position: relative;
+  line-height: 160%;
+}
+.textContainer1 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-9xs);
+}
+.button {
+  height: 40px;
+  width: 192px;
+  margin: 0 !important;
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  border-radius: var(--br-980xl);
+  background-color: var(--color-yellowgreen);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-xs) var(--padding-xl);
+  box-sizing: border-box;
+  min-width: 140px;
+  max-width: 324px;
+  z-index: 1;
+  text-align: center;
+  font-size: var(--font-size-xs);
+  color: var(--color-honeydew-200);
+}
+.inputButtonCombo {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: center;
+  position: relative;
+  gap: var(--gap-5xs);
+  max-width: 720px;
+  text-align: left;
+  font-size: var(--font-size-sm);
+  color: var(--color-seagreen);
+  font-family: var(--font-lato);
+}
+.copyComponent {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap-13xl);
+  min-width: 304px;
+  max-width: 560px;
+}
+.container {
+  flex: 1;
+  border-radius: var(--br-13xl);
+  background-color: var(--color-honeydew-100);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-53xl) var(--padding-5xl);
+  box-sizing: border-box;
+  max-width: 1280px;
+}
+.typesubscribePillInputCt {
+  align-self: stretch;
+  background-color: var(--color-mintcream);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-45xl);
+  z-index: 1;
+  text-align: center;
+  font-size: var(--font-size-32xl);
+  color: var(--color-darkslategray-100);
+  font-family: var(--font-inter);
+}
+
+@media screen and (max-width: 750px) {
+  .heading {
+    font-size: var(--font-size-22xl);
+    line-height: 49px;
+  }
+
+  .inputButtonCombo {
+    max-width: 100%;
+  }
+
+  .copyComponent {
+    gap: var(--gap-base);
+    max-width: 100%;
+  }
+
+  .container {
+    gap: var(--gap-xl);
+  }
+
+  .typesubscribePillInputCt {
+    gap: var(--gap-5xl);
+    padding: var(--padding-23xl) var(--padding-13xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 450px) {
+  .heading {
+    font-size: var(--font-size-12xl);
+    line-height: 37px;
+  }
+
+  .container {
+    padding-top: var(--padding-28xl);
+    padding-bottom: var(--padding-28xl);
+    box-sizing: border-box;
+  }
+}

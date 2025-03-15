@@ -1,0 +1,59 @@
+.imageLummi {
+  align-self: stretch;
+  height: 224px;
+  position: relative;
+  border-radius: var(--br-13xl);
+  max-width: 100%;
+  overflow: hidden;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+.featureTitle {
+  align-self: stretch;
+  position: relative;
+  line-height: 150%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.featureDescription {
+  align-self: stretch;
+  position: relative;
+  font-size: var(--font-size-sm);
+  letter-spacing: -0.04px;
+  line-height: 160%;
+  color: var(--color-seagreen);
+  display: -webkit-inline-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.copy {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: var(--gap-5xs);
+}
+.cards {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap-base);
+  min-width: 280px;
+  max-width: 360px;
+  text-align: left;
+  font-size: var(--font-size-lg);
+  color: var(--color-darkslategray-100);
+  font-family: var(--font-lato);
+}
+
+@media screen and (max-width: 750px) {
+  .cards {
+    max-width: 100%;
+  }
+}

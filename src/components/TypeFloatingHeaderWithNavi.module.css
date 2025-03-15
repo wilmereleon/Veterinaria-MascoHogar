@@ -1,0 +1,111 @@
+.icon {
+  width: 24px;
+  position: relative;
+  max-height: 100%;
+}
+.brandname {
+  position: relative;
+  line-height: 160%;
+}
+.brand {
+  align-self: stretch;
+  border-radius: var(--br-base);
+  background-color: var(--color-mintcream);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0px var(--padding-base) 0px var(--padding-5xs);
+  gap: var(--gap-10xs);
+}
+.navLink {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0px var(--padding-base);
+}
+.navLink2 {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0px var(--padding-mini);
+}
+.textContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0px var(--padding-9xs);
+}
+.button {
+  height: 43px;
+  border-radius: var(--br-5xs);
+  background-color: var(--color-mintcream);
+  border: 1px solid var(--color-darkslategray-100);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-3xs) var(--padding-lgi);
+  text-align: center;
+}
+.textContainer1 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0px var(--padding-10xs);
+}
+.button1 {
+  border-radius: var(--br-5xs);
+  background-color: var(--color-yellowgreen);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-xs) var(--padding-xl);
+  text-align: center;
+  color: var(--color-mintcream);
+}
+.navLinks1 {
+  align-self: stretch;
+  border-radius: var(--br-base);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0px 0px 0px var(--padding-xl);
+  gap: var(--gap-xs);
+}
+.navLinks {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+.typefloatingHeaderWithNavi {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--padding-5xs);
+  gap: var(--gap-0);
+  z-index: 7;
+  text-align: left;
+  font-size: var(--font-size-xs);
+  color: var(--color-darkslategray-100);
+  font-family: var(--font-lato);
+}
+
+@media screen and (max-width: 1250px) {
+  .navLinks1 {
+    display: none;
+  }
+}

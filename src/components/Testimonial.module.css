@@ -1,0 +1,58 @@
+.imageLummiCategoryavata {
+  width: 120px;
+  height: 120px;
+  position: relative;
+  border-radius: var(--br-29xl);
+  object-fit: cover;
+}
+.name {
+  align-self: stretch;
+  position: relative;
+  line-height: 160%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.shortTestimonial {
+  margin: 0;
+  align-self: stretch;
+  position: relative;
+  font-size: var(--font-size-3xl);
+  line-height: 140%;
+  font-weight: 400;
+  font-family: inherit;
+}
+.testimonial {
+  flex: 1;
+  border-radius: var(--br-13xl);
+  background-color: var(--color-honeydew-100);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-5xl);
+  box-sizing: border-box;
+  gap: var(--gap-base);
+  min-width: 264px;
+  max-width: 360px;
+  text-align: center;
+  font-size: var(--font-size-sm);
+  color: var(--color-darkslategray-100);
+  font-family: var(--font-lato);
+}
+
+@media screen and (max-width: 1050px) {
+  .testimonial {
+    max-width: 100%;
+  }
+}
+@media screen and (max-width: 450px) {
+  .shortTestimonial {
+    font-size: var(--font-size-lg);
+    line-height: 25px;
+  }
+
+  .testimonial {
+    width: calc(100% - 40px);
+  }
+}

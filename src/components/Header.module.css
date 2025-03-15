@@ -1,0 +1,294 @@
+.whiteSpace {
+  margin: 0;
+  align-self: stretch;
+  position: relative;
+  font-size: inherit;
+  letter-spacing: -0.01em;
+  line-height: var(--font-size-11xl);
+  font-weight: 400;
+  font-family: inherit;
+  display: inline-block;
+  min-width: 2px;
+}
+.frameIcon {
+  height: 30px;
+  width: 30px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.playIcon {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0px 0px 0px 0px;
+  box-sizing: border-box;
+  max-width: 30px;
+}
+.etgcEscaleta {
+  text-decoration: none;
+  flex: 1;
+  position: relative;
+  letter-spacing: -0.01em;
+  line-height: 32px;
+  font-weight: 700;
+  color: inherit;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.text {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: flex-start;
+  max-width: 201.92px;
+  font-size: var(--font-size-5xl);
+  font-family: var(--font-montserrat);
+}
+.frame {
+  width: 247.9px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--gap-base);
+  max-width: 247.92px;
+  font-size: var(--font-size-11xl);
+  color: var(--color-black);
+}
+.whiteSpace1 {
+  align-self: stretch;
+  position: relative;
+  letter-spacing: -0.01em;
+  line-height: var(--font-size-base);
+  font-weight: 600;
+  display: inline-block;
+  min-width: 2px;
+}
+.frameIcon1 {
+  height: 16px;
+  width: 16px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.houseIcon {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0px 0px 0px 0px;
+  box-sizing: border-box;
+  max-width: 16px;
+}
+.inicio {
+  text-decoration: none;
+  position: relative;
+  letter-spacing: -0.01em;
+  line-height: var(--font-size-5xl);
+  font-weight: 600;
+  color: inherit;
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 46.8px;
+}
+.text1 {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: flex-start;
+  max-width: 45.83px;
+}
+.link {
+  border-radius: var(--br-7xs);
+  background-color: var(--color-dodgerblue);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-5xs) var(--padding-base);
+  box-sizing: border-box;
+  gap: var(--gap-5xs);
+  max-width: 101.83px;
+  color: var(--color-white);
+}
+.historial {
+  text-decoration: none;
+  position: relative;
+  letter-spacing: -0.01em;
+  line-height: var(--font-size-5xl);
+  font-weight: 600;
+  color: inherit;
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 70.8px;
+}
+.text2 {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: flex-start;
+  max-width: 69.77px;
+}
+.link1 {
+  border-radius: var(--br-7xs);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-5xs) var(--padding-base);
+  box-sizing: border-box;
+  gap: var(--gap-5xs);
+  max-width: 125.77px;
+}
+.plantillas {
+  text-decoration: none;
+  position: relative;
+  letter-spacing: -0.01em;
+  line-height: var(--font-size-5xl);
+  font-weight: 600;
+  color: inherit;
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 78.2px;
+}
+.text3 {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: flex-start;
+  max-width: 77.23px;
+}
+.link2 {
+  border-radius: var(--br-7xs);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-5xs) var(--padding-base);
+  box-sizing: border-box;
+  gap: var(--gap-5xs);
+  max-width: 133.23px;
+}
+.mdulos {
+  text-decoration: none;
+  position: relative;
+  letter-spacing: -0.01em;
+  line-height: var(--font-size-5xl);
+  font-weight: 600;
+  color: inherit;
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 72.6px;
+}
+.text4 {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: flex-start;
+  max-width: 71.63px;
+}
+.link3 {
+  border-radius: var(--br-7xs);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-5xs) var(--padding-base);
+  box-sizing: border-box;
+  gap: var(--gap-5xs);
+  max-width: 127.63px;
+}
+.navigation {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-5xl);
+  max-width: 560.45px;
+  font-family: var(--font-montserrat);
+}
+.whiteSpace5 {
+  align-self: stretch;
+  position: relative;
+  letter-spacing: -0.01em;
+  line-height: var(--font-size-base);
+  display: inline-block;
+  min-width: 2px;
+}
+.bellIcon {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0px 0px 0px 0px;
+}
+.link4 {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.frame1 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--gap-base);
+  max-width: 80px;
+}
+.header {
+  align-self: stretch;
+  background-color: var(--color-whitesmoke-200);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--padding-base);
+  box-sizing: border-box;
+  gap: var(--gap-xl);
+  top: 0;
+  z-index: 99;
+  position: sticky;
+  max-width: 100%;
+  text-align: left;
+  font-size: var(--font-size-base);
+  color: var(--color-darkslategray);
+  font-family: var(--font-roboto);
+}
+
+@media screen and (max-width: 1000px) {
+  .link {
+    display: none;
+  }
+}
+@media screen and (max-width: 750px) {
+  .link1 {
+    display: none;
+  }
+
+  .link2 {
+    display: none;
+  }
+
+  .link3 {
+    display: none;
+  }
+
+  .navigation {
+    max-width: 100%;
+  }
+}
