@@ -11,7 +11,7 @@ const Property1CardsTestimonials: FunctionComponent<
 > = ({ className = "" }) => {
   return (
     <div className={[styles.property1cardsTestimonials, className].join(" ")}>
-      <div className={styles.heading}>What Our Clients Say</div>
+      <div className={styles.heading}>Qué dicen nuestros clientes</div>
       <div className={styles.testimonialsGrid}>
         <div className={styles.testimonial}>
           <img
@@ -19,20 +19,21 @@ const Property1CardsTestimonials: FunctionComponent<
             alt=""
             src="/image-lummi-categoryavatars@2x.png"
           />
-          <div className={styles.name}>Maria Lopez, Pet Owner</div>
+          <div className={styles.name}>María López, dueña de mascota</div>
           <div className={styles.shortTestimonial}>
-            “This platform has transformed how I manage my pets!”
+            «¡Esta plataforma ha transformado la forma en que gestiono a mis
+            mascotas!»
           </div>
         </div>
         <Testimonial
           imageLummiCategoryavatars="/image-lummi-categoryavatars-1@2x.png"
-          name1="John Smith, Veterinarian"
-          shortTestimonial="“A must-have tool for every pet owner!”"
+          name1="Andrés Peláez, veterinario"
+          shortTestimonial="«¡Una herramienta imprescindible para todo dueño de mascota!»"
         />
         <Testimonial
           imageLummiCategoryavatars="/image-lummi-categoryavatars-2@2x.png"
-          name1="Emily Johnson, Happy Customer"
-          shortTestimonial="“I love the ease of use and the great features!”"
+          name1="Catalina Vásquez, cliente feliz"
+          shortTestimonial="«¡Me encanta la facilidad de uso y las fantásticas funciones!»"
         />
       </div>
     </div>

@@ -23,13 +23,13 @@ const TypeSideBySideImages: FunctionComponent<TypeSideBySideImagesType> = ({
         <div className={styles.featureGrid}>
           <Cards
             imageLummi="/image--lummi@2x.png"
-            featureTitle="User-Friendly Interface"
-            featureDescription="Navigate effortlessly through our intuitive design."
+            featureTitle="Interfaz fácil de usar"
+            featureDescription="Navegue sin esfuerzo a través de nuestro diseño intuitivo."
           />
           <Cards
             imageLummi="/image--lummi-1@2x.png"
-            featureTitle="Secure User Profiles"
-            featureDescription="Protect your data with our secure login system."
+            featureTitle="Perfiles de usuario seguros"
+            featureDescription="Proteja sus datos con nuestro sistema de inicio de sesión seguro."
           />
         </div>
       </div>

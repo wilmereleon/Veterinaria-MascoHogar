@@ -13,11 +13,11 @@ const TypeStackedMediumTitleAnd: FunctionComponent<
       <div className={styles.content}>
         <div className={styles.textContainer}>
           <div className={styles.figmaIpsumComponent}>
-            Bienvenidos a nuestra plataforma para la atención de nuestros
-            animales de compañía.
+            Bienvenidos a nuestra plataforma para la atención de animales de
+            compañía.
           </div>
           <div className={styles.figmaIpsumComponent1}>
-            Gestiona todas las citas y servicios de animal de compañía con
+            Gestiona todas las citas y servicios de tu animal de compañía con
             facilidad y eficiencia.
           </div>
           <div className={styles.buttonCombo}>

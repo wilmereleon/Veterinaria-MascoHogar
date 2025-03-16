@@ -14,15 +14,16 @@ const TypeImageGridTitleDescri: FunctionComponent<
         <div className={styles.textContainer}>
           <div className={styles.bio}>
             <div className={styles.thisIsA}>
-              Join Our Community of Pet Lovers
+              Únase a nuestra comunidad de amantes de los animales de compañía
             </div>
             <div className={styles.aMediumLength}>
-              Discover a platform that connects you with your pet's needs.
+              Descubre una plataforma que te conecta con las necesidades de tu
+              animal de compañía.
             </div>
           </div>
           <div className={styles.ctaButton}>
             <div className={styles.textContainer1}>
-              <div className={styles.cta}>Sign Up Now</div>
+              <div className={styles.cta}>Regístrate ahora</div>
             </div>
           </div>
         </div>

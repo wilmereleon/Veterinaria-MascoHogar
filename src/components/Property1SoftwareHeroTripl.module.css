@@ -1,5 +1,5 @@
 .heading {
-  align-self: stretch;
+  width: 599px;
   position: relative;
   letter-spacing: -0.01em;
   line-height: 108%;
@@ -11,12 +11,13 @@
   -webkit-box-orient: vertical;
 }
 .subheading {
-  align-self: stretch;
+  width: 599px;
   position: relative;
   font-size: var(--font-size-3xl);
   line-height: 140%;
   font-family: var(--font-lato);
   color: var(--color-seagreen);
+  display: inline-block;
 }
 .headingText {
   align-self: stretch;

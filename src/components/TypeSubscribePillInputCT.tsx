@@ -13,9 +13,9 @@ const TypeSubscribePillInputCT: FunctionComponent<
       <div className={styles.container}>
         <div className={styles.copyComponent}>
           <div className={styles.headingText}>
-            <b className={styles.heading}>Join our newsletter today!</b>
+            <b className={styles.heading}>¡Suscríbete a nuestro boletín hoy!</b>
             <div className={styles.subheading}>
-              Stay informed with our latest news and offers.
+              Manténgase informado con nuestras últimas novedades y ofertas.
             </div>
           </div>
           <div className={styles.inputButtonCombo}>
@@ -23,14 +23,14 @@ const TypeSubscribePillInputCT: FunctionComponent<
               <div className={styles.inputForm}>
                 <div className={styles.textContainer}>
                   <div className={styles.placeholderText}>
-                    Enter your email address
+                    Introduce tu dirección de correo electrónico
                   </div>
                 </div>
               </div>
             </div>
             <div className={styles.button}>
               <div className={styles.textContainer1}>
-                <div className={styles.cta}>Subscribe</div>
+                <div className={styles.cta}>Subscríbete</div>
               </div>
             </div>
           </div>

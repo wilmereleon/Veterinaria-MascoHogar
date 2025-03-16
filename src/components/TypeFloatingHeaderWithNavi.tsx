@@ -17,22 +17,22 @@ const TypeFloatingHeaderWithNavi: FunctionComponent<
       <div className={styles.navLinks}>
         <div className={styles.navLinks1}>
           <div className={styles.navLink}>
-            <div className={styles.brandname}>Home</div>
+            <div className={styles.brandname}>Inicio</div>
           </div>
           <div className={styles.navLink}>
-            <div className={styles.brandname}>About Us</div>
+            <div className={styles.brandname}>Acerca de</div>
           </div>
           <div className={styles.navLink}>
-            <div className={styles.brandname}>Our Team</div>
+            <div className={styles.brandname}>Equipo</div>
           </div>
           <div className={styles.button}>
             <div className={styles.textContainer}>
-              <div className={styles.brandname}>Login</div>
+              <div className={styles.brandname}>Iniciar sesión</div>
             </div>
           </div>
           <div className={styles.button1}>
             <div className={styles.textContainer}>
-              <div className={styles.brandname}>Register Now</div>
+              <div className={styles.brandname}>Registrarse</div>
             </div>
           </div>
         </div>

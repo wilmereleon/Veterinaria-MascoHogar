@@ -14,20 +14,22 @@ const Property1SoftwareHeroTripl: FunctionComponent<
         <div className={styles.copyContainer}>
           <div className={styles.copyComponent}>
             <div className={styles.headingText}>
-              <div className={styles.heading}>Stay Updated with Our News</div>
+              <div className={styles.heading}>
+                Manténgase actualizado con nuestras noticias
+              </div>
               <div className={styles.subheading}>
-                Subscribe to receive the latest updates and tips.
+                Suscríbete para recibir las últimas actualizaciones y consejos.
               </div>
             </div>
             <div className={styles.buttonCombo}>
               <div className={styles.ctaButton}>
                 <div className={styles.textContainer}>
-                  <div className={styles.cta}>Learn More</div>
+                  <div className={styles.cta}>Leer más</div>
                 </div>
               </div>
               <div className={styles.secondaryButton}>
                 <div className={styles.textContainer1}>
-                  <div className={styles.cta}>Get More Info</div>
+                  <div className={styles.cta}>Obtenga más información</div>
                 </div>
               </div>
             </div>
