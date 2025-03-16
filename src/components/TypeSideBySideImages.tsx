@@ -13,9 +13,11 @@ const TypeSideBySideImages: FunctionComponent<TypeSideBySideImagesType> = ({
     <div className={[styles.typesideBySideImages, className].join(" ")}>
       <div className={styles.container}>
         <div className={styles.headingContainer}>
-          <div className={styles.heading}>Manage Your Pets</div>
+          <div className={styles.heading}>
+            Administra los servicios requeridos por tu animal de compañía
+          </div>
           <div className={styles.subheading}>
-            Easily register and track your pet's health.
+            Registre y realice un seguimiento fácil de su salud.
           </div>
         </div>
         <div className={styles.featureGrid}>

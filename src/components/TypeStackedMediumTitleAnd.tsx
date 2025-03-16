@@ -13,15 +13,17 @@ const TypeStackedMediumTitleAnd: FunctionComponent<
       <div className={styles.content}>
         <div className={styles.textContainer}>
           <div className={styles.figmaIpsumComponent}>
-            Welcome to our platform designed for pet lovers.
+            Bienvenidos a nuestra plataforma para la atención de nuestros
+            animales de compañía.
           </div>
           <div className={styles.figmaIpsumComponent1}>
-            Manage your pets and appointments with ease and efficiency.
+            Gestiona todas las citas y servicios de animal de compañía con
+            facilidad y eficiencia.
           </div>
           <div className={styles.buttonCombo}>
             <div className={styles.ctaButton}>
               <div className={styles.textContainer1}>
-                <div className={styles.cta}>Get Started Today</div>
+                <div className={styles.cta}>Comienza hoy</div>
               </div>
             </div>
           </div>
