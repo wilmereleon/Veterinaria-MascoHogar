@@ -5,7 +5,6 @@ import {
   useNavigationType,
   useLocation,
 } from "react-router-dom";
-import MushoDCSHAEscaletaManageme from "./pages/MushoDCSHAEscaletaManageme";
 import VeterinariaMascoHogar from "./pages/VeterinariaMascoHogar";
 
 function App() {
@@ -25,12 +24,22 @@ function App() {
 
     switch (pathname) {
       case "/":
-        title = "";
-        metaDescription = "";
+        title = "Inicio - Veterinaria";
+        metaDescription = "Bienvenido a la página principal de nuestra veterinaria.";
         break;
+<<<<<<< Updated upstream
       case "/veterinaria-mascohogar-opcin-1-home":
         title = "";
         metaDescription = "";
+=======
+      case "/veterinaria-mascohogar":
+        title = "Veterinaria MascoHogar";
+        metaDescription = "Descubre los servicios de nuestra veterinaria MascoHogar.";
+        break;
+      default:
+        title = "Veterinaria";
+        metaDescription = "Bienvenido a nuestra veterinaria.";
+>>>>>>> Stashed changes
         break;
     }
 
@@ -50,7 +59,7 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<MushoDCSHAEscaletaManageme />} />
+      <Route path="/" element={<VeterinariaMascoHogar />} />
       <Route
         path="/veterinaria-mascohogar-opcin-1-home"
         element={<VeterinariaMascoHogar />}
@@ -58,4 +67,8 @@ function App() {
     </Routes>
   );
 }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 export default App;
