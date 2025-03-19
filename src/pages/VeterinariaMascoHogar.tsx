@@ -10,7 +10,7 @@ import styles from "./VeterinariaMascoHogar.module.css";
 
 const VeterinariaMascoHogar: FunctionComponent = () => {
   return (
-    <div className={styles.veterinariaMascohogar}>
+    <div className={styles.veterinariaMascohogarOpcin}>
       <TypeFloatingHeaderWithNavi />
       <TypeStackedMediumTitleAnd />
       <TypeSideBySideImages />
@@ -21,25 +21,27 @@ const VeterinariaMascoHogar: FunctionComponent = () => {
       <div className={styles.typestackedSimpleFooter}>
         <div className={styles.content}>
           <div className={styles.logo}>
-            <div className={styles.brandname}>PetCare Team</div>
+            <div className={styles.brandname}>Equipo MascoHogar</div>
           </div>
           <div className={styles.links}>
-            <div className={styles.link}>About Us</div>
-            <div className={styles.link}>Our Work</div>
+            <div className={styles.link}>Sobre nosotros</div>
+            <div className={styles.link}>Nuestro trabajo</div>
             <div className={styles.link}>LinkedIn</div>
-            <div className={styles.link}>Contact Us</div>
+            <div className={styles.link}>Contáctanos</div>
           </div>
         </div>
         <div className={styles.credits}>
           <div className={styles.divider} />
           <div className={styles.row}>
             <div className={styles.brandNameAll}>
-              © 2024 PetCare Hub. All rights reserved.
+              © 2025 Veterinaria MascoHogar. Todos los derechos reservados.
             </div>
             <div className={styles.footerLinks}>
-              <div className={styles.brandNameAll}>Privacy Policy</div>
-              <div className={styles.brandNameAll}>Terms of Service</div>
-              <div className={styles.brandNameAll}>Cookies Settings</div>
+              <div className={styles.brandNameAll}>Política de privacidad</div>
+              <div className={styles.brandNameAll}>Términos del servicio</div>
+              <div className={styles.brandNameAll}>
+                Configuración de cookies
+              </div>
             </div>
           </div>
         </div>

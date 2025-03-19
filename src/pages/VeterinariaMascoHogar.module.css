@@ -22,6 +22,7 @@
   gap: var(--gap-13xl);
 }
 .content {
+  background-color: var(--color-mintcream);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -74,7 +75,7 @@
   gap: var(--gap-45xl);
   z-index: 0;
 }
-.veterinariaMascohogar {
+.veterinariaMascohogarOpcin {
   width: 100%;
   position: relative;
   background-color: var(--color-white);

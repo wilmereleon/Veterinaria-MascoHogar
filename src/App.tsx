@@ -28,7 +28,7 @@ function App() {
         title = "";
         metaDescription = "";
         break;
-      case "/veterinaria-mascohogar":
+      case "/veterinaria-mascohogar-opcin-1-home":
         title = "";
         metaDescription = "";
         break;
@@ -52,7 +52,7 @@ function App() {
     <Routes>
       <Route path="/" element={<MushoDCSHAEscaletaManageme />} />
       <Route
-        path="/veterinaria-mascohogar"
+        path="/veterinaria-mascohogar-opcin-1-home"
         element={<VeterinariaMascoHogar />}
       />
     </Routes>
