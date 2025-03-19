@@ -2,7 +2,7 @@
   text-decoration: none;
   position: relative;
   letter-spacing: -0.01em;
-  line-height: 32px;
+  line-height: var(--font-size-13xl);
   font-weight: 700;
   color: inherit;
   overflow: hidden;

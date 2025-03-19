@@ -10,7 +10,7 @@ import styles from "./VeterinariaMascoHogar.module.css";
 
 const VeterinariaMascoHogar: FunctionComponent = () => {
   return (
-    <div className={styles.veterinariaMascohogarOpcin}>
+    <div className={styles.veterinariaMascohogarPcH}>
       <TypeFloatingHeaderWithNavi />
       <TypeStackedMediumTitleAnd />
       <TypeSideBySideImages />

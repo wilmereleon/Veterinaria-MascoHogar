@@ -12,27 +12,34 @@ const TypeFloatingHeaderWithNavi: FunctionComponent<
     <div className={[styles.typefloatingHeaderWithNavi, className].join(" ")}>
       <div className={styles.brand}>
         <img className={styles.icon} alt="" src="/icon.svg" />
-        <div className={styles.brandname}>Veterinaria MascoHogar</div>
+        <img className={styles.icon1} alt="" src="/icon.png" />
+        <b className={styles.brandname}>
+          <span className={styles.brandnameTxt}>
+            <span>Veterinaria</span>
+            <span className={styles.span}>{` `}</span>
+            <span className={styles.mascohogar}>MascoHogar</span>
+          </span>
+        </b>
       </div>
       <div className={styles.navLinks}>
         <div className={styles.navLinks1}>
           <div className={styles.navLink}>
-            <div className={styles.brandname}>Inicio</div>
+            <div className={styles.navLabel}>Inicio</div>
           </div>
           <div className={styles.navLink}>
-            <div className={styles.brandname}>Acerca de</div>
+            <div className={styles.navLabel}>Acerca de</div>
           </div>
           <div className={styles.navLink}>
-            <div className={styles.brandname}>Equipo</div>
+            <div className={styles.navLabel}>Equipo</div>
           </div>
           <div className={styles.button}>
             <div className={styles.textContainer}>
-              <div className={styles.brandname}>Iniciar sesión</div>
+              <div className={styles.navLabel}>Iniciar sesión</div>
             </div>
           </div>
           <div className={styles.button1}>
             <div className={styles.textContainer}>
-              <div className={styles.brandname}>Registrarse</div>
+              <div className={styles.navLabel}>Registrarse</div>
             </div>
           </div>
         </div>
