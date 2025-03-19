@@ -27,11 +27,6 @@ function App() {
         title = "Inicio - Veterinaria";
         metaDescription = "Bienvenido a la página principal de nuestra veterinaria.";
         break;
-<<<<<<< Updated upstream
-      case "/veterinaria-mascohogar-opcin-1-home":
-        title = "";
-        metaDescription = "";
-=======
       case "/veterinaria-mascohogar":
         title = "Veterinaria MascoHogar";
         metaDescription = "Descubre los servicios de nuestra veterinaria MascoHogar.";
@@ -39,7 +34,6 @@ function App() {
       default:
         title = "Veterinaria";
         metaDescription = "Bienvenido a nuestra veterinaria.";
->>>>>>> Stashed changes
         break;
     }
 
@@ -61,14 +55,11 @@ function App() {
     <Routes>
       <Route path="/" element={<VeterinariaMascoHogar />} />
       <Route
-        path="/veterinaria-mascohogar-opcin-1-home"
+        path="/veterinaria-mascohogar"
         element={<VeterinariaMascoHogar />}
       />
     </Routes>
   );
 }
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
 export default App;
