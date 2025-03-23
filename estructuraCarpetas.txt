@@ -1,0 +1,29 @@
+VETERINARIA/
+├── dist/                           # Archivos de distribución (compilados)
+├── img/                            # Recursos gráficos: logotipos, íconos, banners, etc.
+├── node_modules/                   # Dependencias del proyecto
+├── public/                         # Archivos públicos que se sirven directamente
+│   └── index.html
+├── src/                            # Código fuente de la aplicación
+│   ├── components/                 # Componentes reutilizables que integran la lógica de cada servicio
+│   │   ├── AuthComponent.tsx       # Componente para autenticación y login, relacionado con AuthService
+│   │   ├── CitasComponent.tsx      # Componente para la gestión de citas (CitasService)
+│   │   ├── ClientsComponent.tsx    # Componente para gestionar la información de clientes (ClientsService)
+│   │   ├── BillingComponent.tsx    # Componente para la facturación (BillingService)
+│   │   ├── MedicalHistoryComponent.tsx  # Componente para visualizar/gestionar el historial médico (MedicalHistoryService)
+│   │   └── NotificationComponent.tsx      # Componente para el manejo de notificaciones (NotificationService)
+│   ├── pages/                      # Vistas o páginas específicas de la aplicación
+│   │   ├── VeterinariaMascoHogar.module.css  # Estilos CSS modularizados para la página principal
+│   │   └── VeterinariaMascoHogar.tsx         # Página principal de la aplicación; integra la vista de Gestión de Pacientes y otros servicios
+│   ├── App.tsx                     # Componente raíz de la aplicación
+│   ├── global.css                  # Estilos globales (fuentes, colores y variables definidas para el diseño)
+│   ├── index.tsx                   # Punto de entrada de la aplicación
+│   ├── reportWebVitals.ts          # Medición y reporte de rendimiento
+│   └── typings.d.ts                # Tipos y declaraciones para TypeScript (definiciones globales)
+├── .gitignore                      # Configuración para ignorar archivos en Git
+├── package-lock.json               # Archivo de bloqueo de dependencias
+├── package.json                    # Metadatos y dependencias del proyecto
+├── README.md                       # Documentación general del proyecto
+├── tsconfig.json                   # Configuración principal de TypeScript
+├── tsconfig.node.json              # Configuración TypeScript para Node.js
+└── vite.config.ts                  # Configuración de Vite (herramienta de compilación y bundling)

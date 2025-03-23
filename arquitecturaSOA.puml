@@ -1,0 +1,63 @@
+@startuml
+title Arquitectura del Sistema - Ecosistema Veterinaria
+
+' Declaración de Eureka (servicio de descubrimiento)
+node "Eureka Server" as Eureka
+
+' Actor externo único
+actor "Usuario" as User
+
+' Ecosistema de Microservicios Veterinaria
+package "Microservicios Veterinaria" {
+  
+  component "API Gateway" as APIGateway
+  component "Servicio de Autenticación" as AuthService
+  component "Servicio de Gestión de Citas" as CitasService
+  component "Servicio de Clientes" as ClientsService
+  component "Servicio de Facturación" as BillingService
+  component "Servicio de Historial Médico" as MedicalHistoryService
+  component "Servicio de Notificaciones" as NotificationService
+  
+  ' El API Gateway delega solicitudes a los distintos microservicios:
+  APIGateway --> AuthService : "Autenticación"
+  APIGateway --> CitasService : "Gestión de citas"
+  APIGateway --> ClientsService : "Clientes"
+  APIGateway --> BillingService : "Facturación"
+  APIGateway --> MedicalHistoryService : "Historial"
+  APIGateway --> NotificationService : "Notificaciones"
+}
+
+' Conexión de Usuario al API Gateway
+User --> APIGateway : "Solicita servicio"
+
+
+
+' Capa de Datos - Seis bases de datos especializadas
+package "Capa de Datos" {
+  database "BD Autenticación" as DBAuth
+  database "BD Citas" as DBCitas
+  database "BD Clientes" as DBClientes
+  database "BD Facturación" as DBBilling
+  database "BD Historial Médico" as DBMedicalHistory
+  database "BD Notificaciones" as DBNotification
+}
+
+' Conexiones de microservicios a sus respectivas bases de datos
+AuthService --> DBAuth : "Consulta / Transacciones"
+CitasService --> DBCitas : "Operaciones de citas"
+ClientsService --> DBClientes : "Consulta de clientes"
+BillingService --> DBBilling : "Operaciones de pago"
+MedicalHistoryService --> DBMedicalHistory : "Acceso a historiales"
+NotificationService --> DBNotification : "Registro de notificaciones"
+
+' Configuración de Entorno de Datos
+component "Config Server" as ConfigServer
+
+
+' Registro del Config Server en Eureka
+"Capa de Datos" ..> ConfigServer
+ConfigServer ..> Eureka : "Registro de Configuración"
+Eureka ..> "Microservicios Veterinaria"
+
+
+@enduml
