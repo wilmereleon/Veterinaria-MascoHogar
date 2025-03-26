@@ -58,11 +58,14 @@
   justify-content: flex-start;
   gap: var(--gap-21xl);
 }
-.imageLummi {
+.imageLummiIcon {
   align-self: stretch;
   position: relative;
-  background-color: var(--color-darkgray-100);
+  max-width: 100%;
+  overflow: hidden;
   height: 600px;
+  flex-shrink: 0;
+  object-fit: cover;
   z-index: 0;
 }
 .playIcon {
