@@ -20,6 +20,12 @@ const TypeStackedMediumTitleAnd: FunctionComponent<
     }
   };
 
+  const handleVideoEnded = () => {
+    if (videoRef.current) {
+      videoRef.current.load(); // Reinicia el video y vuelve al estado inicial
+    }
+  };
+
   return (
     <div className={[styles.typestackedMediumTitleAnd, className].join(" ")}>
       <div className={styles.content}>
@@ -45,6 +51,7 @@ const TypeStackedMediumTitleAnd: FunctionComponent<
             ref={videoRef}
             className={styles.video}
             onClick={handleVideoClick}
+            onEnded={handleVideoEnded} // Evento que se activa al finalizar el video
             controls
             poster="/image-lummi@2x.png"
           >
