@@ -1,11 +1,5 @@
 import { useEffect } from "react";
-import {
-  Routes,
-  Route,
-  useNavigationType,
-  useLocation,
-} from "react-router-dom";
-import MushoDCSHAEscaletaManageme from "./pages/MushoDCSHAEscaletaManageme";
+import { Routes, Route, useNavigationType, useLocation } from "react-router-dom";
 import VeterinariaMascoHogar from "./pages/VeterinariaMascoHogar";
 
 function App() {
@@ -23,15 +17,9 @@ function App() {
     let title = "";
     let metaDescription = "";
 
-    switch (pathname) {
-      case "/":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/veterinaria-mascohogar-pc-home":
-        title = "";
-        metaDescription = "";
-        break;
+    if (pathname === "/veterinaria-mascohogar-pc-home") {
+      title = "Veterinaria MascoHogar";
+      metaDescription = "Descubre los servicios de nuestra veterinaria.";
     }
 
     if (title) {
@@ -50,7 +38,6 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<MushoDCSHAEscaletaManageme />} />
       <Route
         path="/veterinaria-mascohogar-pc-home"
         element={<VeterinariaMascoHogar />}
@@ -58,4 +45,5 @@ function App() {
     </Routes>
   );
 }
+
 export default App;
