@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Routes, Route, useNavigationType, useLocation } from "react-router-dom";
+import { Routes, Route, useNavigationType, useLocation, Navigate } from "react-router-dom";
 import VeterinariaMascoHogar from "./pages/VeterinariaMascoHogar";
 
 function App() {
@@ -14,30 +14,31 @@ function App() {
   }, [action, pathname]);
 
   useEffect(() => {
-    let title = "";
-    let metaDescription = "";
+    let title = "Veterinaria MascoHogar - Inicio"; // Título predeterminado
+    let metaDescription = "Bienvenido a Veterinaria MascoHogar."; // Meta descripción predeterminada
 
     if (pathname === "/veterinaria-mascohogar-pc-home") {
       title = "Veterinaria MascoHogar";
       metaDescription = "Descubre los servicios de nuestra veterinaria.";
     }
 
-    if (title) {
-      document.title = title;
-    }
+    document.title = title;
 
-    if (metaDescription) {
-      const metaDescriptionTag: HTMLMetaElement | null = document.querySelector(
-        'head > meta[name="description"]'
-      );
-      if (metaDescriptionTag) {
-        metaDescriptionTag.content = metaDescription;
-      }
+    const metaDescriptionTag: HTMLMetaElement | null = document.querySelector(
+      'head > meta[name="description"]'
+    );
+    if (metaDescriptionTag) {
+      metaDescriptionTag.content = metaDescription;
     }
   }, [pathname]);
 
   return (
     <Routes>
+      {/* Redirección desde la raíz (/) a la ruta principal */}
+      <Route
+        path="/"
+        element={<Navigate to="/veterinaria-mascohogar-pc-home" replace />}
+      />
       <Route
         path="/veterinaria-mascohogar-pc-home"
         element={<VeterinariaMascoHogar />}
