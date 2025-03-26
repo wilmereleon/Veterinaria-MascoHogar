@@ -71,6 +71,7 @@
   align-items: center;
   justify-content: center;
   padding: var(--padding-xs) var(--padding-xl);
+  cursor: pointer;
   text-align: center;
 }
 .button1 {
@@ -81,6 +82,7 @@
   align-items: center;
   justify-content: center;
   padding: var(--padding-xs) var(--padding-xl);
+  cursor: pointer;
   text-align: center;
   color: var(--color-mintcream);
 }

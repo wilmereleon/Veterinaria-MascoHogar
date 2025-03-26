@@ -58,14 +58,11 @@
   justify-content: flex-start;
   gap: var(--gap-21xl);
 }
-.imageLummiIcon {
+.imageLummi {
   align-self: stretch;
   position: relative;
-  max-width: 100%;
-  overflow: hidden;
+  background-color: var(--color-darkgray-100);
   height: 600px;
-  flex-shrink: 0;
-  object-fit: cover;
   z-index: 0;
 }
 .playIcon {
@@ -77,12 +74,12 @@
   height: 88px;
 }
 .overlay {
-  width: calc(100% - 80px);
+  width: 100%;
   position: absolute;
   margin: 0 !important;
   height: 100%;
   top: 0px;
-  right: 80px;
+  right: 0px;
   bottom: 0px;
   left: 0px;
   border-radius: var(--br-99980xl);

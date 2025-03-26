@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useCallback } from "react";
 import styles from "./TypeFloatingHeaderWithNavi.module.css";
 
 export type TypeFloatingHeaderWithNaviType = {
@@ -8,6 +8,14 @@ export type TypeFloatingHeaderWithNaviType = {
 const TypeFloatingHeaderWithNavi: FunctionComponent<
   TypeFloatingHeaderWithNaviType
 > = ({ className = "" }) => {
+  const onButtonContainerClick = useCallback(() => {
+    // Please sync "Vista Inicio de sesión " to the project
+  }, []);
+
+  const onButtonContainerClick1 = useCallback(() => {
+    // Please sync "Vista Regístrate " to the project
+  }, []);
+
   return (
     <div className={[styles.typefloatingHeaderWithNavi, className].join(" ")}>
       <div className={styles.brand}>
@@ -32,12 +40,12 @@ const TypeFloatingHeaderWithNavi: FunctionComponent<
           <div className={styles.navLink}>
             <div className={styles.navLabel}>Equipo</div>
           </div>
-          <div className={styles.button}>
+          <div className={styles.button} onClick={onButtonContainerClick}>
             <div className={styles.textContainer}>
               <div className={styles.navLabel}>Iniciar sesión</div>
             </div>
           </div>
-          <div className={styles.button1}>
+          <div className={styles.button1} onClick={onButtonContainerClick1}>
             <div className={styles.textContainer}>
               <div className={styles.navLabel}>Registrarse</div>
             </div>

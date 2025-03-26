@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useCallback } from "react";
 import styles from "./Property1SoftwareHeroTripl.module.css";
 
 export type Property1SoftwareHeroTriplType = {
@@ -8,6 +8,10 @@ export type Property1SoftwareHeroTriplType = {
 const Property1SoftwareHeroTripl: FunctionComponent<
   Property1SoftwareHeroTriplType
 > = ({ className = "" }) => {
+  const onCTAButtonContainerClick = useCallback(() => {
+    // Please sync "Pàgina de Noticias" to the project
+  }, []);
+
   return (
     <div className={[styles.property1softwareHeroTripl, className].join(" ")}>
       <div className={styles.wrapper}>
@@ -22,7 +26,10 @@ const Property1SoftwareHeroTripl: FunctionComponent<
               </div>
             </div>
             <div className={styles.buttonCombo}>
-              <div className={styles.ctaButton}>
+              <div
+                className={styles.ctaButton}
+                onClick={onCTAButtonContainerClick}
+              >
                 <div className={styles.textContainer}>
                   <div className={styles.cta}>Leer más</div>
                 </div>

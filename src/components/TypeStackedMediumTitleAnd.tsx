@@ -29,11 +29,7 @@ const TypeStackedMediumTitleAnd: FunctionComponent<
           </div>
         </div>
         <div className={styles.videoContainer}>
-          <img
-            className={styles.imageLummiIcon}
-            alt=""
-            src="/image-lummi@2x.png"
-          />
+          <div className={styles.imageLummi} />
           <div className={styles.overlay}>
             <img className={styles.playIcon} alt="" src="/play-icon.svg" />
           </div>

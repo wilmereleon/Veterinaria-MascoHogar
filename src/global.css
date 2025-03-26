@@ -27,6 +27,7 @@ body {
   --font-size-sm: 14px;
   --font-size-base: 16px;
   --font-size-lg: 18px;
+  --font-size-lgi: 19px;
   --font-size-3xl: 22px;
   --font-size-5xl: 24px;
   --font-size-11xl: 30px;
@@ -39,6 +40,7 @@ body {
   --color-aquamarine: #a7f3d0;
   --color-black: #000;
   --color-darkgray: #9ca3af;
+  --color-darkgray-100: #b3b3b3;
   --color-darkslategray: #374151;
   --color-darkslategray-100: #064e3b;
   --color-dodgerblue: #3b82f6;

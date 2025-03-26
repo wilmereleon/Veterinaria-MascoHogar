@@ -269,3 +269,26 @@
   color: var(--color-darkslategray);
   font-family: var(--font-roboto);
 }
+
+@media screen and (max-width: 1000px) {
+  .link {
+    display: none;
+  }
+}
+@media screen and (max-width: 750px) {
+  .link1 {
+    display: none;
+  }
+
+  .link2 {
+    display: none;
+  }
+
+  .link3 {
+    display: none;
+  }
+
+  .navigation {
+    max-width: 100%;
+  }
+}
