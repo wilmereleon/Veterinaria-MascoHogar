@@ -5,6 +5,7 @@ import {
   useNavigationType,
   useLocation,
 } from "react-router-dom";
+import MushoDCSHAEscaletaManageme from "./pages/MushoDCSHAEscaletaManageme";
 import VeterinariaMascoHogar from "./pages/VeterinariaMascoHogar";
 
 function App() {
@@ -24,16 +25,12 @@ function App() {
 
     switch (pathname) {
       case "/":
-        title = "Inicio - Veterinaria";
-        metaDescription = "Bienvenido a la página principal de nuestra veterinaria.";
+        title = "";
+        metaDescription = "";
         break;
-      case "/veterinaria-mascohogar":
-        title = "Veterinaria MascoHogar";
-        metaDescription = "Descubre los servicios de nuestra veterinaria MascoHogar.";
-        break;
-      default:
-        title = "Veterinaria";
-        metaDescription = "Bienvenido a nuestra veterinaria.";
+      case "/veterinaria-mascohogar-pc-home":
+        title = "";
+        metaDescription = "";
         break;
     }
 
@@ -53,13 +50,12 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<VeterinariaMascoHogar />} />
+      <Route path="/" element={<MushoDCSHAEscaletaManageme />} />
       <Route
-        path="/veterinaria-mascohogar"
+        path="/veterinaria-mascohogar-pc-home"
         element={<VeterinariaMascoHogar />}
       />
     </Routes>
   );
 }
-
 export default App;

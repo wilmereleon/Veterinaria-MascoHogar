@@ -12,7 +12,7 @@ const TypeFloatingHeaderWithNavi: FunctionComponent<
     <div className={[styles.typefloatingHeaderWithNavi, className].join(" ")}>
       <div className={styles.brand}>
         <img className={styles.icon} alt="" src="/icon.svg" />
-        <img className={styles.icon1} alt="" src="/icon.png" />
+        <img className={styles.icon1} alt="" src="/icon1.png" />
         <b className={styles.brandname}>
           <span className={styles.brandnameTxt}>
             <span>Veterinaria</span>
