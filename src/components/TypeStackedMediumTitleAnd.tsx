@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useRef } from "react";
 import styles from "./TypeStackedMediumTitleAnd.module.css";
 
 export type TypeStackedMediumTitleAndType = {
@@ -8,6 +8,18 @@ export type TypeStackedMediumTitleAndType = {
 const TypeStackedMediumTitleAnd: FunctionComponent<
   TypeStackedMediumTitleAndType
 > = ({ className = "" }) => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const handleVideoClick = () => {
+    if (videoRef.current) {
+      if (videoRef.current.paused) {
+        videoRef.current.play();
+      } else {
+        videoRef.current.pause();
+      }
+    }
+  };
+
   return (
     <div className={[styles.typestackedMediumTitleAnd, className].join(" ")}>
       <div className={styles.content}>
@@ -29,13 +41,18 @@ const TypeStackedMediumTitleAnd: FunctionComponent<
           </div>
         </div>
         <div className={styles.videoContainer}>
-          <img
-            className={styles.imageLummiIcon}
-            alt=""
-            src="/image-lummi@2x.png"
-          />
-          <div className={styles.overlay}>
-            <img className={styles.playIcon} alt="" src="/play-icon.svg" />
+          <video
+            ref={videoRef}
+            className={styles.video}
+            onClick={handleVideoClick}
+            controls
+            poster="/image-lummi@2x.png"
+          >
+            <source src="/video.mp4" type="video/mp4" />
+            Tu navegador no soporta el elemento de video.
+          </video>
+          <div className={styles.playButton} onClick={handleVideoClick}>
+            <img src="/play-icon.svg" alt="Play" className={styles.playIcon} />
           </div>
         </div>
       </div>

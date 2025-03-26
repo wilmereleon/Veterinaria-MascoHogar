@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useRef } from "react";
 import TypeFloatingHeaderWithNavi from "../components/TypeFloatingHeaderWithNavi";
 import TypeStackedMediumTitleAnd from "../components/TypeStackedMediumTitleAnd";
 import TypeSideBySideImages from "../components/TypeSideBySideImages";
@@ -9,6 +9,18 @@ import TypeSubscribePillInputCT from "../components/TypeSubscribePillInputCT";
 import styles from "./VeterinariaMascoHogar.module.css";
 
 const VeterinariaMascoHogar: FunctionComponent = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const handleVideoClick = () => {
+    if (videoRef.current) {
+      if (videoRef.current.paused) {
+        videoRef.current.play();
+      } else {
+        videoRef.current.pause();
+      }
+    }
+  };
+
   return (
     <div className={styles.veterinariaMascohogarPcH}>
       <TypeFloatingHeaderWithNavi />
