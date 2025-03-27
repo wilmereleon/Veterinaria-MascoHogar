@@ -1,0 +1,72 @@
+@startuml
+title Arquitectura Simplificada - Ecosistema Veterinaria (SOA con API Gateway)
+
+' Declaración de Eureka (servicio de descubrimiento)
+node "Eureka Server" as Eureka
+
+' Actores externos
+actor "Usuario" as User
+actor "Sistema de Pagos" as PaymentSystem
+
+' Ecosistema de Microservicios Veterinaria
+package "Microservicios Veterinaria" {
+  component "API Gateway" as APIGateway
+  component "Servicio de Autenticación" as AuthService
+  component "Servicio de Gestión de Citas" as CitasService
+  component "Servicio de Clientes" as ClientsService
+  component "Servicio de Facturación" as BillingService
+  component "Servicio de Historial Médico" as MedicalHistoryService
+  component "Servicio de Notificaciones" as NotificationService
+}
+
+' Capa de Datos con bases de datos separadas
+package "Capa de Datos" {
+  database "BD Autenticación" as DBAuth
+  database "BD Citas" as DBCitas
+  database "BD Clientes" as DBClientes
+  database "BD Facturación" as DBBilling
+  database "BD Historial Médico" as DBMedicalHistory
+  database "BD Notificaciones" as DBNotification
+}
+
+' Configuración centralizada
+component "Config Server" as ConfigServer
+
+' Relaciones principales
+User --> APIGateway : "Solicita servicio"
+PaymentSystem --> BillingService : "Procesa pagos"
+
+' Conexiones del API Gateway con los microservicios
+APIGateway --> AuthService : "Autenticación"
+APIGateway --> CitasService : "Gestión de citas"
+APIGateway --> ClientsService : "Clientes"
+APIGateway --> BillingService : "Facturación"
+APIGateway --> MedicalHistoryService : "Historial médico"
+APIGateway --> NotificationService : "Notificaciones"
+
+' Conexiones de microservicios a sus respectivas bases de datos
+AuthService --> DBAuth
+CitasService --> DBCitas
+ClientsService --> DBClientes
+BillingService --> DBBilling
+MedicalHistoryService --> DBMedicalHistory
+NotificationService --> DBNotification
+
+' Configuración y descubrimiento
+ConfigServer --> AuthService : "Proporciona configuración"
+ConfigServer --> CitasService : "Proporciona configuración"
+ConfigServer --> ClientsService : "Proporciona configuración"
+ConfigServer --> BillingService : "Proporciona configuración"
+ConfigServer --> MedicalHistoryService : "Proporciona configuración"
+ConfigServer --> NotificationService : "Proporciona configuración"
+
+ConfigServer ..> Eureka : "Registro de Configuración"
+Eureka ..> APIGateway : "Descubrimiento de servicios"
+Eureka ..> AuthService : "Descubrimiento de servicios"
+Eureka ..> CitasService : "Descubrimiento de servicios"
+Eureka ..> ClientsService : "Descubrimiento de servicios"
+Eureka ..> BillingService : "Descubrimiento de servicios"
+Eureka ..> MedicalHistoryService : "Descubrimiento de servicios"
+Eureka ..> NotificationService : "Descubrimiento de servicios"
+
+@enduml
