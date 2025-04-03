@@ -56,7 +56,7 @@ const Article: FunctionComponent<ArticleType> = ({
         </div>
         <div className={styles.user}>
           <div className={styles.avatar}>
-            <img className={styles.avatarIcon} alt="" src="/assets/avatar@2x.png" />
+            <img className={styles.avatarIcon} alt="" src="/avatar@2x.png" />
             <div className={styles.titleWrapper}>
               <div className={styles.title1}>Veterinarios expertos</div>
             </div>

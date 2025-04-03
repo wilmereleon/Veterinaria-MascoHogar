@@ -1,3 +1,4 @@
+/* Estilos base */
 .title {
   align-self: stretch;
   position: relative;
@@ -42,7 +43,7 @@
 }
 .container {
   width: 722px;
-  height: 1860px;
+  height: auto; /* Ajusta la altura automáticamente */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -59,7 +60,7 @@
 }
 .list {
   width: 430px;
-  height: 1734px;
+  height: auto; /* Ajusta la altura automáticamente */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -85,7 +86,7 @@
 }
 .contents {
   align-self: stretch;
-  height: 1930px;
+  height: auto; /* Ajusta la altura automáticamente */
   overflow: hidden;
   flex-shrink: 0;
   display: flex;
@@ -101,4 +102,62 @@
   font-size: var(--font-size-21xl);
   color: var(--color-darkslategray-100);
   font-family: var(--font-helvetica-rounded-lt-std);
+}
+
+
+/* Media queries para tabletas */
+@media (max-width: 768px) {
+  .container {
+    width: 100%; /* Ocupa todo el ancho */
+    padding: var(--padding-xl); /* Ajusta el padding */
+  }
+
+  .contents {
+    flex-direction: column; /* Cambia a disposición vertical */
+    padding: var(--padding-xl); /* Reduce el padding */
+    gap: var(--gap-xl); /* Reduce el espacio entre elementos */
+  }
+
+  .list {
+    width: 100%; /* Ocupa todo el ancho */
+    overflow-x: auto; /* Habilita desplazamiento horizontal */
+    display: flex;
+    flex-direction: row; /* Alinea las tarjetas horizontalmente */
+    gap: var(--gap-base); /* Espacio entre tarjetas */
+    padding: var(--padding-base); /* Ajusta el padding */
+  }
+
+  .row {
+    flex-direction: column; /* Cambia a disposición vertical */
+    align-items: center;
+  }
+
+  .laSaludDeContainer {
+    width: 100%; /* Ocupa todo el ancho */
+    font-size: var(--font-size-lg); /* Reduce el tamaño de la fuente */
+    text-align: center; /* Centra el texto */
+  }
+}
+
+/* Media queries para móviles */
+@media (max-width: 480px) {
+  .container {
+    padding: var(--padding-base); /* Reduce el padding */
+  }
+
+  .contents {
+    padding: var(--padding-base); /* Reduce aún más el padding */
+    gap: var(--gap-sm); /* Reduce el espacio entre elementos */
+  }
+
+  .list {
+    gap: var(--gap-xs); /* Reduce el espacio entre tarjetas */
+    padding: var(--padding-xs); /* Ajusta el padding */
+  }
+
+  .laSaludDeContainer {
+    width: 100%; /* Ocupa todo el ancho */
+    font-size: var(--font-size-lg); /* Reduce el tamaño de la fuente */
+    text-align: center; /* Centra el texto */
+  }
 }

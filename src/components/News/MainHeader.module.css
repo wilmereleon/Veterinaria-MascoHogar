@@ -54,6 +54,9 @@
   padding: 0px var(--padding-base);
   cursor: pointer; /* Cambia el cursor al estilo de "mano" */
   transition: color 0.3s ease; /* Transición suave para el color */
+  font-family: "Lato", sans-serif; /* Fuente Lato Regular */
+  font-size: 12px; /* Tamaño de fuente 12 puntos */
+  font-weight: 400; /* Regular */
 }
 
 .navLink:hover {
@@ -108,8 +111,9 @@
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
-  font-size: var(--font-size-xs);
-  font-family: var(--font-lato);
+  font-size: 12px; /* Tamaño de fuente 12 puntos */
+  font-family: "Lato", sans-serif; /* Fuente Lato Regular */
+  font-weight: 400; /* Regular */
 }
 .typefloatingHeaderWithNavi {
   width: 100%;

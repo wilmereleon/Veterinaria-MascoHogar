@@ -17,6 +17,9 @@
 body {
   margin: 0;
   line-height: normal;
+  font-family: var(--font-lato); /* Fuente predeterminada */
+  font-size: var(--font-size-base); /* Tamaño de fuente base */
+  color: var(--color-darkslategray); /* Color de texto predeterminado */
 }
 
 /* Variables globales */
@@ -133,4 +136,28 @@ body {
 
   /* Figma Variables */
   --place-holder: rgba(31, 31, 31, 0.43);
+}
+
+/* Media queries para tabletas */
+@media (max-width: 768px) {
+  body {
+    font-size: var(--font-size-sm); /* Reduce el tamaño de la fuente */
+    padding: var(--padding-base); /* Ajusta el padding global */
+  }
+
+  .container {
+    padding: var(--padding-xl); /* Ajusta el padding de los contenedores */
+  }
+}
+
+/* Media queries para móviles */
+@media (max-width: 480px) {
+  body {
+    font-size: var(--font-size-xs); /* Reduce aún más el tamaño de la fuente */
+    padding: var(--padding-sm); /* Ajusta el padding global */
+  }
+
+  .container {
+    padding: var(--padding-base); /* Ajusta el padding de los contenedores */
+  }
 }

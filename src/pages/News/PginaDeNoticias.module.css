@@ -67,3 +67,49 @@
   color: var(--color-paleturquoise);
   font-family: var(--font-playfair-display);
 }
+
+/* Media queries para dispositivos tablet */
+@media (max-width: 768px) {
+  .title {
+    width: 90%; /* Ajusta el ancho para pantallas más pequeñas */
+    font-size: var(--font-size-lg); /* Reduce el tamaño de la fuente */
+    line-height: 36px;
+  }
+  .description {
+    width: 90%; /* Ajusta el ancho para tabletas */
+    font-size: var(--font-size-lg); /* Reduce el tamaño de la fuente */
+    line-height: var(--font-size-4xl);
+  }
+  .section {
+    height: auto; /* Permite que la altura se ajuste automáticamente */
+    padding: var(--padding-21xl) var(--padding-61xl); /* Reduce el padding */
+    gap: var(--gap-21xl); /* Reduce el espacio entre elementos */
+  }
+  .pginaDeNoticias {
+    padding: var(--padding-31xl) 0px 0px; /* Reduce el padding superior */
+    font-size: 36px; /* Reduce el tamaño de la fuente */
+  }
+}
+
+/* Media queries para dispositivos móviles */
+@media (max-width: 480px) {
+  .title {
+    width: 100%; /* Ocupa todo el ancho disponible */
+    font-size: var(--font-size-md); /* Reduce aún más el tamaño de la fuente */
+    line-height: 28px;
+  }
+  .description {
+    width: 100%; /* Ocupa todo el ancho disponible */
+    font-size: var(--font-size-md); /* Reduce aún más el tamaño de la fuente */
+    line-height: var(--font-size-3xl);
+  }
+  .section {
+    flex-direction: column; /* Cambia la dirección a columna */
+    padding: var(--padding-xl); /* Reduce el padding */
+    gap: var(--gap-xl); /* Reduce el espacio entre elementos */
+  }
+  .pginaDeNoticias {
+    padding: var(--padding-lg) 0px 0px; /* Reduce el padding superior */
+    font-size: 24px; /* Reduce el tamaño de la fuente */
+  }
+}

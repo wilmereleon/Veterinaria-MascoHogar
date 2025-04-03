@@ -28,17 +28,18 @@ VETERINARIA/
 │   │   │   ├── Sidebar.tsx         # Barra lateral
 │   │   │   └── Layout.module.css   # Estilos del diseño general
 │   │   ├── News/                   # Componentes relacionados con la página de Noticias
-│   │   │   ├── Article.module.tsx                 # 
-│   │   │   ├── Article.tsx                        # 
-│   │   │   ├── Contents.module.css                # 
-│   │   │   ├── Contents.tsx                       # 
-│   │   │   ├── MainHeader.tsx                     #
-│   │   │   ├── Reviews.module.css                 #
-│   │   │   ├── Reviews.tsx                        #
-│   │   │   ├── Row.module.css                     #
-│   │   │   ├── Row.tsx                            #
-│   │   │   ├── TypeStackedSimpleFooter.module.css #
-│   │   │   └── TypeStackedSimpleFooter.tsx        # 
+│   │   │   ├── Article.module.tsx                 # En esta sección de insertan los contenidos de las tarjetas del contenedor de Artículo
+│   │   │   ├── Article.tsx                        # Posee los estilos de la sección del componente de Artículos
+│   │   │   ├── Contents.module.css                # Maneja los estilos del contenedor de contenidos del Body
+│   │   │   ├── Contents.tsx                       # Contiene las tarjetas del Body
+│   │   │   ├── MainHeader.tsx                     # Contiene el contenido del header
+│   │   │   ├── MainHeader.module.css              # Maneja los estilos del header
+│   │   │   ├── Reviews.module.css                 # Contiene la sección de comentarios
+│   │   │   ├── Reviews.tsx                        # Maneja los estilos de la sección de comentarios
+│   │   │   ├── Row.module.css                     # Conterola los estilos generales
+│   │   │   ├── Row.tsx                            # Contiene el entorno general de toda la página
+│   │   │   ├── TypeStackedSimpleFooter.module.css # maneja los estilos del footer de la página
+│   │   │   └── TypeStackedSimpleFooter.tsx        # Contiene el footer de la página
 │   │   └── ...                     # Otros componentes reutilizables
 │   │   ├── CitasComponent          # Carpeta con componentes para la gestión de citas (CitasService)
 │   │   ├── ClientsComponent        # Carpeta con componentes para gestionar la información de clientes (ClientsService)
