@@ -30,14 +30,16 @@ const Article: FunctionComponent<ArticleType> = ({
   const imageContainerStyle: CSSProperties = useMemo(() => {
     return {
       backgroundImage: imageContainerBackgroundImage,
+      backgroundSize: "cover", // Asegura que la imagen de fondo cubra el contenedor
+      backgroundRepeat: "no-repeat", // Evita que la imagen se repita
+      backgroundPosition: "center", // Centra la imagen de fondo
     };
   }, [imageContainerBackgroundImage]);
 
   return (
     <div className={[styles.article, className].join(" ")} style={articleStyle}>
-      <div className={styles.imageContainer} style={imageContainerStyle}>
-        <img className={styles.imageIcon} alt="" src="/image@2x.png" />
-      </div>
+      {/* Elimina el <img> redundante si estás usando backgroundImage */}
+      <div className={styles.imageContainer} style={imageContainerStyle}></div>
       <div className={styles.titleParent}>
         <b className={styles.title}>{title}</b>
         <div className={styles.subtitle}>{subtitle}</div>
@@ -54,7 +56,7 @@ const Article: FunctionComponent<ArticleType> = ({
         </div>
         <div className={styles.user}>
           <div className={styles.avatar}>
-            <img className={styles.avatarIcon} alt="" src="/avatar@2x.png" />
+            <img className={styles.avatarIcon} alt="" src="/assets/avatar@2x.png" />
             <div className={styles.titleWrapper}>
               <div className={styles.title1}>Veterinarios expertos</div>
             </div>

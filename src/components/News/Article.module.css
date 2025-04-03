@@ -6,6 +6,8 @@
   overflow: hidden;
   max-height: 100%;
   object-fit: cover;
+  opacity: 1;
+  filter: none; 
 }
 .imageContainer {
   width: 100px;
@@ -20,6 +22,8 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top;
+  opacity: 1;
+  filter: none;
 }
 .title {
   align-self: stretch;
