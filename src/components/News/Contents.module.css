@@ -1,0 +1,104 @@
+.title {
+  align-self: stretch;
+  position: relative;
+  line-height: 48px;
+}
+.laSaludDe {
+  font-weight: 500;
+}
+.laSaludDeNuestrosGatosEs {
+  margin: 0;
+}
+.blankLine {
+  margin: 0;
+  color: var(--color-black);
+}
+.porQuEsImportanteLaDespa {
+  margin: 0;
+  font-size: var(--font-size-13xl);
+  color: var(--color-darkslategray-100);
+  font-family: var(--font-helvetica-rounded-lt-std);
+}
+.losGatosIncluso {
+  margin: 0;
+  font-weight: 500;
+}
+.mejorarLaCalidadDeVidaAl {
+  margin-bottom: 0px;
+}
+.prevenirProblemasDeSaludL {
+  margin: 0;
+  padding-left: var(--padding-13xl);
+}
+.laSaludDeContainer {
+  width: 692px;
+  position: relative;
+  letter-spacing: 0.05em;
+  line-height: 48px;
+  display: inline-block;
+  font-size: var(--font-size-5xl);
+  color: var(--color-gray-300);
+  font-family: var(--font-lato);
+}
+.container {
+  width: 722px;
+  height: 1860px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap-5xl);
+  z-index: 0;
+}
+.row {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.list {
+  width: 430px;
+  height: 1734px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-xl) 0px;
+  box-sizing: border-box;
+  gap: var(--gap-21xl);
+  z-index: 1;
+  font-size: var(--font-size-xl);
+  font-family: var(--font-lato);
+}
+.contentsChild {
+  width: 100%;
+  position: absolute;
+  margin: 0 !important;
+  right: 0px;
+  bottom: -0.5px;
+  left: 0px;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+  z-index: 2;
+}
+.contents {
+  align-self: stretch;
+  height: 1930px;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-41xl) var(--padding-151xl);
+  box-sizing: border-box;
+  position: relative;
+  gap: var(--gap-41xl);
+  z-index: 2;
+  text-align: left;
+  font-size: var(--font-size-21xl);
+  color: var(--color-darkslategray-100);
+  font-family: var(--font-helvetica-rounded-lt-std);
+}

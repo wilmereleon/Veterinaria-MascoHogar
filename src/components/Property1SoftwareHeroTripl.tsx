@@ -1,4 +1,5 @@
 import { FunctionComponent, useCallback } from "react";
+import { useNavigate } from "react-router-dom"; // Importación de useNavigate
 import styles from "./Property1SoftwareHeroTripl.module.css";
 
 export type Property1SoftwareHeroTriplType = {
@@ -8,9 +9,11 @@ export type Property1SoftwareHeroTriplType = {
 const Property1SoftwareHeroTripl: FunctionComponent<
   Property1SoftwareHeroTriplType
 > = ({ className = "" }) => {
+  const navigate = useNavigate(); // Hook para la navegación
+
   const onCTAButtonContainerClick = useCallback(() => {
-    // Please sync "Pàgina de Noticias" to the project
-  }, []);
+    navigate("/noticias"); // Redirige a la página de noticias
+  }, [navigate]);
 
   return (
     <div className={[styles.property1softwareHeroTripl, className].join(" ")}>
@@ -28,7 +31,7 @@ const Property1SoftwareHeroTripl: FunctionComponent<
             <div className={styles.buttonCombo}>
               <div
                 className={styles.ctaButton}
-                onClick={onCTAButtonContainerClick}
+                onClick={onCTAButtonContainerClick} // Evento de clic para redirigir
               >
                 <div className={styles.textContainer}>
                   <div className={styles.cta}>Leer más</div>

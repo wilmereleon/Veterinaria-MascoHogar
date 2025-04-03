@@ -27,6 +27,18 @@ VETERINARIA/
 │   │   │   ├── Footer.tsx          # Pie de página de la aplicación
 │   │   │   ├── Sidebar.tsx         # Barra lateral
 │   │   │   └── Layout.module.css   # Estilos del diseño general
+│   │   ├── News/                   # Componentes relacionados con la página de Noticias
+│   │   │   ├── Article.module.tsx                 # 
+│   │   │   ├── Article.tsx                        # 
+│   │   │   ├── Contents.module.css                # 
+│   │   │   ├── Contents.tsx                       # 
+│   │   │   ├── MainHeader.tsx                     #
+│   │   │   ├── Reviews.module.css                 #
+│   │   │   ├── Reviews.tsx                        #
+│   │   │   ├── Row.module.css                     #
+│   │   │   ├── Row.tsx                            #
+│   │   │   ├── TypeStackedSimpleFooter.module.css #
+│   │   │   └── TypeStackedSimpleFooter.tsx        # 
 │   │   └── ...                     # Otros componentes reutilizables
 │   │   ├── CitasComponent          # Carpeta con componentes para la gestión de citas (CitasService)
 │   │   ├── ClientsComponent        # Carpeta con componentes para gestionar la información de clientes (ClientsService)
@@ -53,7 +65,9 @@ VETERINARIA/
 │   │   │   ├── GestionClientes.tsx # Página de gestión de clientes
 │   │   │   ├── GestionClientes.module.css
 │   │   │   └── DetalleCliente.tsx  # Página de detalle de cliente
-│   │   └── ...                     # Otras páginas específicas
+│   │   ├── News                    # Página de Noticias y comentarios
+│   │   │   ├── PaginaDeNoticias.module.css
+│   │   │   └── PaginaDeNoticias.tsx  # Página de con noticias de interés con sección de comentarios
 │   ├── styles/                     # Estilos globales y variables CSS
 │   │   ├── global.css              # Estilos globales (fuentes, colores, etc.)
 │   │   ├── variables.css           # Variables CSS (colores, tamaños, etc.)
