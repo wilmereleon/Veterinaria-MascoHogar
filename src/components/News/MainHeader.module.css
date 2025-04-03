@@ -52,6 +52,13 @@
   align-items: center;
   justify-content: flex-start;
   padding: 0px var(--padding-base);
+  cursor: pointer; /* Cambia el cursor al estilo de "mano" */
+  transition: color 0.3s ease; /* Transición suave para el color */
+}
+
+.navLink:hover {
+  color: #1ABD8C; /* Cambia el color al pasar el cursor */
+  text-decoration: none; /* Asegúrate de que no se subraye el texto */
 }
 .textContainer {
   display: flex;

@@ -17,6 +17,10 @@ const MainHeader: FunctionComponent<MainHeaderType> = ({ className = "" }) => {
     navigate("/vista-regstrate");
   }, [navigate]);
 
+  const onInicioClick = useCallback(() => {
+    navigate("/veterinaria-mascohogar-pc-home"); // Redirige a la página principal
+  }, [navigate]);
+
   return (
     <div className={[styles.typefloatingHeaderWithNavi, className].join(" ")}>
       <div className={styles.brand}>
@@ -32,7 +36,7 @@ const MainHeader: FunctionComponent<MainHeaderType> = ({ className = "" }) => {
       </div>
       <div className={styles.navLinks}>
         <div className={styles.navLinks1}>
-          <div className={styles.navLink}>
+          <div className={styles.navLink} onClick={onInicioClick}>
             <div className={styles.navLabel}>Inicio</div>
           </div>
           <div className={styles.navLink}>

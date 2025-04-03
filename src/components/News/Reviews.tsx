@@ -1,4 +1,4 @@
-import { FunctionComponent, useCallback } from "react";
+import { FunctionComponent, useCallback, useState } from "react";
 import Row from "./Row";
 import { useNavigate } from "react-router-dom";
 import styles from "./Reviews.module.css";
@@ -9,10 +9,15 @@ export type ReviewsType = {
 
 const Reviews: FunctionComponent<ReviewsType> = ({ className = "" }) => {
   const navigate = useNavigate();
+  const [comment, setComment] = useState(""); // Estado para manejar el texto ingresado
 
   const onRowContainerClick = useCallback(() => {
     navigate("/vista-inicio-de-sesin");
   }, [navigate]);
+
+  const handleCommentChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setComment(event.target.value); // Actualiza el estado con el texto ingresado
+  };
 
   return (
     <div className={[styles.reviews, className].join(" ")}>
@@ -48,7 +53,13 @@ const Reviews: FunctionComponent<ReviewsType> = ({ className = "" }) => {
                 src="/frame-427318817.svg"
               />
             </div>
-            <i className={styles.title1}>Ingresa tu comentario</i>
+            {/* Reemplaza el <i> con un <textarea> */}
+            <textarea
+              className={styles.commentInput}
+              placeholder="Ingresa tu comentario"
+              value={comment}
+              onChange={handleCommentChange} // Maneja el cambio de texto
+            />
           </div>
         </div>
         <div className={styles.row1} onClick={onRowContainerClick}>
