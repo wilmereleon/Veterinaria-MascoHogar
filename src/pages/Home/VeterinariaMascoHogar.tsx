@@ -1,11 +1,11 @@
 import { FunctionComponent, useRef } from "react";
-import TypeFloatingHeaderWithNavi from "../components/TypeFloatingHeaderWithNavi";
-import TypeStackedMediumTitleAnd from "../components/TypeStackedMediumTitleAnd";
-import TypeSideBySideImages from "../components/TypeSideBySideImages";
-import Property1CardsTestimonials from "../components/Property1CardsTestimonials";
-import TypeImageGridTitleDescri from "../components/TypeImageGridTitleDescri";
-import Property1SoftwareHeroTripl from "../components/Property1SoftwareHeroTripl";
-import TypeSubscribePillInputCT from "../components/TypeSubscribePillInputCT";
+import TypeFloatingHeaderWithNavi from "../../components/TypeFloatingHeaderWithNavi";
+import TypeStackedMediumTitleAnd from "../../components/TypeStackedMediumTitleAnd";
+import TypeSideBySideImages from "../../components/TypeSideBySideImages";
+import Property1CardsTestimonials from "../../components/Property1CardsTestimonials";
+import TypeImageGridTitleDescri from "../../components/TypeImageGridTitleDescri";
+import Property1SoftwareHeroTripl from "../../components/Property1SoftwareHeroTripl";
+import TypeSubscribePillInputCT from "../../components/TypeSubscribePillInputCT";
 import styles from "./VeterinariaMascoHogar.module.css";
 
 const VeterinariaMascoHogar: FunctionComponent = () => {

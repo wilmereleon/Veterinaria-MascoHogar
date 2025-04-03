@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Routes, Route, useNavigationType, useLocation, Navigate } from "react-router-dom";
-import VeterinariaMascoHogar from "./pages/VeterinariaMascoHogar";
+import VeterinariaMascoHogar from "./pages/Home/VeterinariaMascoHogar";
 
 function App() {
   const action = useNavigationType();

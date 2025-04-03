@@ -1,20 +1,63 @@
 VETERINARIA/
 ├── dist/                           # Archivos de distribución (compilados)
+│   ├── images environment/         # Imágenes del entrono de la página principal
+|   └── ...                         # listado de imágenes en SVG y PNG
+│   └── assets/                     # Recursos estáticos compilados
+|       ├── index-BuEkPU3T.css      # Archivo CSS generado automáticamente que contiene los estilos optimizados y minificados de la aplicación.
+|       ├── index-Sl8nKEEL.js       # Archivo JavaScript generado automáticamente que contiene el código optimizado y empaquetado de la aplicación.
 ├── img/                            # Recursos gráficos: logotipos, íconos, banners, etc.
 ├── node_modules/                   # Dependencias del proyecto
-├── public/                         # Archivos públicos que se sirven directamente
+├── public/                         # Archivos públicos que se sirven directamente: imágenes
 │   └── index.html
 ├── src/                            # Código fuente de la aplicación
 │   ├── components/                 # Componentes reutilizables que integran la lógica de cada servicio
-│   │   ├── AuthComponent.tsx       # Componente para autenticación y login, relacionado con AuthService
-│   │   ├── CitasComponent.tsx      # Componente para la gestión de citas (CitasService)
-│   │   ├── ClientsComponent.tsx    # Componente para gestionar la información de clientes (ClientsService)
-│   │   ├── BillingComponent.tsx    # Componente para la facturación (BillingService)
-│   │   ├── MedicalHistoryComponent.tsx  # Componente para visualizar/gestionar el historial médico (MedicalHistoryService)
-│   │   └── NotificationComponent.tsx      # Componente para el manejo de notificaciones (NotificationService)
-│   ├── pages/                      # Vistas o páginas específicas de la aplicación
-│   │   ├── VeterinariaMascoHogar.module.css  # Estilos CSS modularizados para la página principal
-│   │   └── VeterinariaMascoHogar.tsx         # Página principal de la aplicación; integra la vista de Gestión de Pacientes y otros servicios
+│   │   ├── AuthComponent           # Carpeta con componentes para autenticación y login, relacionado con AuthService
+|   │   │   ├── LoginForm.tsx       # Formulario de inicio de sesión reutilizable
+│   │   │   ├── LoginForm.module.css # Estilos del formulario de inicio de sesión
+│   │   │   ├── RegisterForm.tsx    # Formulario de registro reutilizable
+│   │   │   ├── RegisterForm.module.css
+│   │   │   └── AuthUtils.ts        # Utilidades relacionadas con autenticación
+│   │   ├── Shared/                 # Componentes compartidos (botones, inputs, etc.)
+│   │   │   ├── Button.tsx          # Componente de botón reutilizable
+│   │   │   ├── InputField.tsx      # Componente de campo de entrada reutilizable
+│   │   │   ├── Modal.tsx           # Componente de modal reutilizable
+│   │   │   └── ...                 # Otros componentes compartidos
+│   │   ├── Layout/                 # Componentes relacionados con el diseño general
+│   │   │   ├── Header.tsx          # Encabezado de la aplicación
+│   │   │   ├── Footer.tsx          # Pie de página de la aplicación
+│   │   │   ├── Sidebar.tsx         # Barra lateral
+│   │   │   └── Layout.module.css   # Estilos del diseño general
+│   │   └── ...                     # Otros componentes reutilizables
+│   │   ├── CitasComponent          # Carpeta con componentes para la gestión de citas (CitasService)
+│   │   ├── ClientsComponent        # Carpeta con componentes para gestionar la información de clientes (ClientsService)
+│   │   ├── BillingComponent        # Carpeta con componentes para la facturación (BillingService)
+│   │   ├── MedicalHistoryComponent # Carpeta con componentes para visualizar/gestionar el historial médico (MedicalHistoryService)
+│   │   └── NotificationComponent   # Carpeta con componentes para el manejo de notificaciones (NotificationService)
+│   ├── pages/                      # Vistas o páginas específicas de la aplicación.
+│   │   ├── AuthPages/              # Páginas relacionadas con autenticación
+│   │   │   ├── VistaInicioDeSesion.tsx # Página de inicio de sesión
+│   │   │   ├── VistaInicioDeSesion.module.css
+│   │   │   ├── VistaRegistra.tsx   # Página de registro
+│   │   │   ├── VistaRegistra.module.css
+│   │   │   ├── PasswordRecovery.tsx # Página de recuperación de contraseña
+│   │   │   └── PasswordRecovery.module.css
+│   │   ├── Home/                   # Páginas relacionadas con la página principal
+│   │   │   ├── VeterinariaMascoHogar.tsx
+│   │   │   ├── VeterinariaMascoHogar.module.css
+│   │   │   └── Dashboard.tsx       # Página del dashboard principal
+│   │   ├── CitasPages/             # Páginas relacionadas con la gestión de citas
+│   │   │   ├── GestionCitas.tsx    # Página de gestión de citas
+│   │   │   ├── GestionCitas.module.css
+│   │   │   └── SolicitarCita.tsx   # Página para solicitar citas
+│   │   ├── ClientesPages/          # Páginas relacionadas con clientes
+│   │   │   ├── GestionClientes.tsx # Página de gestión de clientes
+│   │   │   ├── GestionClientes.module.css
+│   │   │   └── DetalleCliente.tsx  # Página de detalle de cliente
+│   │   └── ...                     # Otras páginas específicas
+│   ├── styles/                     # Estilos globales y variables CSS
+│   │   ├── global.css              # Estilos globales (fuentes, colores, etc.)
+│   │   ├── variables.css           # Variables CSS (colores, tamaños, etc.)
+│   │   └── mixins.css              # Mixins y utilidades CSS
 │   ├── App.tsx                     # Componente raíz de la aplicación
 │   ├── global.css                  # Estilos globales (fuentes, colores y variables definidas para el diseño)
 │   ├── index.tsx                   # Punto de entrada de la aplicación
