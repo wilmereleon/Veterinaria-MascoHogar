@@ -12,11 +12,14 @@ const VistaInicioDeSesion: FunctionComponent = () => {
     <div className={styles.container}>
 
         <div className={styles.brand}>
-        <img className={styles.logo} src="/icon.svg" alt="Logo" />
-        <div className={styles.textContainer}>
-            <span className={styles.veterinaria}>Veterinaria</span>
+        <img className={styles.icon} src="/icon.svg" alt="Logo" />
+        <b className={styles.brandname}>
+            <span className={styles.brandnameTxt}>
+            <span>Veterinaria</span>
+            <span className={styles.span}>{` `}</span> 
             <span className={styles.mascohogar}>MascoHogar</span>
-        </div>
+            </span>
+        </b>
         </div>
 
       <div className={styles.formContainer}>

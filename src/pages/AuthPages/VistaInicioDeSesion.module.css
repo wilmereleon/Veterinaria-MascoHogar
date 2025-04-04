@@ -1,4 +1,5 @@
 .brand {
+    font-family: var(--font-helvetica-rounded-lt-std);
     display: flex;
     align-items: center;
     gap: 12px;
@@ -18,43 +19,22 @@
     color: #2e7d32;
     font-size: 32px;
     font-weight: 600;
+    font-family: var(--font-helvetica-rounded-lt-std);
   }
 
 /* Contenedor principal de la página */
 .container {
-    display: flex; /* Usa flexbox para organizar el contenido */
-    flex-direction: column; /* Coloca los elementos en columna */
-    align-items: center; /* Centra horizontalmente */
-    justify-content: center; /* Centra verticalmente */
-    min-height: 100vh; /* Ocupa toda la altura de la ventana */
-    background-color: var(--color-mintcream); /* Fondo personalizado */
-    padding: 20px; /* Espaciado interior */
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    min-height: 100vh;
+    background-color: var(--color-mintcream); 
+    padding: 20px; 
   }
   
-  /* Encabezado que contiene el logo y título */
-  .header {
-    text-align: center; /* Centra el contenido */
-    margin-bottom: 40px; /* Espaciado inferior */
-  }
-  
-  /* Estilo del logo */
-  .logo {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 10px;
-  }
-  
-  /* Título principal */
-  .title {
-    font-size: 24px;
-    color: #333;
-    margin: 0;
-  }
-  
-  /* Color especial para la palabra "MascoHogar" dentro del título */
-  .title span {
-    color: #2e7d32; /* Verde para MascoHogar */
-  }
+
+
   
   /* Contenedor del formulario */
   .formContainer {
