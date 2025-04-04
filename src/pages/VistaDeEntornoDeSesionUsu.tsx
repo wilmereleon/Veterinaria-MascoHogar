@@ -1,11 +1,10 @@
-
 import { FunctionComponent } from "react";
 import styles from "./VistaDeEntornoDeSesionUsu.module.css";
 
 const VistaDeEntornoDeSesionUsu: FunctionComponent = () => {
   return (
     <div className={styles.dashboard}>
-      {/* Navbar (placeholder) */}
+      {/* Navbar */}
       <nav className={styles.navbar}>
         <div className={styles.logoContainer}>
           <img src="/icon3.svg" alt="Logo" className={styles.logo} />
@@ -13,7 +12,7 @@ const VistaDeEntornoDeSesionUsu: FunctionComponent = () => {
         </div>
       </nav>
 
-      {/* Contenedor principal invertido */}
+      {/* Contenido principal */}
       <div className={styles.mainContent}>
         {/* Columna izquierda - Bienvenida */}
         <div className={styles.welcomeColumn}>
@@ -21,7 +20,7 @@ const VistaDeEntornoDeSesionUsu: FunctionComponent = () => {
             <h1 className={styles.welcomeTitle}>Bienvenido</h1>
             <h2 className={styles.userGreeting}>Hola, Wilmer</h2>
             <p className={styles.welcomeText}>
-              Realiza fácilmente tus diligencias con <strong>MascoHogar</strong>. 
+              Realiza fácilmente tus diligencias con <strong>MascoHogar</strong>. <br />
               ¡Conoce aquí las soluciones virtuales que tenemos especialmente para ti 
               y tu animal de compañía!
             </p>
@@ -31,67 +30,51 @@ const VistaDeEntornoDeSesionUsu: FunctionComponent = () => {
           </div>
         </div>
 
-        {/* Columna derecha - Servicios */}
+        {/* Columna derecha - Servicios (ajustada para igual altura) */}
         <div className={styles.servicesColumn}>
-          {/* Sección de Servicios */}
-          <div className={styles.serviceSection}>
-            <h3 className={styles.sectionTitle}>Servicios</h3>
-            <div className={styles.serviceGrid}>
-              <ServiceCard 
-                icon="/medkit1.svg" 
-                title="Solicitud y cancelación de citas" 
-              />
-              <ServiceCard 
-                icon="/medkit2.svg" 
-                title="Solicitud y ayudas diagnósticas" 
-              />
-              <ServiceCard 
-                icon="/medkit3.svg" 
-                title="Historia clínica" 
-              />
+          <div className={styles.servicesWrapper}>
+            {/* Sección de Servicios */}
+            <div className={styles.serviceSection}>
+              <h3 className={styles.sectionTitle}>Servicios</h3>
+              <div className={styles.serviceGrid}>
+                <ServiceCard icon="/medkit1.svg" title="Solicitud y cancelación de citas" />
+                <ServiceCard icon="/medkit2.svg" title="Solicitud y ayudas diagnósticas" />
+                <ServiceCard icon="/medkit3.svg" title="Historia clínica" />
+              </div>
             </div>
-          </div>
 
-          {/* Sección de Farmacia */}
-          <div className={styles.serviceSection}>
-            <h3 className={styles.sectionTitle}>Farmacia y autorizaciones</h3>
-            <div className={styles.serviceGrid}>
-              <ServiceCard 
-                icon="/medkit.svg" 
-                title="Medicamentos" 
-              />
-              <ServiceCard 
-                icon="/vector.svg" 
-                title="Autorizaciones" 
-              />
-              <ServiceCard 
-                icon="/mailunread.svg" 
-                title="Reportes" 
-              />
+            {/* Sección de Farmacia */}
+            <div className={styles.serviceSection}>
+              <h3 className={styles.sectionTitle}>Farmacia y autorizaciones</h3>
+              <div className={styles.serviceGrid}>
+                <ServiceCard icon="/medkit.svg" title="Medicamentos" />
+                <ServiceCard icon="/vector.svg" title="Autorizaciones" />
+                <ServiceCard icon="/mailunread.svg" title="Reportes" />
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Footer */}
+      {/* Footer con botones verdes */}
       <footer className={styles.footer}>
         <h3 className={styles.sectionTitle}>Opciones adicionales</h3>
         <div className={styles.footerOptions}>
-            <button className={styles.footerButton}>
+          <button className={styles.footerButton}>
             <img src="/chatbubblessharp.svg" alt="Contactar" className={styles.serviceIcon} />
             <span>Contactar</span>
-            </button>
-            <button className={styles.footerButton}>
+          </button>
+          <button className={styles.footerButton}>
             <img src="/notificationssharp.svg" alt="Notificaciones" className={styles.serviceIcon} />
             <span>Notificaciones</span>
-            </button>
+          </button>
         </div>
-        </footer>
+      </footer>
     </div>
   );
 };
 
-
+// Componente ServiceCard (sin cambios)
 const ServiceCard: FunctionComponent<{
   icon: string;
   title: string;
