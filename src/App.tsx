@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Routes, Route, useNavigationType, useLocation, Navigate } from "react-router-dom";
 import VeterinariaMascoHogar from "./pages/Home/VeterinariaMascoHogar";
 import PaginaDeNoticias from "./pages/News/PginaDeNoticias"; // Importación de la página de noticias
+import VistaInicioDeSesion from "./pages/AuthPages/VistaInicioDeSesion";
 
 function App() {
   const action = useNavigationType();
@@ -24,6 +25,9 @@ function App() {
     } else if (pathname === "/noticias") {
       title = "Noticias - Veterinaria MascoHogar";
       metaDescription = "Mantente informado con las últimas noticias y consejos para el cuidado de tus mascotas.";
+    } else if (pathname === "/login") {
+      title = "Iniciar Sesión - Veterinaria MascoHogar";
+      metaDescription = "Accede a tu cuenta en Veterinaria MascoHogar.";
     }
 
     document.title = title;
@@ -50,6 +54,10 @@ function App() {
       <Route
         path="/noticias"
         element={<PaginaDeNoticias />} // Nueva ruta para la página de noticias
+      />
+      <Route 
+        path="/login" 
+        element={<VistaInicioDeSesion />} 
       />
     </Routes>
   );

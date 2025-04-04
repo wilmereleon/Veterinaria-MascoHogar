@@ -1,0 +1,138 @@
+/* Contenedor principal de la página */
+.container {
+    display: flex; /* Usa flexbox para organizar el contenido */
+    flex-direction: column; /* Coloca los elementos en columna */
+    align-items: center; /* Centra horizontalmente */
+    justify-content: center; /* Centra verticalmente */
+    min-height: 100vh; /* Ocupa toda la altura de la ventana */
+    background-color: var(--color-mintcream); /* Fondo personalizado */
+    padding: 20px; /* Espaciado interior */
+  }
+  
+  /* Encabezado que contiene el logo y título */
+  .header {
+    text-align: center; /* Centra el contenido */
+    margin-bottom: 40px; /* Espaciado inferior */
+  }
+  
+  /* Estilo del logo */
+  .logo {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
+  }
+  
+  /* Título principal */
+  .title {
+    font-size: 24px;
+    color: #333;
+    margin: 0;
+  }
+  
+  /* Color especial para la palabra "MascoHogar" dentro del título */
+  .title span {
+    color: #2e7d32; /* Verde para MascoHogar */
+  }
+  
+  /* Contenedor del formulario */
+  .formContainer {
+    background: white; /* Fondo blanco */
+    padding: 30px; /* Espaciado interior */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    width: 100%;
+    max-width: 400px; /* Máximo ancho */
+  }
+  
+  /* Subtítulo del formulario */
+  .subtitle {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 25px;
+    text-align: center;
+  }
+  
+  /* Grupo de campos del formulario */
+  .formGroup {
+    margin-bottom: 20px;
+  }
+  
+  /* Etiqueta de los campos */
+  .label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #333;
+  }
+  
+  /* Estilo de los campos de entrada */
+  .input {
+    width: 100%;
+    max-width: 375px; 
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  /* Contenedor del campo de contraseña (para ícono) */
+  .passwordInput {
+    position: relative;
+  }
+  
+  /* Botón para mostrar/ocultar la contraseña */
+  .showPassword {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%); /* Centra verticalmente */
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Enlace para recuperar contraseña */
+  .forgotPassword {
+    display: block;
+    text-align: right;
+    margin: 10px 0 20px;
+    color: #666;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  
+  /* Botón de inicio de sesión */
+  .loginButton {
+    width: 100%;
+    padding: 12px;
+    background-color: #2e7d32; /* Verde */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease; /* Animación suave al pasar el mouse */
+  }
+  
+  /* Cambio de color del botón al pasar el mouse */
+  .loginButton:hover {
+    background-color: #27662b;
+  }
+  
+  /* Texto debajo del botón, invitación a crear cuenta */
+  .signupPrompt {
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+  }
+  
+  /* Enlace para crear cuenta */
+  .signupLink {
+    color: #2e7d32;
+    font-weight: 500;
+    margin-left: 5px;
+    text-decoration: none;
+  }
+  

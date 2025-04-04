@@ -8,6 +8,7 @@ import TypeImageGridTitleDescri from "../../components/TypeImageGridTitleDescri"
 import Property1SoftwareHeroTripl from "../../components/Property1SoftwareHeroTripl"; // Sección destacada con contenido promocional
 import TypeSubscribePillInputCT from "../../components/TypeSubscribePillInputCT"; // Formulario de suscripción
 import styles from "./VeterinariaMascoHogar.module.css"; // Estilos específicos para este componente
+import VistaInicioDeSesion from "../AuthPages/VistaInicioDeSesion";
 
 // Componente principal de la página de inicio
 const VeterinariaMascoHogar: FunctionComponent = () => {
