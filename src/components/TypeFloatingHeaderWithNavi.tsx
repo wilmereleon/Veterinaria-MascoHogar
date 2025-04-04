@@ -1,4 +1,5 @@
 import { FunctionComponent, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./TypeFloatingHeaderWithNavi.module.css";
 
 export type TypeFloatingHeaderWithNaviType = {
@@ -8,13 +9,15 @@ export type TypeFloatingHeaderWithNaviType = {
 const TypeFloatingHeaderWithNavi: FunctionComponent<
   TypeFloatingHeaderWithNaviType
 > = ({ className = "" }) => {
+  const navigate = useNavigate(); 
+
   const onButtonContainerClick = useCallback(() => {
-    // Please sync "Vista Inicio de sesión " to the project
-  }, []);
+    navigate("/login"); 
+  }, [navigate]);
 
   const onButtonContainerClick1 = useCallback(() => {
-    // Please sync "Vista Regístrate " to the project
-  }, []);
+      // Please sync "Vista Regístrate " to the project
+  }, [navigate]);
 
   return (
     <div className={[styles.typefloatingHeaderWithNavi, className].join(" ")}>
