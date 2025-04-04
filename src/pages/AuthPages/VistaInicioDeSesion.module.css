@@ -1,3 +1,25 @@
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .textContainer {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .veterinaria {
+    color: #333;
+    font-size: 24px;
+  }
+  
+  .mascohogar {
+    color: #2e7d32;
+    font-size: 32px;
+    font-weight: 600;
+  }
+
 /* Contenedor principal de la página */
 .container {
     display: flex; /* Usa flexbox para organizar el contenido */
@@ -36,20 +58,24 @@
   
   /* Contenedor del formulario */
   .formContainer {
+    margin-top: 30px;
     background: white; /* Fondo blanco */
     padding: 30px; /* Espaciado interior */
     border-radius: 8px; /* Bordes redondeados */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
     width: 100%;
     max-width: 400px; /* Máximo ancho */
+    
   }
   
-  /* Subtítulo del formulario */
+  /* Subtítulo del formulario "Iniciar Sesión"*/
   .subtitle {
-    font-size: 20px;
-    color: #333;
+    font-size: 25px;
     margin-bottom: 25px;
     text-align: center;
+    color: var(--color-darkslategray-100);
+    font-family: var(--font-playfair-display);
+    font-weight: bold;
   }
   
   /* Grupo de campos del formulario */
@@ -59,10 +85,12 @@
   
   /* Etiqueta de los campos */
   .label {
+    margin-top: 30px;
     display: block;
     margin-bottom: 8px;
     font-weight: 500;
-    color: #333;
+    color: var(--color-darkslategray-100);
+    font-weight: bold;
   }
   
   /* Estilo de los campos de entrada */
@@ -96,24 +124,23 @@
     display: block;
     text-align: right;
     margin: 10px 0 20px;
-    color: #666;
+    color: #2e7d32;
     text-decoration: none;
     font-size: 14px;
   }
   
   /* Botón de inicio de sesión */
   .loginButton {
-    width: 100%;
-    padding: 12px;
-    background-color: #2e7d32; /* Verde */
+    padding: 8px 16px; /* Reduce el tamaño del botón */
+    background-color: var(--color-yellowgreen);
     color: white;
     border: none;
-    border-radius: 4px;
-    font-size: 16px;
+    border-radius: 15px; /* Hace los bordes más redondeados */
+    font-size: 14px;
     font-weight: 500;
     cursor: pointer;
-    margin-bottom: 20px;
-    transition: background-color 0.3s ease; /* Animación suave al pasar el mouse */
+    transition: background-color 0.3s ease;
+    width: fit-content; /* Para que no ocupe todo el ancho */
   }
   
   /* Cambio de color del botón al pasar el mouse */
@@ -123,6 +150,7 @@
   
   /* Texto debajo del botón, invitación a crear cuenta */
   .signupPrompt {
+    margin-top: 30px;
     text-align: center;
     color: #666;
     font-size: 14px;
@@ -134,5 +162,18 @@
     font-weight: 500;
     margin-left: 5px;
     text-decoration: none;
+    display: flex;
+    flex-direction: column; /* Hace que el ¿Aún no tienes una cuenta? y el Crear una cuenta  se apilen verticalmente */
+    align-items: center; /* Centra horizontalmente */
+    gap: 0.5rem;
+    
+  }
+
+  .actionsRow {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center; /* o center / start, según tu diseño */
+    align-items: center;
+    gap: 1rem; /* Espacio entre ellos */
   }
   

@@ -5,19 +5,20 @@ import { useState } from "react";
 
 const VistaInicioDeSesion: FunctionComponent = () => {
     const [showPassword, setShowPassword] = useState(false); // Estado para controlar la visibilidad
-
     const togglePasswordVisibility = () => {
-      setShowPassword(!showPassword); // Alternar entre true/false
+      setShowPassword(!showPassword); // Alternar entre true/false mostrar la contraseña
     }; 
     return (
     <div className={styles.container}>
-      {/* Logo y marca */}
-      <div className={styles.header}>
-        <img className={styles.logo} src="/icon2.svg" alt="Logo" />
-        <h1 className={styles.title}>Veterinaria <span>MascoHogar</span></h1>
-      </div>
 
-      {/* Formulario de inicio de sesión */}
+        <div className={styles.brand}>
+        <img className={styles.logo} src="/icon.svg" alt="Logo" />
+        <div className={styles.textContainer}>
+            <span className={styles.veterinaria}>Veterinaria</span>
+            <span className={styles.mascohogar}>MascoHogar</span>
+        </div>
+        </div>
+
       <div className={styles.formContainer}>
         <h2 className={styles.subtitle}>Iniciar sesión</h2>
         
@@ -47,9 +48,10 @@ const VistaInicioDeSesion: FunctionComponent = () => {
           </div>
         </div>
 
-        <a href="#" className={styles.forgotPassword}>¿Has olvidado tu contraseña?</a>
-
-        <button className={styles.loginButton}>Iniciar sesión</button>
+        <div className={styles.actionsRow}>
+            <a href="#" className={styles.forgotPassword}>¿Has olvidado tu contraseña?</a>
+            <button className={styles.loginButton}>Iniciar sesión</button>
+        </div>
 
         <div className={styles.signupPrompt}>
           <span>¿Aún no tienes una cuenta?</span>
