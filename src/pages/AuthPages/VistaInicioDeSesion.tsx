@@ -1,8 +1,15 @@
 import { FunctionComponent } from "react";
 import styles from "./VistaInicioDeSesion.module.css";
+import { useState } from "react";
+
 
 const VistaInicioDeSesion: FunctionComponent = () => {
-  return (
+    const [showPassword, setShowPassword] = useState(false); // Estado para controlar la visibilidad
+
+    const togglePasswordVisibility = () => {
+      setShowPassword(!showPassword); // Alternar entre true/false
+    }; 
+    return (
     <div className={styles.container}>
       {/* Logo y marca */}
       <div className={styles.header}>
@@ -28,11 +35,14 @@ const VistaInicioDeSesion: FunctionComponent = () => {
           <div className={styles.passwordInput}>
             <input 
               className={styles.input} 
-              type="password" 
+              type={showPassword ? "text" : "password"}
               placeholder="Ingresa tu contraseña" 
             />
-            <button className={styles.showPassword}>
-              <img src="/eyefill.svg" alt="Mostrar contraseña" />
+            <button type="button"  className={styles.showPassword} onClick={togglePasswordVisibility}>
+                <img       
+                    src={showPassword ? "/eye-slash.svg" : "/eyefill.svg"} 
+                    alt={showPassword ? "Ocultar contraseña" : "Mostrar contraseña"} 
+                />
             </button>
           </div>
         </div>
