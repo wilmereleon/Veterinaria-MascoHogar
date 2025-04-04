@@ -3,7 +3,9 @@
         display: flex;
         flex-direction: column;
         min-height: 100vh;
+        height: 100vh; /* Cambiado de min-height a height fijo */
         background-color: #f5f5f5;
+        
     }
     
     .navbar {
@@ -35,17 +37,20 @@
         flex: 1;
         padding: 2rem;
         gap: 2rem;
+        align-items: stretch;
     }
     
-    /* Columna izquierda - Bienvenida (ahora más ancha) */
+    /* Columna izquierda - Bienvenida  */
     .welcomeColumn {
         flex: 1;
-        min-width: 400px; /* Ancho similar al anterior servicesColumn */
+        min-width: 400px; 
+        display: flex; /* añadido */
+        flex-direction: column; /* para que el contenido siga en columna */
     }
     
-    /* Columna derecha - Servicios (ahora más estrecha) */
+    /* Columna derecha - Servicios  */
     .servicesColumn {
-        width: 350px; /* Ancho similar al anterior welcomeColumn */
+        width: 350px; 
         display: flex;
         flex-direction: column;
         gap: 2rem;
@@ -62,8 +67,10 @@
     }
     
     .welcomeTitle {
-        color: #2e7d32;
-        font-size: 1.8rem;
+        color: var(--color-darkslategray-100);
+        font-family: var(--font-playfair-display);
+        font-weight: bold;
+        font-size: 4rem;
         margin-bottom: 0.5rem;
     }
     
@@ -86,7 +93,7 @@
     
     .petsImage {
         margin-top: auto;
-        text-align: center;
+        text-align: right;
     }
     
     .petsImage img {
