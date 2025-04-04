@@ -14,7 +14,11 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "baseUrl": "./src", // Establece la base de las rutas absolutas
+    "paths": {
+      "*": ["*"] // Permite resolver rutas absolutas desde "src"
+    }
   },
   "include": ["src", "vite.config.mts"]
 }

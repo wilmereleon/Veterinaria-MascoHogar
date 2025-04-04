@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Routes, Route, useNavigationType, useLocation, Navigate } from "react-router-dom";
 import VeterinariaMascoHogar from "./pages/Home/VeterinariaMascoHogar";
 import PaginaDeNoticias from "./pages/News/PginaDeNoticias"; // Importación de la página de noticias
-import VistaInicioDeSesion from "./pages/AuthPages/VistaInicioDeSesion";
+import VistaInicioDeSesion from "./pages/AuthPages/VistaInicioDeSesion"; // Ruta corregida
 
 function App() {
   const action = useNavigationType();
@@ -57,7 +57,7 @@ function App() {
       />
       <Route 
         path="/login" 
-        element={<VistaInicioDeSesion />} 
+        element={<VistaInicioDeSesion />} // Ruta corregida
       />
     </Routes>
   );
