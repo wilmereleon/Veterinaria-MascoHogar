@@ -3,6 +3,7 @@ import { Routes, Route, useNavigationType, useLocation, Navigate } from "react-r
 import VeterinariaMascoHogar from "./pages/Home/VeterinariaMascoHogar";
 import PaginaDeNoticias from "./pages/News/PginaDeNoticias"; // Importación de la página de noticias
 import VistaInicioDeSesion from "./pages/AuthPages/VistaInicioDeSesion"; // Ruta corregida
+import VistaDeEntornoDeSesionUsu from "./pages/VistaDeEntornoDeSesionUsu";
 
 function App() {
   const action = useNavigationType();
@@ -28,7 +29,11 @@ function App() {
     } else if (pathname === "/login") {
       title = "Iniciar Sesión - Veterinaria MascoHogar";
       metaDescription = "Accede a tu cuenta en Veterinaria MascoHogar.";
+    } else if (pathname === "/entorno-sesion") {
+      title = "Bienvenido - Veterinaria MascoHogar";
+      metaDescription = "Bienvenido a Veterinaria MascoHogar, Gestiona tus necesidades";
     }
+    
 
     document.title = title;
 
@@ -58,6 +63,10 @@ function App() {
       <Route 
         path="/login" 
         element={<VistaInicioDeSesion />} // Ruta corregida
+      />
+      <Route 
+        path="/entorno-sesion" 
+        element={<VistaDeEntornoDeSesionUsu />} 
       />
     </Routes>
   );
