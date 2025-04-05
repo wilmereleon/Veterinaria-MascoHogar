@@ -5,7 +5,9 @@ import styles from "./TypeFloatingHeaderWithNavi.module.css";
 const TypeFloatingHeaderWithNavi: FunctionComponent = () => {
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false); // Estado para controlar el menú desplegable
-  const isAuthenticated = localStorage.getItem("isAuthenticated") === "true"; // Verifica si el usuario está autenticado
+  const [isAuthenticated, setIsAuthenticated] = useState(
+    localStorage.getItem("isAuthenticated") === "true"
+  ); // Estado para verificar si el usuario está autenticado
   const [username, setUsername] = useState<string>(""); // Estado para almacenar el nombre del usuario
 
   // Obtener el nombre del usuario desde localStorage al cargar el componente
@@ -42,9 +44,9 @@ const TypeFloatingHeaderWithNavi: FunctionComponent = () => {
   const onLogoutClick = useCallback(() => {
     localStorage.removeItem("isAuthenticated"); // Elimina el estado de autenticación
     localStorage.removeItem("username"); // Elimina el nombre del usuario
-    setIsMenuOpen(false); // Cerrar el menú al cerrar sesión
-    navigate("/login"); // Redirige al inicio de sesión
-  }, [navigate]);
+    setIsAuthenticated(false); // Actualiza el estado de autenticación
+    setIsMenuOpen(false); // Cierra el menú desplegable
+  }, []);
 
   // Navegar a la página de inicio de sesión
   const onLoginClick = useCallback(() => {
