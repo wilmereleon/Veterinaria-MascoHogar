@@ -2,34 +2,77 @@ import { FunctionComponent, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom"; // Para redirigir al usuario
 import styles from "./VistaInicioDeSesion.module.css";
 
+/**
+ * Componente `VistaInicioDeSesion`.
+ *
+ * Este componente representa la página de inicio de sesión para los usuarios.
+ * Permite a los usuarios ingresar sus credenciales (correo y contraseña) para autenticarse.
+ * Si las credenciales son correctas, el usuario es redirigido a la página previa o al Home.
+ *
+ * @component
+ * @returns {JSX.Element} La vista de inicio de sesión.
+ */
 const VistaInicioDeSesion: FunctionComponent = () => {
-  const [showPassword, setShowPassword] = useState(false); // Estado para controlar la visibilidad de la contraseña
-  const [email, setEmail] = useState(""); // Estado para el correo
-  const [password, setPassword] = useState(""); // Estado para la contraseña
-  const navigate = useNavigate(); // Hook para redirigir al usuario
-  const location = useLocation(); // Para obtener la ruta previa
+  /**
+   * Estado para controlar la visibilidad de la contraseña.
+   * @type {boolean}
+   */
+  const [showPassword, setShowPassword] = useState(false);
 
-  // Usuario administrador para pruebas
+  /**
+   * Estado para almacenar el correo ingresado por el usuario.
+   * @type {string}
+   */
+  const [email, setEmail] = useState("");
+
+  /**
+   * Estado para almacenar la contraseña ingresada por el usuario.
+   * @type {string}
+   */
+  const [password, setPassword] = useState("");
+
+  /**
+   * Hook para redirigir al usuario a otra página.
+   * @type {Function}
+   */
+  const navigate = useNavigate();
+
+  /**
+   * Hook para obtener la ubicación previa del usuario.
+   * @type {Object}
+   */
+  const location = useLocation();
+
+  /**
+   * Usuario administrador para pruebas.
+   * @type {{ email: string, password: string }}
+   */
   const adminUser = {
     email: "admin",
     password: "1234",
   };
 
-  // Alternar la visibilidad de la contraseña
+  /**
+   * Alterna la visibilidad de la contraseña.
+   */
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
 
-  // Manejar el inicio de sesión
+  /**
+   * Maneja el inicio de sesión.
+   * Valida las credenciales ingresadas por el usuario.
+   * Si las credenciales son correctas, guarda el estado de autenticación y redirige al usuario.
+   * Si las credenciales son incorrectas, muestra un mensaje de error.
+   */
   const handleLogin = () => {
     // Validar las credenciales
     if (email === adminUser.email && password === adminUser.password) {
-      // Guardar el estado de autenticación (puedes usar localStorage o un contexto global)
+      // Guardar el estado de autenticación
       localStorage.setItem("isAuthenticated", "true");
 
-      // Redirigir al usuario a la página previa o al Home
-      const redirectPath = location.state?.from || "/veterinaria-mascohogar-pc-home";
-      navigate(redirectPath); // Redirige al usuario
+      // Redirigir al usuario a la página de entorno de sesión del usuario
+      navigate("/clientes-pages/vista-entorno-sesion-usuario");
     } else {
       alert("Correo o contraseña incorrectos"); // Muestra un mensaje de error
     }

@@ -3,43 +3,96 @@ import Row from "./Row";
 import { useNavigate, useLocation } from "react-router-dom";
 import styles from "./Reviews.module.css";
 
+/**
+ * Tipo de las props para el componente `Reviews`.
+ */
 export type ReviewsType = {
+  /** Clase CSS adicional para personalizar el estilo del componente. */
   className?: string;
 };
 
+/**
+ * Componente `Reviews`.
+ *
+ * Este componente permite a los usuarios ver comentarios existentes y agregar nuevos comentarios.
+ * Si el usuario no está autenticado, será redirigido a la página de inicio de sesión antes de poder comentar.
+ *
+ * @component
+ * @param {ReviewsType} props - Props del componente.
+ * @param {string} [props.className] - Clase CSS adicional para personalizar el estilo.
+ * @returns {JSX.Element} El componente `Reviews`.
+ */
 const Reviews: FunctionComponent<ReviewsType> = ({ className = "" }) => {
+  /**
+   * Hook para navegar entre rutas.
+   * @type {Function}
+   */
   const navigate = useNavigate();
-  const location = useLocation();
-  const [comment, setComment] = useState(""); // Estado para manejar el texto ingresado
-  const [isAuthenticated, setIsAuthenticated] = useState(false); // Estado para verificar si el usuario está autenticado
-  const [username, setUsername] = useState("Usuario"); // Estado para almacenar el nombre del usuario autenticado
-  const [commentsList, setCommentsList] = useState<{ user: string; text: string }[]>([]); // Lista de comentarios
 
-  // Verificar si el usuario está autenticado al cargar el componente
+  /**
+   * Hook para obtener la ubicación actual.
+   * @type {Object}
+   */
+  const location = useLocation();
+
+  /**
+   * Estado para manejar el texto ingresado en el campo de comentarios.
+   * @type {string}
+   */
+  const [comment, setComment] = useState("");
+
+  /**
+   * Estado para verificar si el usuario está autenticado.
+   * @type {boolean}
+   */
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  /**
+   * Estado para almacenar el nombre del usuario autenticado.
+   * @type {string}
+   */
+  const [username, setUsername] = useState("Usuario");
+
+  /**
+   * Lista de comentarios ingresados por los usuarios.
+   * @type {Array<{ user: string, text: string }>}
+   */
+  const [commentsList, setCommentsList] = useState<{ user: string; text: string }[]>([]);
+
+  /**
+   * Efecto para verificar si el usuario está autenticado al cargar el componente.
+   * También obtiene el nombre del usuario desde `localStorage`.
+   */
   useEffect(() => {
     const authStatus = localStorage.getItem("isAuthenticated") === "true";
     setIsAuthenticated(authStatus);
 
-    // Obtener el nombre del usuario autenticado desde localStorage
     const storedUsername = localStorage.getItem("username") || "Usuario";
-    setUsername(storedUsername); // Actualizar el estado con el nombre del usuario logueado
+    setUsername(storedUsername);
   }, []);
 
+  /**
+   * Maneja el cambio de texto en el campo de comentarios.
+   * @param {React.ChangeEvent<HTMLTextAreaElement>} event - Evento de cambio del campo de texto.
+   */
   const handleCommentChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setComment(event.target.value); // Actualiza el estado con el texto ingresado
+    setComment(event.target.value);
   };
 
+  /**
+   * Maneja el envío del comentario.
+   * Si el usuario no está autenticado, lo redirige a la página de inicio de sesión.
+   * Si el campo de comentarios está vacío, muestra una alerta.
+   * Si todo es válido, agrega el comentario a la lista y limpia el campo de texto.
+   */
   const handleCommentSubmit = useCallback(() => {
     if (!isAuthenticated) {
-      // Si el usuario no está autenticado, redirige a la página de inicio de sesión
-      navigate("/login", { state: { from: location.pathname } }); // Guarda la ruta previa
+      navigate("/login", { state: { from: location.pathname } });
     } else if (comment.trim() === "") {
-      // Validar si el campo de comentarios está vacío
       alert("Por favor, escribe un comentario antes de enviarlo.");
     } else {
-      // Agregar el comentario a la lista
       setCommentsList((prevComments) => [...prevComments, { user: username, text: comment }]);
-      setComment(""); // Limpia el campo de comentario después de enviarlo
+      setComment("");
     }
   }, [isAuthenticated, comment, username, navigate, location.pathname]);
 
@@ -63,7 +116,7 @@ const Reviews: FunctionComponent<ReviewsType> = ({ className = "" }) => {
         {commentsList.map((commentItem, index) => (
           <Row
             key={index}
-            avatar="/avatar3@2x.png" // Puedes usar un avatar genérico o personalizado
+            avatar="/avatar3@2x.png"
             title={commentItem.user}
             title1={commentItem.text}
           />
@@ -78,7 +131,7 @@ const Reviews: FunctionComponent<ReviewsType> = ({ className = "" }) => {
                   src="/avatar3@2x.png"
                 />
                 <div className={styles.titleWrapper}>
-                  <div className={styles.title}>{username}</div> {/* Mostrar el nombre del usuario logueado */}
+                  <div className={styles.title}>{username}</div>
                 </div>
               </div>
               <img
@@ -92,7 +145,7 @@ const Reviews: FunctionComponent<ReviewsType> = ({ className = "" }) => {
               className={styles.commentInput}
               placeholder="Ingresa tu comentario"
               value={comment}
-              onChange={handleCommentChange} // Maneja el cambio de texto
+              onChange={handleCommentChange}
             />
           </div>
         </div>

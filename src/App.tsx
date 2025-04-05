@@ -3,7 +3,7 @@ import { Routes, Route, useNavigationType, useLocation, Navigate } from "react-r
 import VeterinariaMascoHogar from "./pages/Home/VeterinariaMascoHogar";
 import PaginaDeNoticias from "./pages/News/PginaDeNoticias"; // Importación de la página de noticias
 import VistaInicioDeSesion from "./pages/AuthPages/VistaInicioDeSesion"; // Ruta corregida
-import VistaDeEntornoDeSesionUsu from "./pages/VistaDeEntornoDeSesionUsu";
+import VistaDeEntornoDeSesionUsu from "./pages/ClientesPages/VistaDeEntornoDeSesionUsu";
 
 function App() {
   const action = useNavigationType();

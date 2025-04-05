@@ -2,17 +2,36 @@ import { FunctionComponent } from "react";
 import Article from "./Article";
 import styles from "./Contents.module.css";
 
+/**
+ * Tipo de las props para el componente `Contents`.
+ */
 export type ContentsType = {
+  /** Clase CSS adicional para personalizar el estilo del componente. */
   className?: string;
 };
 
+/**
+ * Componente `Contents`.
+ *
+ * Este componente representa una sección de contenido que incluye un título principal,
+ * texto descriptivo, una lista de beneficios y varios artículos relacionados.
+ *
+ * @component
+ * @param {ContentsType} props - Props del componente.
+ * @param {string} [props.className] - Clase CSS adicional para personalizar el estilo.
+ * @returns {JSX.Element} El componente `Contents`.
+ */
 const Contents: FunctionComponent<ContentsType> = ({ className = "" }) => {
   return (
     <div className={[styles.contents, className].join(" ")}>
+      {/* Contenedor principal del contenido */}
       <div className={styles.container}>
+        {/* Título principal */}
         <b className={styles.title}>
           Desparasitación en gatos de casa: importancia y síntomas a vigilar
         </b>
+
+        {/* Texto descriptivo */}
         <div className={styles.laSaludDeContainer}>
           <p className={styles.laSaludDeNuestrosGatosEs}>
             <span>
@@ -27,14 +46,20 @@ const Contents: FunctionComponent<ContentsType> = ({ className = "" }) => {
               </span>
             </span>
           </p>
+
+          {/* Línea en blanco */}
           <p className={styles.blankLine}>
             <span>
               <b>&nbsp;</b>
             </span>
           </p>
+
+          {/* Subtítulo */}
           <p className={styles.porQuEsImportanteLaDespa}>
             <b>¿Por qué es importante la desparasitación?</b>
           </p>
+
+          {/* Texto adicional */}
           <p className={styles.losGatosIncluso}>
             Los gatos, incluso aquellos que viven exclusivamente en casa, pueden
             estar expuestos a parásitos de diversas maneras. Los parásitos
@@ -46,6 +71,8 @@ const Contents: FunctionComponent<ContentsType> = ({ className = "" }) => {
             solo molestias y picazón, sino también la transmisión de
             enfermedades.
           </p>
+
+          {/* Lista de beneficios */}
           <p className={styles.losGatosIncluso}>
             Una desparasitación regular y oportuna es fundamental para:
           </p>
@@ -66,13 +93,18 @@ const Contents: FunctionComponent<ContentsType> = ({ className = "" }) => {
               </span>
             </li>
             <li className={styles.mejorarLaCalidadDeVidaAl}>
-              <span
-                className={styles.laSaludDe}
-              >{`Proteger a la familia: Algunos parásitos tienen potencial zoonótico, lo que significa que pueden transmitirse de los animales a los humanos. Mantener a raya estas infestaciones protege también la salud de todos los integrantes del hogar. `}</span>
+              <span className={styles.laSaludDe}>
+                Proteger a la familia: Algunos parásitos tienen potencial
+                zoonótico, lo que significa que pueden transmitirse de los
+                animales a los humanos. Mantener a raya estas infestaciones
+                protege también la salud de todos los integrantes del hogar.
+              </span>
             </li>
           </ul>
         </div>
       </div>
+
+      {/* Lista de artículos relacionados */}
       <div className={styles.list}>
         <div className={styles.row}>
           <Article
@@ -91,16 +123,14 @@ const Contents: FunctionComponent<ContentsType> = ({ className = "" }) => {
           articleFlex="unset"
           articleAlignSelf="stretch"
           imageContainerBackgroundImage="url('/image-container2@3x.png')"
-          title="Cómo mantener a tu gato activo y feliz dentro de casa
-"
+          title="Cómo mantener a tu gato activo y feliz dentro de casa"
           subtitle="Ideas de juegos, accesorios y actividades para combatir el aburrimiento y fomentar su bienestar."
         />
         <Article
           articleFlex="unset"
           articleAlignSelf="stretch"
           imageContainerBackgroundImage="url('/image-container3@3x.png')"
-          title="Importancia de las visitas regulares al veterinario para gatos interiores
-"
+          title="Importancia de las visitas regulares al veterinario para gatos interiores"
           subtitle="Infórmate sobre las ventajas de los chequeos periódicos para prevenir enfermedades y cuidar la salud de tu mascota."
         />
         <Article
@@ -111,6 +141,8 @@ const Contents: FunctionComponent<ContentsType> = ({ className = "" }) => {
           subtitle="Aprende a identificar el estrés en tu mascota y las mejores formas de mantener su bienestar emocional."
         />
       </div>
+
+      {/* Imagen decorativa */}
       <img className={styles.contentsChild} alt="" src="/vector-200.svg" />
     </div>
   );

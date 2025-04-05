@@ -2,15 +2,46 @@ import { FunctionComponent, useState, useCallback, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./TypeFloatingHeaderWithNavi.module.css";
 
+/**
+ * Componente de encabezado flotante con navegación.
+ *
+ * Este componente incluye un menú de navegación adaptable para pantallas grandes y móviles.
+ * Permite a los usuarios autenticarse, navegar entre páginas y cerrar sesión.
+ *
+ * @component
+ * @returns {JSX.Element} El encabezado con navegación.
+ */
 const TypeFloatingHeaderWithNavi: FunctionComponent = () => {
-  const navigate = useNavigate();
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // Estado para controlar el menú desplegable
+  /**
+   * Estado para controlar si el menú desplegable está abierto.
+   * @type {boolean}
+   */
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  /**
+   * Estado para verificar si el usuario está autenticado.
+   * @type {boolean}
+   */
   const [isAuthenticated, setIsAuthenticated] = useState(
     localStorage.getItem("isAuthenticated") === "true"
-  ); // Estado para verificar si el usuario está autenticado
-  const [username, setUsername] = useState<string>(""); // Estado para almacenar el nombre del usuario
+  );
 
-  // Obtener el nombre del usuario desde localStorage al cargar el componente
+  /**
+   * Estado para almacenar el nombre del usuario autenticado.
+   * @type {string}
+   */
+  const [username, setUsername] = useState<string>("");
+
+  /**
+   * Hook para navegar entre rutas.
+   * @type {Function}
+   */
+  const navigate = useNavigate();
+
+  /**
+   * Obtiene el nombre del usuario desde localStorage al cargar el componente.
+   * Actualiza el estado `username` si el usuario está autenticado.
+   */
   useEffect(() => {
     if (isAuthenticated) {
       const storedUsername = localStorage.getItem("username") || "Usuario";
@@ -18,46 +49,62 @@ const TypeFloatingHeaderWithNavi: FunctionComponent = () => {
     }
   }, [isAuthenticated]);
 
+  /**
+   * Alterna el estado del menú desplegable.
+   */
   const toggleMenu = () => {
-    setIsMenuOpen((prev) => !prev); // Alternar el estado del menú
+    setIsMenuOpen((prev) => !prev);
   };
 
-  // Navegar a la página de inicio
+  /**
+   * Navega a la página de inicio.
+   */
   const onHomeClick = useCallback(() => {
     navigate("/veterinaria-mascohogar-pc-home");
-    setIsMenuOpen(false); // Cerrar el menú al navegar
+    setIsMenuOpen(false);
   }, [navigate]);
 
-  // Navegar a la página "Acerca de"
+  /**
+   * Navega a la página "Acerca de".
+   */
   const onAboutClick = useCallback(() => {
     navigate("/about");
-    setIsMenuOpen(false); // Cerrar el menú al navegar
+    setIsMenuOpen(false);
   }, [navigate]);
 
-  // Navegar a la página "Equipo"
+  /**
+   * Navega a la página "Equipo".
+   */
   const onTeamClick = useCallback(() => {
     navigate("/team");
-    setIsMenuOpen(false); // Cerrar el menú al navegar
+    setIsMenuOpen(false);
   }, [navigate]);
 
-  // Cerrar sesión
+  /**
+   * Cierra la sesión del usuario.
+   * Elimina los datos de autenticación del localStorage y actualiza el estado.
+   */
   const onLogoutClick = useCallback(() => {
-    localStorage.removeItem("isAuthenticated"); // Elimina el estado de autenticación
-    localStorage.removeItem("username"); // Elimina el nombre del usuario
-    setIsAuthenticated(false); // Actualiza el estado de autenticación
-    setIsMenuOpen(false); // Cierra el menú desplegable
+    localStorage.removeItem("isAuthenticated");
+    localStorage.removeItem("username");
+    setIsAuthenticated(false);
+    setIsMenuOpen(false);
   }, []);
 
-  // Navegar a la página de inicio de sesión
+  /**
+   * Navega a la página de inicio de sesión.
+   */
   const onLoginClick = useCallback(() => {
     navigate("/login");
-    setIsMenuOpen(false); // Cerrar el menú al navegar
+    setIsMenuOpen(false);
   }, [navigate]);
 
-  // Navegar a la página de registro
+  /**
+   * Navega a la página de registro.
+   */
   const onRegisterClick = useCallback(() => {
     navigate("/register");
-    setIsMenuOpen(false); // Cerrar el menú al navegar
+    setIsMenuOpen(false);
   }, [navigate]);
 
   return (

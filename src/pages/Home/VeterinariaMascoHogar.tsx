@@ -8,14 +8,28 @@ import TypeImageGridTitleDescri from "../../components/TypeImageGridTitleDescri"
 import Property1SoftwareHeroTripl from "../../components/Property1SoftwareHeroTripl"; // Sección destacada con contenido promocional
 import TypeSubscribePillInputCT from "../../components/TypeSubscribePillInputCT"; // Formulario de suscripción
 import styles from "./VeterinariaMascoHogar.module.css"; // Estilos específicos para este componente
-import VistaInicioDeSesion from "../AuthPages/VistaInicioDeSesion"; // Ruta corregida
 
-// Componente principal de la página de inicio
+/**
+ * Componente `VeterinariaMascoHogar`.
+ *
+ * Este componente representa la página principal de la veterinaria MascoHogar.
+ * Incluye un encabezado flotante, secciones con contenido promocional, imágenes,
+ * testimonios, un formulario de suscripción y un pie de página con enlaces legales.
+ *
+ * @component
+ * @returns {JSX.Element} La página principal de Veterinaria MascoHogar.
+ */
 const VeterinariaMascoHogar: FunctionComponent = () => {
-  // Referencia al elemento <video> para controlar su reproducción
+  /**
+   * Referencia al elemento `<video>` para controlar su reproducción.
+   * @type {React.RefObject<HTMLVideoElement>}
+   */
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  // Función para manejar el clic en el video
+  /**
+   * Maneja el clic en el video.
+   * Si el video está pausado, lo reproduce. Si está reproduciéndose, lo pausa.
+   */
   const handleVideoClick = () => {
     if (videoRef.current) {
       if (videoRef.current.paused) {
