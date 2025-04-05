@@ -5,17 +5,48 @@ import PaginaDeNoticias from "./pages/News/PginaDeNoticias"; // Importación de 
 import VistaInicioDeSesion from "./pages/AuthPages/VistaInicioDeSesion"; // Ruta corregida
 import VistaDeEntornoDeSesionUsu from "./pages/ClientesPages/VistaDeEntornoDeSesionUsu";
 
+/**
+ * Componente principal `App`.
+ *
+ * Este componente define las rutas principales de la aplicación y gestiona el comportamiento global,
+ * como el desplazamiento al inicio de la página al navegar y la actualización dinámica del título
+ * y la meta descripción de la página según la ruta actual.
+ *
+ * @component
+ * @returns {JSX.Element} El componente principal de la aplicación.
+ */
 function App() {
+  /**
+   * Tipo de navegación actual (e.g., "POP", "PUSH").
+   * @type {string}
+   */
   const action = useNavigationType();
+
+  /**
+   * Información sobre la ubicación actual en la aplicación.
+   * @type {object}
+   */
   const location = useLocation();
+
+  /**
+   * Ruta actual de la aplicación.
+   * @type {string}
+   */
   const pathname = location.pathname;
 
+  /**
+   * Efecto que desplaza la página al inicio al cambiar de ruta, excepto en navegaciones "POP".
+   */
   useEffect(() => {
     if (action !== "POP") {
       window.scrollTo(0, 0);
     }
   }, [action, pathname]);
 
+  /**
+   * Efecto que actualiza dinámicamente el título y la meta descripción de la página
+   * según la ruta actual.
+   */
   useEffect(() => {
     let title = "Veterinaria MascoHogar - Inicio"; // Título predeterminado
     let metaDescription = "Bienvenido a Veterinaria MascoHogar."; // Meta descripción predeterminada
@@ -33,10 +64,11 @@ function App() {
       title = "Bienvenido - Veterinaria MascoHogar";
       metaDescription = "Bienvenido a Veterinaria MascoHogar, Gestiona tus necesidades";
     }
-    
 
+    // Actualiza el título de la página
     document.title = title;
 
+    // Actualiza la meta descripción de la página
     const metaDescriptionTag: HTMLMetaElement | null = document.querySelector(
       'head > meta[name="description"]'
     );
