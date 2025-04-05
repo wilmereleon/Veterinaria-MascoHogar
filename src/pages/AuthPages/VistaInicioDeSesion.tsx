@@ -1,5 +1,5 @@
 import { FunctionComponent, useState } from "react";
-import { useNavigate } from "react-router-dom"; // Para redirigir al usuario
+import { useNavigate, useLocation } from "react-router-dom"; // Para redirigir al usuario
 import styles from "./VistaInicioDeSesion.module.css";
 
 const VistaInicioDeSesion: FunctionComponent = () => {
@@ -7,6 +7,13 @@ const VistaInicioDeSesion: FunctionComponent = () => {
   const [email, setEmail] = useState(""); // Estado para el correo
   const [password, setPassword] = useState(""); // Estado para la contraseña
   const navigate = useNavigate(); // Hook para redirigir al usuario
+  const location = useLocation(); // Para obtener la ruta previa
+
+  // Usuario administrador para pruebas
+  const adminUser = {
+    email: "admin",
+    password: "1234",
+  };
 
   // Alternar la visibilidad de la contraseña
   const togglePasswordVisibility = () => {
@@ -15,9 +22,14 @@ const VistaInicioDeSesion: FunctionComponent = () => {
 
   // Manejar el inicio de sesión
   const handleLogin = () => {
-    // Validar las credenciales (puedes reemplazar esto con una llamada a tu API)
-    if (email === "usuario@ejemplo.com" && password === "123456") {
-      navigate("/veterinaria-mascohogar-pc-home"); // Redirige al usuario a la página principal
+    // Validar las credenciales
+    if (email === adminUser.email && password === adminUser.password) {
+      // Guardar el estado de autenticación (puedes usar localStorage o un contexto global)
+      localStorage.setItem("isAuthenticated", "true");
+
+      // Redirigir al usuario a la página previa o al Home
+      const redirectPath = location.state?.from || "/veterinaria-mascohogar-pc-home";
+      navigate(redirectPath); // Redirige al usuario
     } else {
       alert("Correo o contraseña incorrectos"); // Muestra un mensaje de error
     }
@@ -47,7 +59,7 @@ const VistaInicioDeSesion: FunctionComponent = () => {
           <input
             id="email"
             className={styles.input}
-            type="email"
+            type="text"
             placeholder="Ingresa tu correo"
             value={email}
             onChange={(e) => setEmail(e.target.value)} // Actualiza el estado del correo
@@ -87,7 +99,7 @@ const VistaInicioDeSesion: FunctionComponent = () => {
           <a href="#" className={styles.forgotPassword}>¿Has olvidado tu contraseña?</a>
           <button
             className={styles.loginButton}
-            type="button" // Cambiado a "button" para evitar el comportamiento predeterminado de envío
+            type="button"
             onClick={handleLogin} // Maneja el clic en el botón
           >
             Iniciar sesión

@@ -44,6 +44,7 @@
 .navLabel {
   position: relative;
   line-height: 160%;
+  transition: color 0.3s ease; /* Transición suave para el cambio de color */
 }
 .navLink {
   align-self: stretch;
@@ -52,6 +53,10 @@
   align-items: center;
   justify-content: flex-start;
   padding: 0px var(--padding-base);
+  cursor: pointer; /* Cambia el cursor al pasar el ratón */
+}
+.navLink:hover .navLabel {
+  color: #1ABD8C; /* Cambia el color del texto al pasar el ratón */
 }
 .textContainer {
   display: flex;
@@ -117,4 +122,14 @@
   font-size: var(--font-size-sm);
   color: var(--color-darkslategray-100);
   font-family: var(--font-helvetica-rounded-lt-std);
+}
+
+/* Estilos para el saludo */
+.greeting {
+  font-family: "Helvetica Rounded LT Std", sans-serif; /* Tipografía */
+  font-size: 28px; /* Tamaño de fuente */
+  color: var(--color-darkslategray); /* Color del texto */
+  margin-right: var(--gap-xs); /* Espaciado a la derecha */
+  display: flex;
+  align-items: center;
 }
