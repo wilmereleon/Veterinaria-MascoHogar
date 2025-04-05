@@ -20,25 +20,17 @@
   width: 100%;
 }
 .brandname {
-  width: 282px;
-  position: relative;
-  line-height: 160%;
-  display: flex;
-  align-items: center;
-  height: 49px;
-  flex-shrink: 0;
+  font-size: var(--font-size-13xl);
+  color: var(--color-darkslategray-100);
+  font-weight: bold;
+  display: block; /* Asegurar que el texto sea visible */
+  margin-left: var(--gap-9xs); /* Alinear el texto a la derecha del logo */
 }
 .brand {
-  width: 390px;
-  border-radius: var(--br-base);
-  background-color: var(--color-mintcream);
-  height: 73px;
   display: flex;
-  flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
-  padding: 0px var(--padding-base) 0px var(--padding-5xs);
-  box-sizing: border-box;
+  justify-content: flex-start; /* Mantener los elementos alineados a la izquierda */
+  width: 100%; /* Asegurar que ocupe todo el ancho disponible */
   gap: var(--gap-9xs);
 }
 .navLabel {
@@ -109,6 +101,7 @@
   font-size: var(--font-size-xs);
   font-family: var(--font-lato);
 }
+/* Estilos generales */
 .typefloatingHeaderWithNavi {
   align-self: stretch;
   display: flex;
@@ -122,6 +115,7 @@
   font-size: var(--font-size-sm);
   color: var(--color-darkslategray-100);
   font-family: var(--font-helvetica-rounded-lt-std);
+  position: relative; /* Necesario para el menú desplegable */
 }
 
 /* Estilos para el saludo */
@@ -132,4 +126,87 @@
   margin-right: var(--gap-xs); /* Espaciado a la derecha */
   display: flex;
   align-items: center;
+}
+
+/* Ícono de hamburguesa */
+.hamburgerIcon {
+  display: none; /* Ocultar en pantallas grandes */
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  fill: #65a30d; /* Asegurar que el color del ícono sea visible */
+  position: relative; /* Asegurar que esté dentro del flujo del contenedor */
+  z-index: 10; /* Asegurar que esté por delante de otros elementos */
+}
+
+/* Mostrar el ícono de hamburguesa en dispositivos móviles */
+@media (max-width: 768px) {
+  .hamburgerIcon {
+    display: block; /* Mostrar el ícono de hamburguesa */
+    margin-right: auto; /* Alinear el ícono a la izquierda */
+  }
+
+  .brand {
+    flex: 1;
+    justify-content: space-between; /* Alinear el ícono de hamburguesa a la izquierda y el logo a la derecha */
+    align-items: center; /* Asegurar que los elementos estén centrados verticalmente */
+    position: relative; /* Asegurar que el contenedor no oculte el ícono */
+    z-index: 5; /* Asegurar que el contenedor no esté por delante del ícono */
+  }
+
+  .brandname {
+    display: block; /* Mostrar el texto del logo en pantallas pequeñas */
+    text-align: right; /* Alinear el texto del logo a la derecha */
+    margin-left: 0; /* Eliminar margen en pantallas pequeñas */
+  }
+
+  .navLinks {
+    display: none; /* Ocultar los enlaces de navegación en pantallas pequeñas */
+  }
+}
+
+/* Menú desplegable */
+.navMenu {
+  display: none; /* Ocultar por defecto */
+  position: absolute;
+  top: 100%; /* Mostrar debajo del header */
+  left: 0;
+  width: 100%;
+  background-color: var(--color-mintcream);
+  flex-direction: column;
+  align-items: flex-start;
+  padding: var(--padding-base);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.navMenu.open {
+  display: flex; /* Mostrar el menú cuando esté abierto */
+}
+
+/* Estilos para los enlaces del menú */
+.navMenuItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--gap-xs);
+  padding: var(--padding-xs) 0;
+  cursor: pointer;
+  font-size: 20px; /* Cambiar tamaño de fuente */
+  font-family: "Lato", sans-serif; /* Cambiar fuente a Lato */
+  color: #059669; /* Cambiar color del texto */
+  text-decoration: none;
+  width: 100%;
+}
+
+.navMenuItem:hover {
+  background-color: var(--color-yellowgreen); /* Cambiar el fondo al pasar el ratón */
+  color: var(--color-mintcream); /* Cambiar el color del texto */
+}
+
+/* Íconos de los enlaces */
+.navMenuIcon {
+  width: 20px;
+  height: 20px;
+  fill: #059669; /* Cambiar color de los íconos */
 }
