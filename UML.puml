@@ -1,0 +1,238 @@
+@startuml
+package "VETERINARIA" {
+    package "dist" {
+        class "index-BuEkPU3T.css" <<CSS>>
+        class "index-Sl8nKEEL.js" <<JavaScript>>
+        class "images environment" <<Folder>>
+    }
+
+    package "img" {
+        class "Recursos gráficos" <<Folder>>
+    }
+
+    package "public" {
+        class "index.html" <<HTML>>
+        class "images" <<Folder>>
+    }
+
+    package "src" {
+        package "components" {
+            package "AuthComponent" {
+                class "LoginForm" <<Component>> {
+                    +handleSubmit(): void
+                    +validateInputs(): boolean
+                }
+                class "RegisterForm" <<Component>> {
+                    +handleRegister(): void
+                    +validateInputs(): boolean
+                }
+                class "AuthUtils" <<Utility>> {
+                    +login(username: string, password: string): boolean
+                    +logout(): void
+                    +isAuthenticated(): boolean
+                }
+            }
+            package "Shared" {
+                class "Button" <<Component>> {
+                    +label: string
+                    +onClick(): void
+                }
+                class "InputField" <<Component>> {
+                    +value: string
+                    +onChange(value: string): void
+                }
+                class "Modal" <<Component>> {
+                    +isOpen: boolean
+                    +toggle(): void
+                }
+            }
+            package "Layout" {
+                class "Header" <<Component>> {
+                    +render(): void
+                }
+                class "Footer" <<Component>> {
+                    +render(): void
+                }
+                class "Sidebar" <<Component>> {
+                    +render(): void
+                }
+            }
+            package "News" {
+                class "Article" <<Component>> {
+                    +className: string
+                    +title: string
+                    +subtitle: string
+                    +articleFlex: CSSProperties["flex"]
+                    +articleAlignSelf: CSSProperties["alignSelf"]
+                    +imageContainerBackgroundImage: CSSProperties["backgroundImage"]
+                    +render(): void
+                }
+                class "Contents" <<Component>> {
+                    +articles: Article[]
+                }
+                class "MainHeader" <<Component>> {
+                    +title: string
+                }
+                class "Reviews" <<Component>> {
+                    -comment: string
+                    -isAuthenticated: boolean
+                    -username: string
+                    -commentsList: { user: string; text: string }[]
+                    +handleCommentChange(event: React.ChangeEvent<HTMLTextAreaElement>): void
+                    +handleCommentSubmit(): void
+                    +render(): void
+                }
+                class "Row" <<Component>> {
+                    +render(): void
+                }
+                class "TypeStackedSimpleFooter" <<Component>> {
+                    +render(): void
+                }
+            }
+            package "CitasComponent" {
+                class "CitasService" <<Service>> {
+                    +createCita(): void
+                    +getCitas(): Cita[]
+                }
+            }
+            package "ClientsComponent" {
+                class "ClientsService" <<Service>> {
+                    +getClients(): Client[]
+                }
+            }
+            package "BillingComponent" {
+                class "BillingService" <<Service>> {
+                    +generateInvoice(): void
+                }
+            }
+            package "MedicalHistoryComponent" {
+                class "MedicalHistoryService" <<Service>> {
+                    +getHistory(): History[]
+                }
+            }
+            package "NotificationComponent" {
+                class "NotificationService" <<Service>> {
+                    +sendNotification(): void
+                }
+            }
+            class "TypeFloatingHeaderWithNavi" <<Component>> {
+                -isMenuOpen: boolean
+                -isAuthenticated: boolean
+                -username: string
+                +toggleMenu(): void
+                +onHomeClick(): void
+                +onAboutClick(): void
+                +onTeamClick(): void
+                +onLogoutClick(): void
+                +onLoginClick(): void
+                +onRegisterClick(): void
+                +render(): void
+            }
+        }
+
+        package "pages" {
+            package "AuthPages" {
+                class "VistaInicioDeSesion" <<Page>> {
+                    -showPassword: boolean
+                    -email: string
+                    -password: string
+                    +togglePasswordVisibility(): void
+                    +handleLogin(): void
+                    +render(): void
+                }
+                class "VistaRegistra" <<Page>> {
+                    +render(): void
+                }
+                class "PasswordRecovery" <<Page>> {
+                    +render(): void
+                }
+            }
+            package "Home" {
+                class "VeterinariaMascoHogar" <<Page>> {
+                    -videoRef: HTMLVideoElement
+                    +handleVideoClick(): void
+                    +render(): void
+                }
+                class "Dashboard" <<Page>> {
+                    +render(): void
+                }
+            }
+            package "CitasPages" {
+                class "GestionCitas" <<Page>> {
+                    +render(): void
+                }
+                class "SolicitarCita" <<Page>> {
+                    +render(): void
+                }
+            }
+            package "ClientesPages" {
+                class "GestionClientes" <<Page>> {
+                    +render(): void
+                }
+                class "DetalleCliente" <<Page>> {
+                    +render(): void
+                }
+            }
+            package "News" {
+                class "PaginaDeNoticias" <<Page>> {
+                    +render(): void
+                }
+                class "PginaDeNoticias" <<Page>> {
+                    +render(): void
+                }
+            }
+        }
+
+        package "styles" {
+            class "global.css" <<CSS>>
+            class "variables.css" <<CSS>>
+            class "mixins.css" <<CSS>>
+        }
+
+        class "App" <<Root>> {
+            +useEffect(): void
+            +render(): void
+        }
+        class "index.tsx" <<EntryPoint>> {
+            +createRoot(container: HTMLElement): void
+            +render(): void
+        }
+        class "reportWebVitals" <<Utility>> {
+            +logPerformance(): void
+        }
+        class "typings.d.ts" <<TypeScript>> {
+            +declare types
+        }
+    }
+
+    package "node_modules" {
+        class "Dependencies" <<Folder>>
+    }
+}
+
+"LoginForm" --> "AuthUtils" : uses
+"RegisterForm" --> "AuthUtils" : uses
+"Header" --> "AuthUtils" : uses
+"Footer" --> "TypeStackedSimpleFooter" : includes
+"VeterinariaMascoHogar" --> "Header" : includes
+"VeterinariaMascoHogar" --> "Footer" : includes
+"VeterinariaMascoHogar" --> "VistaInicioDeSesion" : uses
+"VistaInicioDeSesion" --> "AuthUtils" : uses
+"App" --> "VeterinariaMascoHogar" : routes to
+"App" --> "PaginaDeNoticias" : routes to
+"App" --> "VistaInicioDeSesion" : routes to
+"App" --> "VistaDeEntornoDeSesionUsu" : routes to
+"index.tsx" --> "App" : renders
+"PginaDeNoticias" --> "TypeFloatingHeaderWithNavi" : includes
+"PginaDeNoticias" --> "Contents" : includes
+"PginaDeNoticias" --> "Reviews" : includes
+"PginaDeNoticias" --> "TypeStackedSimpleFooter" : includes
+"Reviews" --> "Row" : includes
+"Contents" --> "Article" : includes
+"GestionCitas" --> "CitasService" : uses
+"GestionClientes" --> "ClientsService" : uses
+"BillingService" --> "MedicalHistoryService" : interacts
+"PaginaDeNoticias" --> "Reviews" : includes
+"PaginaDeNoticias" --> "MainHeader" : includes
+"App" --> "index.tsx" : entry point
+@enduml

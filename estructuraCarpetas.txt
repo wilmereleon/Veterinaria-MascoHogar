@@ -47,7 +47,7 @@ VETERINARIA/
 │   │   ├── MedicalHistoryComponent # Carpeta con componentes para visualizar/gestionar el historial médico (MedicalHistoryService)
 │   │   └── NotificationComponent   # Carpeta con componentes para el manejo de notificaciones (NotificationService)
 │   ├── pages/                      # Vistas o páginas específicas de la aplicación.
-│   │   ├── AuthPages/              # Páginas relacionadas con autenticación
+│   │   ├── Authages/              # Páginas relacionadas con autenticación
 │   │   │   ├── VistaInicioDeSesion.tsx # Página de inicio de sesión
 │   │   │   ├── VistaInicioDeSesion.module.css
 │   │   │   ├── VistaRegistra.tsx   # Página de registro

@@ -3,44 +3,45 @@ import { useNavigate } from "react-router-dom";
 import styles from "./TypeFloatingHeaderWithNavi.module.css";
 
 const TypeFloatingHeaderWithNavi: FunctionComponent = () => {
-  const navigate = useNavigate();
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // Estado para controlar el menú desplegable
+  const navigate = useNavigate(); // Hook para navegar entre rutas
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // Estado para controlar si el menú desplegable está abierto
   const [isAuthenticated, setIsAuthenticated] = useState(
     localStorage.getItem("isAuthenticated") === "true"
   ); // Estado para verificar si el usuario está autenticado
   const [username, setUsername] = useState<string>(""); // Estado para almacenar el nombre del usuario
 
-  // Obtener el nombre del usuario desde localStorage al cargar el componente
+  // Efecto para cargar el nombre del usuario desde localStorage si está autenticado
   useEffect(() => {
     if (isAuthenticated) {
       const storedUsername = localStorage.getItem("username") || "Usuario";
-      setUsername(storedUsername);
+      setUsername(storedUsername); // Establece el nombre del usuario
     }
   }, [isAuthenticated]);
 
+  // Alternar el estado del menú desplegable
   const toggleMenu = () => {
-    setIsMenuOpen((prev) => !prev); // Alternar el estado del menú
+    setIsMenuOpen((prev) => !prev);
   };
 
   // Navegar a la página de inicio
   const onHomeClick = useCallback(() => {
     navigate("/veterinaria-mascohogar-pc-home");
-    setIsMenuOpen(false); // Cerrar el menú al navegar
+    setIsMenuOpen(false); // Cierra el menú al navegar
   }, [navigate]);
 
   // Navegar a la página "Acerca de"
   const onAboutClick = useCallback(() => {
     navigate("/about");
-    setIsMenuOpen(false); // Cerrar el menú al navegar
+    setIsMenuOpen(false); // Cierra el menú al navegar
   }, [navigate]);
 
   // Navegar a la página "Equipo"
   const onTeamClick = useCallback(() => {
     navigate("/team");
-    setIsMenuOpen(false); // Cerrar el menú al navegar
+    setIsMenuOpen(false); // Cierra el menú al navegar
   }, [navigate]);
 
-  // Cerrar sesión
+  // Cerrar sesión del usuario
   const onLogoutClick = useCallback(() => {
     localStorage.removeItem("isAuthenticated"); // Elimina el estado de autenticación
     localStorage.removeItem("username"); // Elimina el nombre del usuario
@@ -51,13 +52,13 @@ const TypeFloatingHeaderWithNavi: FunctionComponent = () => {
   // Navegar a la página de inicio de sesión
   const onLoginClick = useCallback(() => {
     navigate("/login");
-    setIsMenuOpen(false); // Cerrar el menú al navegar
+    setIsMenuOpen(false); // Cierra el menú al navegar
   }, [navigate]);
 
   // Navegar a la página de registro
   const onRegisterClick = useCallback(() => {
     navigate("/register");
-    setIsMenuOpen(false); // Cerrar el menú al navegar
+    setIsMenuOpen(false); // Cierra el menú al navegar
   }, [navigate]);
 
   return (
@@ -90,6 +91,7 @@ const TypeFloatingHeaderWithNavi: FunctionComponent = () => {
           </div>
           {isAuthenticated ? (
             <>
+              {/* Saludo al usuario autenticado */}
               <div className={styles.greeting}>Hola, {username}</div>
               <div className={styles.navLink} onClick={onLogoutClick}>
                 <div className={styles.navLabel}>Cerrar sesión</div>
@@ -97,6 +99,7 @@ const TypeFloatingHeaderWithNavi: FunctionComponent = () => {
             </>
           ) : (
             <>
+              {/* Botones para iniciar sesión o registrarse */}
               <div className={styles.button} onClick={onLoginClick}>
                 <div className={styles.textContainer}>
                   <div className={styles.navLabel}>Iniciar sesión</div>
