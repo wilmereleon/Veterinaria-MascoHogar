@@ -27,7 +27,7 @@ const MainHeader: FunctionComponent<MainHeaderType> = ({ className = "" }) => {
   }, [navigate]);
 
   const onButtonContainerClick = useCallback(() => {
-    navigate("/vista-inicio-de-sesin"); // Redirige a la página de inicio de sesión
+    navigate("/login"); // Redirige a la página de inicio de sesión
   }, [navigate]);
 
   const onButtonContainerClick1 = useCallback(() => {

@@ -1,16 +1,12 @@
 import { FunctionComponent } from "react";
 import styles from "./VistaDeEntornoDeSesionUsu.module.css";
+import HeaderUserView from "../components/VistaUsuario/HeaderUserView";
 
 const VistaDeEntornoDeSesionUsu: FunctionComponent = () => {
   return (
     <div className={styles.dashboard}>
       {/* Navbar */}
-      <nav className={styles.navbar}>
-        <div className={styles.logoContainer}>
-          <img src="/icon3.svg" alt="Logo" className={styles.logo} />
-          <img src="/icon1.png" alt="Logo adicional" className={styles.logoExtra} />
-        </div>
-      </nav>
+      <HeaderUserView />
 
       {/* Contenido principal */}
       <div className={styles.mainContent}>
