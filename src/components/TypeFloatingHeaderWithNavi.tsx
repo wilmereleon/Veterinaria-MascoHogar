@@ -12,46 +12,21 @@ import styles from "./TypeFloatingHeaderWithNavi.module.css";
  * @returns {JSX.Element} El encabezado con navegación.
  */
 const TypeFloatingHeaderWithNavi: FunctionComponent = () => {
-  /**
-   * Estado para controlar si el menú desplegable está abierto.
-   * @type {boolean}
-   */
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  /**
-   * Estado para verificar si el usuario está autenticado.
-   * @type {boolean}
-   */
+  const navigate = useNavigate();
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // Estado para controlar el menú desplegable
   const [isAuthenticated, setIsAuthenticated] = useState(
     localStorage.getItem("isAuthenticated") === "true"
-  );
+  ); // Estado para verificar si el usuario está autenticado
+  const [username, setUsername] = useState<string>(""); // Estado para almacenar el nombre del usuario
 
-  /**
-   * Estado para almacenar el nombre del usuario autenticado.
-   * @type {string}
-   */
-  const [username, setUsername] = useState<string>("");
-
-  /**
-   * Hook para navegar entre rutas.
-   * @type {Function}
-   */
-  const navigate = useNavigate();
-
-  /**
-   * Obtiene el nombre del usuario desde localStorage al cargar el componente.
-   * Actualiza el estado `username` si el usuario está autenticado.
-   */
+  // Obtener el nombre del usuario desde localStorage al cargar el componente
   useEffect(() => {
     if (isAuthenticated) {
       const storedUsername = localStorage.getItem("username") || "Usuario";
-      setUsername(storedUsername);
+      setUsername(storedUsername); // Establece el nombre del usuario
     }
   }, [isAuthenticated]);
 
-  /**
-   * Alterna el estado del menú desplegable.
-   */
   const toggleMenu = () => {
     setIsMenuOpen((prev) => !prev);
   };
@@ -61,7 +36,7 @@ const TypeFloatingHeaderWithNavi: FunctionComponent = () => {
    */
   const onHomeClick = useCallback(() => {
     navigate("/veterinaria-mascohogar-pc-home");
-    setIsMenuOpen(false);
+    setIsMenuOpen(false); // Cerrar el menú al navegar
   }, [navigate]);
 
   /**
@@ -69,7 +44,7 @@ const TypeFloatingHeaderWithNavi: FunctionComponent = () => {
    */
   const onAboutClick = useCallback(() => {
     navigate("/about");
-    setIsMenuOpen(false);
+    setIsMenuOpen(false); // Cerrar el menú al navegar
   }, [navigate]);
 
   /**
@@ -77,13 +52,10 @@ const TypeFloatingHeaderWithNavi: FunctionComponent = () => {
    */
   const onTeamClick = useCallback(() => {
     navigate("/team");
-    setIsMenuOpen(false);
+    setIsMenuOpen(false); // Cerrar el menú al navegar
   }, [navigate]);
 
-  /**
-   * Cierra la sesión del usuario.
-   * Elimina los datos de autenticación del localStorage y actualiza el estado.
-   */
+  // Cerrar sesión
   const onLogoutClick = useCallback(() => {
     localStorage.removeItem("isAuthenticated");
     localStorage.removeItem("username");
@@ -96,7 +68,7 @@ const TypeFloatingHeaderWithNavi: FunctionComponent = () => {
    */
   const onLoginClick = useCallback(() => {
     navigate("/login");
-    setIsMenuOpen(false);
+    setIsMenuOpen(false); // Cerrar el menú al navegar
   }, [navigate]);
 
   /**
@@ -104,7 +76,7 @@ const TypeFloatingHeaderWithNavi: FunctionComponent = () => {
    */
   const onRegisterClick = useCallback(() => {
     navigate("/register");
-    setIsMenuOpen(false);
+    setIsMenuOpen(false); // Cerrar el menú al navegar
   }, [navigate]);
 
   return (
@@ -137,6 +109,7 @@ const TypeFloatingHeaderWithNavi: FunctionComponent = () => {
           </div>
           {isAuthenticated ? (
             <>
+              {/* Saludo al usuario autenticado */}
               <div className={styles.greeting}>Hola, {username}</div>
               <div className={styles.navLink} onClick={onLogoutClick}>
                 <div className={styles.navLabel}>Cerrar sesión</div>
@@ -144,6 +117,7 @@ const TypeFloatingHeaderWithNavi: FunctionComponent = () => {
             </>
           ) : (
             <>
+              {/* Botones para iniciar sesión o registrarse */}
               <div className={styles.button} onClick={onLoginClick}>
                 <div className={styles.textContainer}>
                   <div className={styles.navLabel}>Iniciar sesión</div>

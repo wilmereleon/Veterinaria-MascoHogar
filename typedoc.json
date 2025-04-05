@@ -1,0 +1,6 @@
+{
+    "entryPoints": ["src/index.tsx"],
+    "out": "docs",
+    "exclude": ["**/node_modules/**"],
+    "includeVersion": true
+}

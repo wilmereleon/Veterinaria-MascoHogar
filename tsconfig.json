@@ -1,24 +1,25 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
+    "target": "ES6", // Cambiado de "esnext" a "ES6"
+    "module": "ESNext",
+    "jsx": "react", // Configura el soporte para JSX
     "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
+    "lib": ["dom", "dom.iterable", "esnext"], // Conservado de la configuración original
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
     "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx",
-    "baseUrl": "./src", // Establece la base de las rutas absolutas
+    "baseUrl": "./src", // Conservado de la configuración original
     "paths": {
-      "*": ["*"] // Permite resolver rutas absolutas desde "src"
+      "*": ["*"] // Conservado de la configuración original
     }
   },
-  "include": ["src", "vite.config.mts"]
+  "include": ["src/**/*"], // Actualizado para incluir todos los archivos en "src"
+  "exclude": ["node_modules"] // Añadido para excluir "node_modules"
 }
