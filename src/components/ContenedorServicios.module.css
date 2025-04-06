@@ -1,0 +1,36 @@
+.contenedorDeServicios {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: var(--color-mintcream);
+  width: 482px;
+  height: 322px;
+}
+.servicios {
+  position: absolute;
+  top: 0px;
+  left: calc(50% - 46px);
+  line-height: 160%;
+  display: flex;
+  align-items: center;
+  width: 92px;
+  height: 25px;
+}
+.ttuloDeServicios {
+  position: absolute;
+  top: 22px;
+  left: calc(50% - 36px);
+  width: 92px;
+  height: 25px;
+}
+.contenedorServicios {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 482px;
+  height: 322px;
+  text-align: left;
+  font-size: var(--font-size-3xl);
+  color: var(--color-seagreen);
+  font-family: var(--font-playfair-display);
+}

@@ -1,212 +1,85 @@
-.dashboard {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    background-color: #f5f5f5;
-    
-  }
-  
-  .mainContent {
-    display: flex;
-    flex: 1;
-    padding: 2rem;
-    gap: 2rem;
-    align-items: stretch; 
-  }
-  
-  /* Columna izquierda - Bienvenida */
-  .welcomeColumn {
-    flex: 1;
-    min-width: 400px;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .welcomeCard {
-    background: var(--color-mintcream);
-    border-radius: 10px;
-    padding: 2rem;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  
-  .welcomeTitle {
-    color: var(--color-darkslategray-100);
-    font-family: var(--font-playfair-display);
-    font-weight: bold;
-    font-size: 4rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .userGreeting {
-    color: var(--color-seagreen);
-    font-family: var(--font-playfair-display);
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  .welcomeText {
-    color: var(--color-seagreen);
-    line-height: 1.6;
-    margin-bottom: 2rem;
-    text-align: left;
-    font-family: var(--font-lato);
-    font-size: 1.3rem;
-  }
-  
-  .welcomeText strong {
-    color: #2e7d32;
-    font-weight: 600;
-  }
-  
-  .petsImage {
-    text-align: right;
-    padding: 1rem 0;
-  }
-  
-  .petsImage img {
-    height: 388px;
-    width: 429px;
-    border-radius: 8px;
-    object-fit: contain;
-  }
-  
-  /* Columna derecha - Servicios (ajustes para igual altura) */
-  .servicesColumn {
-    width: 350px;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .servicesWrapper {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    height: 100%;
-  }
-  
-  .serviceSection {
-    background: var(--color-mintcream);
-    border-radius: 10px;
-    padding: 1.5rem;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    flex: 1; 
-  }
-  
-  .sectionTitle {
-    color: #2e7d32;
-    font-size: 1.3rem;
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid #e0e0e0;
-  }
-  
-  .serviceGrid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-  
-  .serviceCard {
-    background: var(--color-mintcream);
-    border-radius: 8px;
-    padding: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    transition: all 0.3s ease;
-    border: 1px solid transparent;
-  }
-  
-  .serviceCard:hover {
-    background: var(--color-mintcream-dark);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-  }
-  
-  .serviceIcon {
-    width: 28px;
-    height: 28px;
-  }
-  
-  .serviceTitle {
-    font-size: 0.95rem;
-    color: #333;
-  }
-  
-
-  .footer {
-    background: var(--color-mintcream);
-    padding: 1.5rem 2rem;
-    border-top: 1px solid #e0e0e0;
-    text-align: center;
-  }
-  
-  .footerOptions {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  
-  .footerButton {
-    padding: 8px 16px;
-    background-color: var(--color-yellowgreen);
-    color: white;
-    border: none;
-    border-radius: 15px;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    width: fit-content;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  
-  .footerButton:hover {
-    background-color: #27662b;
-  }
-  
-  .footerButton .serviceIcon {
-    filter: brightness(0) invert(1);
-    width: 18px;
-    height: 18px;
-  }
-  
-  /* Responsive */
-  @media (max-width: 1024px) {
-    .mainContent {
-      flex-direction: column;
-    }
-    
-    .welcomeColumn,
-    .servicesColumn {
-      width: 100%;
-      min-width: auto;
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .serviceGrid {
-      grid-template-columns: 1fr;
-    }
-    
-    .welcomeTitle {
-      font-size: 2.5rem;
-    }
-    
-    .userGreeting {
-      font-size: 1.5rem;
-    }
-  
-    .petsImage img {
-      height: auto;
-      max-width: 100%;
-    }
-  }
+.contenedorServiciosFarmacia {
+  position: absolute;
+  top: 99px;
+  left: 958px;
+  width: 482px;
+  height: 765px;
+}
+.entornoDeBienvenida {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: var(--color-mintcream);
+  width: 947px;
+  height: 762px;
+}
+.holaWlmer {
+  position: absolute;
+  top: 181.4px;
+  left: 87px;
+  line-height: 120%;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  width: 491px;
+  height: 48px;
+}
+.bienvenido {
+  position: absolute;
+  top: 112.1px;
+  left: 87px;
+  font-size: var(--font-size-37xl);
+  line-height: 120%;
+  font-weight: 900;
+  color: var(--color-darkslategray-100);
+  display: inline-block;
+  width: 598px;
+  height: 69.4px;
+}
+.realizaFcilmenteTus {
+  font-family: var(--font-lato);
+}
+.realizaFcilmenteTusDiligen {
+  margin: 0;
+}
+.realizaFcilmenteTusContainer1 {
+  width: 100%;
+}
+.realizaFcilmenteTusContainer {
+  position: absolute;
+  top: 229.5px;
+  left: 87px;
+  font-size: var(--font-size-xl);
+  line-height: 150%;
+  display: flex;
+  align-items: center;
+  width: 448px;
+  height: 133.4px;
+  font-family: var(--font-lato);
+}
+.fotoDePerroYGato {
+  position: absolute;
+  top: 333px;
+  left: 559px;
+  width: 388px;
+  height: 429px;
+  object-fit: cover;
+}
+.entornoDeBienvenidaParent {
+  position: absolute;
+  top: 100px;
+  left: 0px;
+  width: 947px;
+  height: 762px;
+}
+.vistaDeEntornoDeSesinUsu {
+  width: 100%;
+  position: relative;
+  background-color: var(--color-white);
+  height: 1024px;
+  overflow: hidden;
+  text-align: left;
+  font-size: var(--font-size-11xl);
+  color: var(--color-seagreen);
+  font-family: var(--font-playfair-display);
+}

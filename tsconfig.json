@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "ES6", // Configura el nivel de compatibilidad de JavaScript
+    "target": "ES6", // Configura el nivel de compatibilidad de JavaScript (mantiene ES6 del archivo señalado)
     "module": "ESNext", // Usa el sistema de módulos ESNext
     "jsx": "react-jsx", // Habilita el soporte para JSX con React 17+
     "strict": true, // Habilita todas las comprobaciones estrictas de TypeScript

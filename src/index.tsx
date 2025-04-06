@@ -1,6 +1,7 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App";
+import reportWebVitals from "./reportWebVitals"; // Importación de reportWebVitals
 import { BrowserRouter } from "react-router-dom";
 import "./global.css";
 
@@ -32,4 +33,12 @@ root.render(
   </BrowserRouter>
 );
 
-// Si no usas reportWebVitals, puedes eliminarlo
+/**
+ * Mide el rendimiento de la aplicación.
+ *
+ * Si deseas medir el rendimiento de tu aplicación, puedes pasar una función
+ * para registrar los resultados (por ejemplo: reportWebVitals(console.log))
+ * o enviarlos a un endpoint de análisis.
+ * Más información: https://bit.ly/CRA-vitals
+ */
+reportWebVitals();

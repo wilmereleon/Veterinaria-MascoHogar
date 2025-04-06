@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
+// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
   server: {
@@ -8,7 +9,7 @@ export default defineConfig({
     open: true, // Abre automáticamente el navegador al iniciar el servidor
   },
   build: {
-    outDir: "dist", // Mantén la salida en la carpeta 'dist'
+    outDir: "build", // Cambiado de 'dist' a 'build' según el código descargado
     sourcemap: true, // Genera mapas de origen para depuración
   },
   resolve: {

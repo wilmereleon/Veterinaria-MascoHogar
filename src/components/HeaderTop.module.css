@@ -1,0 +1,118 @@
+.navLabel {
+  width: 66px;
+  position: relative;
+  line-height: 160%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.navLink {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 93px;
+  height: 19px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0px var(--padding-base);
+  box-sizing: border-box;
+}
+.navLinkWrapper {
+  width: 93px;
+  position: relative;
+  height: 19px;
+}
+.navLabel1 {
+  position: relative;
+  line-height: 160%;
+}
+.navLink1 {
+  align-self: stretch;
+  width: 66px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0px var(--padding-base);
+  box-sizing: border-box;
+}
+.navLink2 {
+  align-self: stretch;
+  width: 62px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0px var(--padding-base);
+  box-sizing: border-box;
+}
+.navLabel3 {
+  width: 78px;
+  position: relative;
+  line-height: 160%;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.navLink3 {
+  align-self: stretch;
+  width: 106px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0px var(--padding-base);
+  box-sizing: border-box;
+  text-align: left;
+}
+.navLink4 {
+  align-self: stretch;
+  width: 92px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0px var(--padding-base);
+  box-sizing: border-box;
+}
+.navLinks1 {
+  width: 414px;
+  border-radius: var(--br-base);
+  height: 19px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--gap-xs);
+}
+.navLinks {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: center;
+  font-size: var(--font-size-xs);
+  font-family: var(--font-lato);
+}
+.typefloatingHeaderWithNavi {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 1440px;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--padding-5xs);
+  box-sizing: border-box;
+  gap: var(--gap-0);
+  text-align: left;
+  font-size: var(--font-size-sm);
+  color: var(--color-darkslategray-100);
+  font-family: var(--font-helvetica-rounded-lt-std);
+}
