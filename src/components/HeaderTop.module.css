@@ -6,98 +6,100 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  text-decoration: none; /* Quita el subrayado */
+  color: #064E3B; /* Color predeterminado */
+  transition: color 0.3s ease; /* Transición suave al cambiar de color */
 }
+
+.navLabel:hover {
+  color: #1ABD8C; /* Cambia el color al pasar el ratón */
+}
+
 .navLink {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 93px;
+  position: relative;
+  width: auto;
   height: 19px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   padding: 0px var(--padding-base);
   box-sizing: border-box;
+  text-decoration: none; /* Quita el subrayado */
+  color: #064E3B; /* Color predeterminado */
+  transition: color 0.3s ease; /* Transición suave al cambiar de color */
 }
+
+.navLink:hover {
+  color: #1ABD8C; /* Cambia el color al pasar el ratón */
+}
+
 .navLinkWrapper {
-  width: 93px;
+  width: auto;
   position: relative;
   height: 19px;
 }
-.navLabel1 {
-  position: relative;
-  line-height: 160%;
-}
-.navLink1 {
-  align-self: stretch;
-  width: 66px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 0px var(--padding-base);
-  box-sizing: border-box;
-}
-.navLink2 {
-  align-self: stretch;
-  width: 62px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 0px var(--padding-base);
-  box-sizing: border-box;
-}
+
+.navLabel1,
 .navLabel3 {
-  width: 78px;
   position: relative;
   line-height: 160%;
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
+  text-decoration: none; /* Quita el subrayado */
+  color: #064E3B; /* Color predeterminado */
+  transition: color 0.3s ease; /* Transición suave al cambiar de color */
 }
-.navLink3 {
-  align-self: stretch;
-  width: 106px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 0px var(--padding-base);
-  box-sizing: border-box;
-  text-align: left;
+
+.navLabel1:hover,
+.navLabel3:hover {
+  color: #1ABD8C; /* Cambia el color al pasar el ratón */
 }
+
+.navLink1,
+.navLink2,
+.navLink3,
 .navLink4 {
   align-self: stretch;
-  width: 92px;
+  width: auto;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center; /* Centra los enlaces */
   padding: 0px var(--padding-base);
   box-sizing: border-box;
+  text-decoration: none; /* Quita el subrayado */
+  color: #064E3B; /* Color predeterminado */
+  transition: color 0.3s ease; /* Transición suave al cambiar de color */
 }
+
+.navLink1:hover,
+.navLink2:hover,
+.navLink3:hover,
+.navLink4:hover {
+  color: #1ABD8C; /* Cambia el color al pasar el ratón */
+}
+
 .navLinks1 {
-  width: 414px;
+  width: auto; /* Ajusta el ancho para que los enlaces ocupen solo el espacio necesario */
   border-radius: var(--br-base);
   height: 19px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-end;
-  gap: var(--gap-xs);
+  justify-content: flex-end; /* Alinea los enlaces completamente a la derecha */
+  gap: var(--gap-xl); /* Espaciado uniforme entre los enlaces */
 }
+
 .navLinks {
   flex: 1;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-end; /* Alinea todo el bloque de enlaces a la derecha */
   text-align: center;
   font-size: var(--font-size-xs);
   font-family: var(--font-lato);
 }
+
 .typefloatingHeaderWithNavi {
   position: absolute;
   top: 0px;
@@ -107,10 +109,10 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between; /* Espacio entre el logo y los enlaces */
   padding: var(--padding-5xs);
   box-sizing: border-box;
-  gap: var(--gap-0);
+  gap: var(--gap-xl); /* Espaciado uniforme entre el logo y los enlaces */
   text-align: left;
   font-size: var(--font-size-sm);
   color: var(--color-darkslategray-100);

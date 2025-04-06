@@ -1,4 +1,5 @@
 import { FunctionComponent } from "react";
+import { Link } from "react-router-dom"; // Importa Link para la navegación
 import Brand from "./Brand";
 import styles from "./HeaderTop.module.css";
 
@@ -13,9 +14,9 @@ const HeaderTop: FunctionComponent<HeaderTopType> = ({ className = "" }) => {
       <div className={styles.navLinks}>
         <div className={styles.navLinks1}>
           <div className={styles.navLinkWrapper}>
-            <div className={styles.navLink}>
+            <Link to="/veterinaria-mascohogar-pc-home" className={styles.navLink}>
               <div className={styles.navLabel}>Inicio</div>
-            </div>
+            </Link>
           </div>
           <div className={styles.navLink1}>
             <div className={styles.navLabel1}>Menú</div>
