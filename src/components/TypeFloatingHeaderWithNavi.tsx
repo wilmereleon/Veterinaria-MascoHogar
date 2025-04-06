@@ -115,11 +115,14 @@ const TypeFloatingHeaderWithNavi: FunctionComponent = () => {
           <div className={styles.navLink} onClick={onTeamClick}>
             <div className={styles.navLabel}>Equipo</div>
           </div>
-          <div className={styles.navLink} onClick={onServicesClick}>
-            <div className={styles.navLabel}>
-              <b>Servicios</b> {/* Enlace en negrita */}
+          {/* Mostrar el enlace de Servicios solo si el usuario está autenticado */}
+          {isAuthenticated && (
+            <div className={styles.navLink} onClick={onServicesClick}>
+              <div className={styles.navLabel}>
+                <b>Servicios</b> {/* Enlace en negrita */}
+              </div>
             </div>
-          </div>
+          )}
           {isAuthenticated ? (
             <>
               {/* Saludo al usuario autenticado */}
