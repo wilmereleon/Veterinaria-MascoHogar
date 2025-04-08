@@ -83,7 +83,7 @@ const TypeFloatingHeaderWithNavi: FunctionComponent = () => {
    * Navega a la página de registro.
    */
   const onRegisterClick = useCallback(() => {
-    navigate("/register");
+    navigate("/registro"); // Cambia la ruta a "/registro"
     setIsMenuOpen(false); // Cerrar el menú al navegar
   }, [navigate]);
 

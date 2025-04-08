@@ -1,9 +1,16 @@
 import { useEffect } from "react";
-import { Routes, Route, useNavigationType, useLocation, Navigate } from "react-router-dom";
+import {
+  Routes,
+  Route,
+  useNavigationType,
+  useLocation,
+  Navigate,
+} from "react-router-dom";
 import VeterinariaMascoHogar from "./pages/Home/VeterinariaMascoHogar";
 import PaginaDeNoticias from "./pages/News/PginaDeNoticias"; // Importación de la página de noticias
 import VistaInicioDeSesion from "./pages/AuthPages/VistaInicioDeSesion"; // Ruta corregida
 import VistaDeEntornoDeSesionUsu from "./pages/ClientesPages/VistaDeEntornoDeSesionUsu"; // Nueva vista integrada
+import VistaRegstrate from "./pages/ClientesPages/VistaRegstrate"; // Nueva vista integrada del módulo descargado
 
 /**
  * Componente principal `App`.
@@ -58,7 +65,8 @@ function App() {
         break;
       case "/noticias":
         title = "Noticias - Veterinaria MascoHogar";
-        metaDescription = "Mantente informado con las últimas noticias y consejos para el cuidado de tus mascotas.";
+        metaDescription =
+          "Mantente informado con las últimas noticias y consejos para el cuidado de tus mascotas.";
         break;
       case "/login":
         title = "Iniciar Sesión - Veterinaria MascoHogar";
@@ -66,7 +74,13 @@ function App() {
         break;
       case "/entorno-sesion":
         title = "Bienvenido - Veterinaria MascoHogar";
-        metaDescription = "Bienvenido a Veterinaria MascoHogar, Gestiona tus necesidades";
+        metaDescription =
+          "Bienvenido a Veterinaria MascoHogar, Gestiona tus necesidades.";
+        break;
+      case "/registro":
+        title = "Regístrate - Veterinaria MascoHogar";
+        metaDescription =
+          "Crea tu cuenta en Veterinaria MascoHogar y accede a todos nuestros servicios.";
         break;
       default:
         title = "Veterinaria MascoHogar";
@@ -102,14 +116,9 @@ function App() {
         path="/noticias"
         element={<PaginaDeNoticias />} // Nueva ruta para la página de noticias
       />
-      <Route 
-        path="/login" 
-        element={<VistaInicioDeSesion />} // Ruta corregida
-      />
-      <Route 
-        path="/entorno-sesion" 
-        element={<VistaDeEntornoDeSesionUsu />} // Nueva vista integrada
-      />
+      <Route path="/login" element={<VistaInicioDeSesion />} />
+      <Route path="/entorno-sesion" element={<VistaDeEntornoDeSesionUsu />} />
+      <Route path="/registro" element={<VistaRegstrate />} /> {/* Nueva ruta */}
     </Routes>
   );
 }
