@@ -1,0 +1,113 @@
+/* Estilo para el nombre de la marca en el pie de página */
+.brandname {
+  align-self: stretch;
+  position: relative;
+  line-height: 150%;
+}
+
+/* Contenedor del logo en el pie de página */
+.logo {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+/* Estilo para los enlaces del pie de página */
+.link {
+  position: relative;
+  line-height: 150%;
+}
+
+/* Contenedor de los enlaces del pie de página */
+.links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap-13xl); /* Espaciado entre los enlaces */
+}
+
+/* Contenedor principal del contenido del pie de página */
+.content {
+  background-color: var(--color-mintcream); /* Fondo color crema */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--gap-13xl); /* Espaciado entre los elementos */
+}
+
+/* Línea divisoria en el pie de página */
+.divider {
+  align-self: stretch;
+  position: relative;
+  background-color: var(--color-darkslategray-100); /* Color gris oscuro */
+  height: 1px; /* Altura de la línea */
+}
+
+/* Estilo general para los textos del pie de página */
+.brandNameAll {
+  position: relative;
+  line-height: 160%;
+}
+
+/* Contenedor de los enlaces legales del pie de página */
+.footerLinks {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-5xl); /* Espaciado entre los enlaces legales */
+}
+
+/* Contenedor de la fila principal del pie de página */
+.row {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--gap-0); /* Sin espaciado adicional */
+}
+
+/* Contenedor principal de los créditos del pie de página */
+.credits {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--gap-13xl); /* Espaciado entre los elementos */
+  font-size: var(--font-size-sm); /* Tamaño de fuente pequeño */
+}
+
+/* Contenedor principal del pie de página */
+.typestackedSimpleFooter {
+  align-self: stretch;
+  background-color: var(--color-mintcream); /* Fondo color crema */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 80px var(--padding-45xl); /* Espaciado interno */
+  gap: var(--gap-45xl); /* Espaciado entre los elementos */
+  z-index: 0; /* Nivel de apilamiento */
+}
+
+/* Contenedor principal de la página */
+.veterinariaMascohogarPcH {
+  width: 100%; /* Ocupa todo el ancho */
+  position: relative;
+  background-color: var(--color-white); /* Fondo blanco */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left; /* Alineación del texto a la izquierda */
+  font-size: var(--font-size-lg); /* Tamaño de fuente grande */
+  color: var(--color-darkslategray-100); /* Color gris oscuro */
+  font-family: var(--font-lato); /* Fuente Lato */
+}

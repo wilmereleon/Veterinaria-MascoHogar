@@ -1,0 +1,161 @@
+.contenedorServiciosFarmacia {
+  position: absolute;
+  top: 99px;
+  left: 958px;
+  width: 482px;
+  height: 765px;
+}
+
+.entornoDeBienvenida {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: var(--color-mintcream);
+  width: 947px;
+  height: 762px;
+}
+
+.holaWlmer {
+  position: absolute;
+  top: 181.4px;
+  left: 87px;
+  line-height: 120%;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  width: 491px;
+  height: 48px;
+}
+
+.bienvenido {
+  position: absolute;
+  top: 112.1px;
+  left: 87px;
+  font-size: var(--font-size-37xl);
+  line-height: 120%;
+  font-weight: 900;
+  color: var(--color-darkslategray-100);
+  display: inline-block;
+  width: 598px;
+  height: 69.4px;
+}
+
+.realizaFcilmenteTus {
+  font-family: var(--font-lato);
+}
+
+.realizaFcilmenteTusDiligen {
+  margin: 0;
+}
+
+.realizaFcilmenteTusContainer1 {
+  width: 100%;
+}
+
+.realizaFcilmenteTusContainer {
+  position: absolute;
+  top: 229.5px;
+  left: 87px;
+  font-size: var(--font-size-xl);
+  line-height: 150%;
+  display: flex;
+  align-items: center;
+  width: 448px;
+  height: 133.4px;
+  font-family: var(--font-lato);
+}
+
+.fotoDePerroYGato {
+  position: absolute;
+  top: 333px;
+  left: 559px;
+  width: 388px;
+  height: 429px;
+  object-fit: cover;
+}
+
+.entornoDeBienvenidaParent {
+  position: absolute;
+  top: 100px;
+  left: 0px;
+  width: 947px;
+  height: 762px;
+}
+
+.vistaDeEntornoDeSesinUsu {
+  width: 100%;
+  position: relative;
+  background-color: var(--color-white);
+  height: 1024px;
+  overflow: hidden;
+  text-align: left;
+  font-size: var(--font-size-11xl);
+  color: var(--color-seagreen);
+  font-family: var(--font-playfair-display);
+}
+
+/* Estilos responsivos para pantallas pequeñas (celulares) */
+@media (max-width: 768px) {
+  .vistaDeEntornoDeSesinUsu {
+    display: flex;
+    flex-direction: column; /* Cambia a disposición vertical */
+    align-items: center;
+    gap: 20px; /* Añade espacio entre los contenedores */
+    width: 100%; /* Ajusta el ancho al 100% de la ventana */
+    height: auto; /* Ajusta la altura automáticamente */
+  }
+
+  .entornoDeBienvenida,
+  .contenedorServiciosFarmacia,
+  .contenedorOpcionesAdicionales {
+    position: relative; /* Cambia a posición relativa */
+    width: 90%; /* Ocupa casi todo el ancho de la pantalla */
+    height: auto; /* Ajusta la altura automáticamente */
+    margin: 0 auto; /* Centra el contenedor */
+  }
+
+  .holaWlmer {
+    position: relative;
+    font-size: 1.2rem; /* Reduce el tamaño de fuente */
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .bienvenido {
+    position: relative;
+    font-size: 1.5rem; /* Reduce el tamaño de fuente */
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .realizaFcilmenteTusContainer {
+    position: relative;
+    font-size: 0.9rem; /* Reduce el tamaño de fuente */
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .fotoDePerroYGato {
+    position: relative;
+    width: 100%; /* Ocupa todo el ancho disponible */
+    height: auto;
+    margin-top: 20px;
+  }
+
+  .contenedorServiciosFarmacia {
+    margin-top: 20px; /* Añade espacio entre los contenedores */
+  }
+
+  .contenedorOpcionesAdicionales {
+    margin-top: 20px; /* Añade espacio entre los contenedores */
+  }
+
+  .contenedorServiciosFarmacia,
+  .entornoDeBienvenida,
+  .contenedorOpcionesAdicionales {
+    font-size: 0.9rem; /* Reduce el tamaño de fuente general */
+  }
+}

@@ -1,0 +1,41 @@
+/* Estilo principal de la tarjeta */
+.serviceCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+  }
+  
+  /* Efecto hover */
+  .serviceCard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Ícono del servicio */
+  .serviceIcon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 12px;
+  }
+  
+  /* Título del servicio */
+  .serviceTitle {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333333;
+    text-align: center;
+  }
+  
+  /* Estilo para tarjetas pequeñas */
+  .smallCard {
+    padding: 12px;
+    font-size: 14px;
+  }

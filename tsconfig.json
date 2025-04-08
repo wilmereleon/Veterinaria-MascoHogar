@@ -1,20 +1,25 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx"
+    "target": "ES6", // Configura el nivel de compatibilidad de JavaScript (mantiene ES6 del archivo señalado)
+    "module": "ESNext", // Usa el sistema de módulos ESNext
+    "jsx": "react-jsx", // Habilita el soporte para JSX con React 17+
+    "strict": true, // Habilita todas las comprobaciones estrictas de TypeScript
+    "esModuleInterop": true, // Permite la interoperabilidad con módulos CommonJS
+    "skipLibCheck": true, // Omite la verificación de tipos en archivos de declaración
+    "forceConsistentCasingInFileNames": true, // Fuerza el uso consistente de mayúsculas y minúsculas en los nombres de archivo
+    "lib": ["dom", "dom.iterable", "esnext"], // Define las bibliotecas estándar disponibles
+    "allowJs": true, // Permite incluir archivos JavaScript
+    "allowSyntheticDefaultImports": true, // Permite importar módulos CommonJS como si fueran ES6
+    "noFallthroughCasesInSwitch": true, // Evita que los casos en un switch caigan al siguiente
+    "moduleResolution": "node", // Usa la resolución de módulos estilo Node.js
+    "resolveJsonModule": true, // Permite importar archivos JSON
+    "isolatedModules": true, // Asegura que cada archivo actúe como un módulo independiente
+    "noEmit": true, // Evita la generación de archivos de salida
+    "baseUrl": "./src", // Establece la base para las rutas relativas
+    "paths": {
+      "*": ["*"] // Define rutas personalizadas para la resolución de módulos
+    }
   },
-  "include": ["src", "vite.config.mts"]
+  "include": ["src/**/*"], // Incluye todos los archivos en la carpeta "src"
+  "exclude": ["node_modules", "dist", "build"] // Excluye "node_modules" y carpetas de salida
 }

@@ -1,0 +1,185 @@
+.avatarIcon {
+  width: 32px;
+  position: relative;
+  border-radius: var(--br-13xl);
+  max-height: 100%;
+  overflow: hidden;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+.title {
+  align-self: stretch;
+  position: relative;
+  line-height: var(--font-size-xl);
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.titleWrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.avatar {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--gap-5xs);
+}
+.userChild {
+  width: 58.3px;
+  position: relative;
+  height: 9.8px;
+}
+.user {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--gap-9xs);
+}
+.title1 {
+  align-self: stretch;
+  position: relative;
+  font-size: var(--font-size-base);
+  line-height: var(--font-size-5xl);
+  display: -webkit-inline-box;
+  font-family: var(--font-lato);
+  color: var(--color-gray-600);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+.card {
+  width: 100%; /* Cambiar de un ancho fijo a un ancho relativo */
+  max-width: 1100px; /* Limitar el ancho máximo */
+  border-radius: var(--br-7xs);
+  background-color: var(--color-seagreen-100);
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-base);
+  box-sizing: border-box;
+  gap: var(--gap-base);
+}
+.row {
+  align-self: stretch;
+  border-radius: var(--br-4xs);
+  border: 1px solid var(--color-seagreen);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.cta {
+  position: relative;
+  line-height: 160%;
+}
+.textContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-9xs);
+}
+.button {
+  width: 192px;
+  border-radius: var(--br-980xl);
+  background-color: var(--color-yellowgreen);
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-xs) var(--padding-xl);
+  box-sizing: border-box;
+  min-width: 140px;
+  max-width: 324px;
+  z-index: 10; /* Asegurar que el botón esté por encima del footer */
+}
+.row1 {
+  width: 192px;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center; /* Centrar el botón verticalmente */
+  justify-content: center; /* Centrar el botón horizontalmente */
+  cursor: pointer;
+  text-align: center;
+  font-size: var(--font-size-xs);
+  color: var(--color-honeydew-200);
+  font-family: var(--font-lato);
+  margin-top: var(--gap-xl); /* Separar el botón de los comentarios */
+  z-index: 10; /* Asegurar que el botón esté por encima del footer */
+}
+.list {
+  width: 100%; /* Cambiar de un ancho fijo a un ancho relativo */
+  max-width: 1100px; /* Limitar el ancho máximo */
+  max-height: 500px; /* Limitar la altura máxima del contenedor */
+  overflow-y: auto; /* Habilitar el desplazamiento vertical */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Alinear los comentarios al inicio */
+  padding: var(--padding-xl) 0px;
+  box-sizing: border-box;
+  gap: var(--gap-21xl);
+  z-index: 0;
+}
+.reviewsChild {
+  width: 100%;
+  position: absolute;
+  margin: 0 !important;
+  right: 0px;
+  bottom: -0.5px;
+  left: 0px;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+  z-index: 1;
+}
+.reviews {
+  align-self: stretch;
+  min-height: 672px; /* Altura mínima para mantener el diseño */
+  height: auto; /* Permitir que el contenedor crezca dinámicamente */
+  overflow: visible; /* Asegurar que el contenido no se recorte */
+  display: flex;
+  flex-direction: column; /* Cambiar a columna para que el botón "Comenta" esté debajo de los comentarios */
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-41xl) var(--padding-151xl);
+  box-sizing: border-box;
+  position: relative;
+  gap: var(--gap-41xl);
+  z-index: 3;
+  text-align: left;
+  font-size: var(--font-size-sm);
+  color: var(--color-black);
+  font-family: var(--font-roboto);
+}
+.commentInput {
+  width: 100%; /* Asegurar que el textarea ocupe todo el ancho disponible */
+  height: 80px;
+  border: 1px solid var(--color-gray-400);
+  border-radius: var(--br-7xs);
+  padding: var(--padding-base);
+  font-size: var(--font-size-sm);
+  font-family: var(--font-roboto);
+  color: var(--color-darkslategray);
+  resize: none; /* Evita que el usuario cambie el tamaño del textarea */
+  outline: none;
+  box-sizing: border-box;
+}
+.commentInput::placeholder {
+  color: var(--color-gray-400);
+}

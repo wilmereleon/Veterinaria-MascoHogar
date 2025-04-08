@@ -1,13 +1,28 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap");
+/* Importación de fuentes */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Helvetica+Rounded+LT+Std:wght@700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@600&display=swap");
+
+/* Fuentes personalizadas */
+@font-face {
+  font-family: "Helvetica Rounded LT Std";
+  src: url("/public/HELVETICAROUNDEDLTSTD-BD.OTF");
+  font-weight: 700;
+}
+
+/* Estilos globales */
 body {
   margin: 0;
   line-height: normal;
+  font-family: var(--font-lato); /* Fuente predeterminada */
+  font-size: var(--font-size-base); /* Tamaño de fuente base */
+  color: var(--color-darkslategray); /* Color de texto predeterminado */
 }
+
+/* Variables globales */
 :root {
   /* Fonts */
   --font-roboto: Roboto;
@@ -16,17 +31,21 @@ body {
   --font-inter: Inter;
   --font-playfair-display: "Playfair Display";
   --font-helvetica-rounded-lt-std: "Helvetica Rounded LT Std";
+  --font-manrope: Manrope;
 
-  /* font sizes */
+  /* Font sizes */
+  --font-size-2xs: 11px;
   --font-size-xs: 12px;
   --font-size-sm: 14px;
   --font-size-base: 16px;
   --font-size-lg: 18px;
   --font-size-lgi: 19px;
+  --font-size-xl: 20px;
   --font-size-3xl: 22px;
   --font-size-5xl: 24px;
   --font-size-11xl: 30px;
   --font-size-13xl: 32px;
+  --font-size-21xl: 40px;
   --font-size-32xl: 51px;
   --font-size-37xl: 56px;
   --font-size-53xl: 72px;
@@ -35,25 +54,37 @@ body {
   --color-aquamarine: #a7f3d0;
   --color-black: #000;
   --color-darkgray: #9ca3af;
+  --color-darkolivegreen: #3d610b;
   --color-darkslategray: #374151;
   --color-darkslategray-100: #064e3b;
   --color-dodgerblue: #3b82f6;
+  --color-gainsboro: rgba(217, 217, 217, 0.5);
   --color-gray: #1f2937;
   --color-gray-100: rgba(0, 0, 0, 0.25);
+  --color-gray-200: #1f1f1f;
+  --color-gray-300: #021812;
+  --color-gray-400: rgba(0, 0, 0, 0.1);
+  --color-gray-500: rgba(0, 0, 0, 0.05);
+  --color-gray-600: rgba(2, 24, 18, 0.63);
   --color-honeydew-100: #dcfce7;
   --color-honeydew-200: #d1fae5;
   --color-lavenderblush: #fce7f3;
   --color-mediumseagreen: #34d399;
   --color-mintcream: #ecfdf5;
+  --color-paleturquoise: #bee8db;
   --color-seagreen: #059669;
+  --color-seagreen-100: rgba(5, 150, 105, 0.05);
+  --color-silver: #c6c6c6;
   --color-white: #fff;
   --color-whitesmoke-100: #f9fafb;
   --color-whitesmoke-200: #f3f4f6;
   --color-yellowgreen: #65a30d;
+  --color-mintcream-dark: #C6F7E2;
 
   /* Gaps */
   --gap-0: 0px;
   --gap-9xs: 4px;
+  --gap-7xs: 6px;
   --gap-5xs: 8px;
   --gap-xs: 12px;
   --gap-base: 16px;
@@ -62,9 +93,11 @@ body {
   --gap-13xl: 32px;
   --gap-21xl: 40px;
   --gap-29xl: 48px;
+  --gap-41xl: 60px;
   --gap-45xl: 64px;
 
   /* Paddings */
+  --padding-11xs: 2px;
   --padding-9xs: 4px;
   --padding-7xs: 6px;
   --padding-6xs: 7px;
@@ -78,18 +111,54 @@ body {
   --padding-21xl: 40px;
   --padding-29xl: 48px;
   --padding-31xl-6: 50.6px;
+  --padding-41xl: 60px;
   --padding-45xl: 64px;
   --padding-53xl: 72px;
+  --padding-61xl: 80px;
   --padding-93xl: 112px;
   --padding-101xl: 120px;
   --padding-141xl: 160px;
+  --padding-151xl: 170px;
 
   /* Border radiuses */
+  --br-12xs: 1px;
+  --br-11xs: 2px;
+  --br-8xs: 5px;
   --br-7xs: 6px;
   --br-5xs: 8px;
+  --br-4xs: 9px;
+  --br-3xs: 10px;
   --br-base: 16px;
+  --br-xl: 20px;
   --br-13xl: 32px;
   --br-29xl: 48px;
   --br-980xl: 999px;
   --br-99980xl: 99999px;
+
+  /* Figma Variables */
+  --place-holder: rgba(31, 31, 31, 0.43);
+}
+
+/* Media queries para tabletas */
+@media (max-width: 768px) {
+  body {
+    font-size: var(--font-size-sm); /* Reduce el tamaño de la fuente */
+    padding: var(--padding-base); /* Ajusta el padding global */
+  }
+
+  .container {
+    padding: var(--padding-xl); /* Ajusta el padding de los contenedores */
+  }
+}
+
+/* Media queries para móviles */
+@media (max-width: 480px) {
+  body {
+    font-size: var(--font-size-xs); /* Reduce aún más el tamaño de la fuente */
+    padding: var(--padding-sm); /* Ajusta el padding global */
+  }
+
+  .container {
+    padding: var(--padding-base); /* Ajusta el padding de los contenedores */
+  }
 }

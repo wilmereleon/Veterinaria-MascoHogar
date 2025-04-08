@@ -1,0 +1,102 @@
+.opcionesAdicionalesChild {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: var(--color-mintcream);
+  width: 1440px;
+  height: 150.6px;
+}
+.opcionesAdicionales1 {
+  position: absolute;
+  top: 35.3px;
+  left: 520px;
+  font-size: var(--font-size-3xl);
+  line-height: 150%;
+  color: var(--color-seagreen);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 448px;
+  height: 27.1px;
+}
+.chatbubblesSharpIcon {
+  width: 34px;
+  position: relative;
+  height: 34px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.cta {
+  position: relative;
+  line-height: 150%;
+}
+.textContainer {
+  height: 33px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-9xs);
+  box-sizing: border-box;
+  gap: var(--gap-5xs);
+}
+.ctaButton {
+  position: absolute;
+  top: 75.3px;
+  left: calc(50% - 226px);
+  border-radius: var(--br-5xs);
+  background-color: var(--color-yellowgreen);
+  height: 37.7px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0px var(--padding-9xl);
+  box-sizing: border-box;
+}
+.cta1 {
+  width: 101px;
+  position: relative;
+  line-height: 150%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 33px;
+  flex-shrink: 0;
+}
+.textContainer1 {
+  width: 143px;
+  height: 37px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-9xs);
+  box-sizing: border-box;
+  gap: var(--gap-5xs);
+}
+.ctaButton1 {
+  position: absolute;
+  top: 75.3px;
+  left: 827px;
+  border-radius: var(--br-5xs);
+  background-color: var(--color-yellowgreen);
+  height: 37.7px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0px var(--padding-9xl);
+  box-sizing: border-box;
+}
+.opcionesAdicionales {
+  position: absolute;
+  top: 873.4px;
+  left: 0px;
+  width: 1440px;
+  height: 150.6px;
+  text-align: center;
+  font-size: var(--font-size-base);
+  color: var(--color-mintcream);
+  font-family: var(--font-lato);
+}

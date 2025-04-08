@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
-    "composite": true,
-    "skipLibCheck": true,
-    "module": "ESNext",
-    "moduleResolution": "bundler",
-    "allowSyntheticDefaultImports": true
+    "composite": true, // Permite proyectos TypeScript compuestos
+    "skipLibCheck": true, // Omite la verificación de tipos en archivos de definición
+    "module": "ESNext", // Usa el sistema de módulos ESNext
+    "moduleResolution": "bundler", // Resolución de módulos para herramientas como Vite
+    "allowSyntheticDefaultImports": true // Permite importar módulos con exportaciones por defecto
   },
   "include": [
-    "vite.config.mts"
+    "vite.config.mts" // Incluye el archivo de configuración de Vite
   ]
 }

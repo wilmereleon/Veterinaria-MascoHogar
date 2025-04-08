@@ -1,5 +1,5 @@
 .heading {
-  width: 599px;
+  align-self: stretch;
   position: relative;
   letter-spacing: -0.01em;
   line-height: 108%;
@@ -50,6 +50,7 @@
   padding: var(--padding-base) var(--padding-5xl);
   box-sizing: border-box;
   min-width: 140px;
+  cursor: pointer;
 }
 .textContainer1 {
   display: flex;
@@ -97,7 +98,7 @@
   max-width: 940px;
 }
 .copyContainer {
-  flex: 1;
+  width: 699px;
   border-radius: var(--br-base);
   display: flex;
   flex-direction: column;
@@ -112,7 +113,7 @@
   position: absolute;
   margin: 0 !important;
   top: calc(50% - 252.25px);
-  left: calc(50% - 252px);
+  left: calc(50% - 251.5px);
   border-radius: 50%;
   background-color: var(--color-lavenderblush);
   height: 504px;
