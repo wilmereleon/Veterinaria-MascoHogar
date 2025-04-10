@@ -5,6 +5,10 @@ import reportWebVitals from "./reportWebVitals"; // Importación de reportWebVit
 import { BrowserRouter } from "react-router-dom";
 import "./global.css";
 
+// Importa Bootstrap CSS y JS
+import "bootstrap/dist/css/bootstrap.min.css"; // Asegura que los estilos de Bootstrap estén cargados
+import "bootstrap/dist/js/bootstrap.bundle.min.js"; // Importa Bootstrap JS para el comportamiento del menú
+
 /**
  * Punto de entrada principal de la aplicación.
  *

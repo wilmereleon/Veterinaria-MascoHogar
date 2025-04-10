@@ -17,6 +17,7 @@ package "Microservicios Veterinaria" {
   component "Servicio de Facturación" as BillingService
   component "Servicio de Historial Médico" as MedicalHistoryService
   component "Servicio de Notificaciones" as NotificationService
+  component "Servicio de Mascotas" as PetsService
   
   ' El API Gateway delega solicitudes a los distintos microservicios:
   APIGateway --> AuthService : "Autenticación"
@@ -25,14 +26,13 @@ package "Microservicios Veterinaria" {
   APIGateway --> BillingService : "Facturación"
   APIGateway --> MedicalHistoryService : "Historial"
   APIGateway --> NotificationService : "Notificaciones"
+  APIGateway --> PetsService : "Gestión de mascotas"
 }
 
 ' Conexión de Usuario al API Gateway
 User --> APIGateway : "Solicita servicio"
 
-
-
-' Capa de Datos - Seis bases de datos especializadas
+' Capa de Datos - Siete bases de datos especializadas
 package "Capa de Datos" {
   database "BD Autenticación" as DBAuth
   database "BD Citas" as DBCitas
@@ -40,6 +40,7 @@ package "Capa de Datos" {
   database "BD Facturación" as DBBilling
   database "BD Historial Médico" as DBMedicalHistory
   database "BD Notificaciones" as DBNotification
+  database "BD Mascotas" as DBPets
 }
 
 ' Conexiones de microservicios a sus respectivas bases de datos
@@ -49,15 +50,14 @@ ClientsService --> DBClientes : "Consulta de clientes"
 BillingService --> DBBilling : "Operaciones de pago"
 MedicalHistoryService --> DBMedicalHistory : "Acceso a historiales"
 NotificationService --> DBNotification : "Registro de notificaciones"
+PetsService --> DBPets : "Gestión de datos de mascotas"
 
 ' Configuración de Entorno de Datos
 component "Config Server" as ConfigServer
-
 
 ' Registro del Config Server en Eureka
 "Capa de Datos" ..> ConfigServer
 ConfigServer ..> Eureka : "Registro de Configuración"
 Eureka ..> "Microservicios Veterinaria"
-
 
 @enduml

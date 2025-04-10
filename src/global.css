@@ -149,6 +149,15 @@ body {
   .container {
     padding: var(--padding-xl); /* Ajusta el padding de los contenedores */
   }
+
+  /* Asegura que el menú desplegable no se vea afectado */
+  .navbar .collapse {
+    position: absolute;
+    top: 70px; /* Asegura que el menú esté justo debajo del navbar */
+    left: 0; /* Alinea el menú con el borde izquierdo */
+    width: 100%; /* Asegura que el menú ocupe todo el ancho */
+    z-index: 30; /* Asegura que el menú esté por encima de otros elementos */
+  }
 }
 
 /* Media queries para móviles */
@@ -161,4 +170,14 @@ body {
   .container {
     padding: var(--padding-base); /* Ajusta el padding de los contenedores */
   }
+
+  /* Asegura que el menú desplegable no se vea afectado */
+  .navbar .collapse {
+    position: absolute;
+    top: 70px; /* Asegura que el menú esté justo debajo del navbar */
+    left: 0; /* Alinea el menú con el borde izquierdo */
+    width: 100%; /* Asegura que el menú ocupe todo el ancho */
+    z-index: 30; /* Asegura que el menú esté por encima de otros elementos */
+  }
 }
+

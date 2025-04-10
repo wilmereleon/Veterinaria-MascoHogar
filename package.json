@@ -4,16 +4,19 @@
   "private": true,
   "homepage": "wilmereleon.github.io/Veterinaria-MascoHogar",
   "dependencies": {
+    "@popperjs/core": "^2.11.8",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^29.5.0",
-    "@types/react": "^19.1.0", 
-    "@types/react-dom": "^19.1.1", 
-    "react-dom": "^18.3.1", 
-    "react-router-dom": "^6.30.0", 
-    "web-vitals": "^2.1.4",
-    "typescript": "^5.8.3" 
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.1",
+    "bootstrap": "^5.3.5",
+    "bootstrap-icons": "^1.11.3",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.30.0",
+    "typescript": "^5.8.3",
+    "web-vitals": "^2.1.4"
   },
   "devDependencies": {
     "@babel/core": "^7.26.10",
@@ -30,10 +33,10 @@
   "scripts": {
     "start": "vite",
     "dev": "vite",
-    "build": "vite build && mv dist docs", 
+    "build": "vite build && mv dist docs",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "deploy": "npm run build && surge dist https://purring-behavior.surge.sh" 
+    "deploy": "npm run build && surge dist https://purring-behavior.surge.sh"
   },
   "eslintConfig": {
     "root": true

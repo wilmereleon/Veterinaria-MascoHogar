@@ -6,6 +6,8 @@ import {
   useLocation,
   Navigate,
 } from "react-router-dom";
+// Importa Bootstrap JS para el comportamiento del menú desplegable
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import VeterinariaMascoHogar from "./pages/Home/VeterinariaMascoHogar";
 import PaginaDeNoticias from "./pages/News/PginaDeNoticias"; // Importación de la página de noticias
 import VistaInicioDeSesion from "./pages/AuthPages/VistaInicioDeSesion"; // Ruta corregida
@@ -102,24 +104,26 @@ function App() {
   }, [pathname]);
 
   return (
-    <Routes>
-      {/* Redirección desde la raíz (/) a la ruta principal */}
-      <Route
-        path="/"
-        element={<Navigate to="/veterinaria-mascohogar-pc-home" replace />}
-      />
-      <Route
-        path="/veterinaria-mascohogar-pc-home"
-        element={<VeterinariaMascoHogar />}
-      />
-      <Route
-        path="/noticias"
-        element={<PaginaDeNoticias />} // Nueva ruta para la página de noticias
-      />
-      <Route path="/login" element={<VistaInicioDeSesion />} />
-      <Route path="/entorno-sesion" element={<VistaDeEntornoDeSesionUsu />} />
-      <Route path="/registro" element={<VistaRegstrate />} /> {/* Nueva ruta */}
-    </Routes>
+    <>
+      <Routes>
+        {/* Redirección desde la raíz (/) a la ruta principal */}
+        <Route
+          path="/"
+          element={<Navigate to="/veterinaria-mascohogar-pc-home" replace />}
+        />
+        <Route
+          path="/veterinaria-mascohogar-pc-home"
+          element={<VeterinariaMascoHogar />}
+        />
+        <Route
+          path="/noticias"
+          element={<PaginaDeNoticias />} // Nueva ruta para la página de noticias
+        />
+        <Route path="/login" element={<VistaInicioDeSesion />} />
+        <Route path="/entorno-sesion" element={<VistaDeEntornoDeSesionUsu />} />
+        <Route path="/registro" element={<VistaRegstrate />} /> {/* Nueva ruta */}
+      </Routes>
+    </>
   );
 }
 
