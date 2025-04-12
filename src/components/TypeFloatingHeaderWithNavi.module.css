@@ -190,16 +190,23 @@
   }
 
   .navbar-nav {
-    margin-left: 0 !important; /* Elimina el margen automático */
-    justify-content: flex-start !important; /* Alinea los elementos a la izquierda */
-    padding-left: 15px; /* Agrega espacio a la izquierda */
+    display: flex !important; /* Asegura que los elementos se muestren en flex */
+    flex-direction: column !important; /* Coloca los elementos en columna */
+    align-items: flex-start !important; /* Alinea los elementos a la izquierda */
+    justify-content: flex-start !important; /* Asegura que los elementos estén alineados a la izquierda */
+    padding-left: 15px !important; /* Agrega espacio a la izquierda */
+    margin: 0 !important; /* Elimina márgenes automáticos */
   }
 
   .navLink {
+    text-align: left !important; /* Asegura que el texto esté alineado a la izquierda */
     width: 100%; /* Asegura que los enlaces ocupen todo el ancho */
+    padding: 10px 0; /* Agrega espacio entre los enlaces */
   }
+
   .navLinkIcon {
     display: inline-flex; /* Muestra los íconos en dispositivos móviles */
+    margin-right: 8px; /* Espaciado entre el ícono y el texto */
   }
 }
 
