@@ -2,6 +2,10 @@ import { FunctionComponent, useState } from "react";
 import { useNavigate } from "react-router-dom"; // Importa useNavigate
 import styles from "./VistaRegstrate.module.css";
 
+// URLs de los microservicios
+const CLIENT_SERVICE_URL = "http://localhost:8060/api/clients"; // URL del microservicio de clientes
+const PET_SERVICE_URL = "http://localhost:8082/api/pets"; // URL del microservicio de mascotas
+
 const VistaRegstrate: FunctionComponent = () => {
   const navigate = useNavigate(); // Inicializa el hook useNavigate
 
@@ -18,7 +22,7 @@ const VistaRegstrate: FunctionComponent = () => {
   const [petHistory, setPetHistory] = useState("");
 
   // Función para manejar el clic en "Registrar"
-  const handleRegister = () => {
+  const handleRegister = async () => {
     // Validación de campos vacíos
     if (
       !email ||
@@ -49,8 +53,58 @@ const VistaRegstrate: FunctionComponent = () => {
       return;
     }
 
-    // Si todo está validado, redirige a la página de entorno de sesión
-    navigate("/entorno-sesion");
+    try {
+      // Crear cliente
+      const clientResponse = await fetch(CLIENT_SERVICE_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          name: firstName,
+          last_name: lastName,
+          address: "Dirección no especificada", // Puedes agregar un campo para la dirección
+          phone_number: "Teléfono no especificado", // Puedes agregar un campo para el teléfono
+          registration_date: new Date().toISOString(), // Fecha de registro
+        }),
+      });
+
+      if (!clientResponse.ok) {
+        throw new Error("Error al registrar el cliente");
+      }
+
+      const clientData = await clientResponse.json();
+
+      // Crear mascota asociada al cliente
+      const petResponse = await fetch(PET_SERVICE_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: petName,
+          breed: petBreed,
+          color: "Color no especificado", // Puedes agregar un campo para el color
+          gender: "Género no especificado", // Puedes agregar un campo para el género
+          date_birth: new Date(
+            new Date().setFullYear(new Date().getFullYear() - parseInt(petAge))
+          ).toISOString(), // Calcula la fecha de nacimiento
+          weight: "Peso no especificado", // Puedes agregar un campo para el peso
+          client_id: clientData.id, // Relación con el cliente
+        }),
+      });
+
+      if (!petResponse.ok) {
+        throw new Error("Error al registrar la mascota");
+      }
+
+      alert("Registro exitoso");
+      navigate("/entorno-sesion"); // Redirige a la página de entorno de sesión
+    } catch (error) {
+      console.error("Error durante el registro:", error);
+      alert("Ocurrió un error al registrar los datos. Por favor, intenta nuevamente.");
+    }
   };
 
   return (

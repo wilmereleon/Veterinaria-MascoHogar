@@ -87,27 +87,33 @@
 .typestackedSimpleFooter {
   align-self: stretch;
   background-color: var(--color-mintcream); /* Fondo color crema */
-  overflow: hidden;
+  overflow: visible; /* Asegura que el contenido no sea cortado */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding: 80px var(--padding-45xl); /* Espaciado interno */
-  gap: var(--gap-45xl); /* Espaciado entre los elementos */
+  padding: 80px var(--padding-45xl);
+  gap: var(--gap-45xl);
   z-index: 0; /* Nivel de apilamiento */
 }
-
 /* Contenedor principal de la página */
 .veterinariaMascohogarPcH {
-  width: 100%; /* Ocupa todo el ancho */
+  width: 100%;
   position: relative;
+  overflow: visible; /* Asegura que el contenido no sea cortado */
   background-color: var(--color-white); /* Fondo blanco */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  text-align: left; /* Alineación del texto a la izquierda */
-  font-size: var(--font-size-lg); /* Tamaño de fuente grande */
-  color: var(--color-darkslategray-100); /* Color gris oscuro */
-  font-family: var(--font-lato); /* Fuente Lato */
+  text-align: left;
+  font-size: var(--font-size-lg);
+  color: var(--color-darkslategray-100);
+  font-family: var(--font-lato);
+}
+
+@media (max-width: 480px) {
+  .veterinariaMascohogarPcH {
+    overflow: visible; /* Asegura que el contenido no sea cortado */
+  }
 }

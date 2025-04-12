@@ -10,26 +10,10 @@
   flex-wrap: nowrap; /* Evita que los elementos se envuelvan */
   height: 70px; /* Asegura una altura uniforme para el navbar */
   position: relative; /* Permite posicionar el menú desplegable */
-  z-index: 10; /* Asegura que el navbar esté por encima del contenido */
+  z-index: 9999 !important; /* Asegura que el navbar esté por encima del contenido */
 }
 
-/* Estilo del menú desplegable */
-.navbar .collapse {
-  position: absolute; /* Posiciona el menú desplegable debajo del navbar */
-  top: 70px; /* Alinea el menú justo debajo del navbar */
-  left: 10px; /* Mueve el menú un poco hacia la derecha */
-  background-color: #ecfdf5 !important; /* Asegura que el fondo sea visible */
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Agrega una sombra para destacar el menú */
-  padding: 10px 15px; /* Espaciado interno del menú */
-  display: flex !important; /* Asegura que el menú sea visible */
-  flex-direction: column; /* Asegura que los elementos estén en columna */
-  align-items: flex-start; /* Alinea los elementos al inicio */
-  z-index: 9999 !important; /* Asegura que el menú esté por encima de otros elementos */
-  min-width: 200px; /* Asegura un ancho mínimo para el menú */
-  border-radius: 8px; /* Bordes redondeados para el menú */
-  opacity: 1 !important; /* Asegura que el fondo no sea transparente */
-  visibility: visible !important; /* Asegura que el menú no esté oculto */
-}
+
 /* Estilo del logo y el ícono de hamburguesa en vista responsiva */
 .logoContainer {
   display: flex;
@@ -41,10 +25,16 @@
 .logoText {
   font-family: "Helvetica Rounded LT Std", sans-serif;
   font-weight: bold;
-  font-size: 160%;
   color: #064e3b;
-  margin-left: 8px;
   white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+}
+
+.logoText .veterinaria {
+  font-size: 14px; /* Tamaño de fuente para "Veterinaria" */
+}
+
+.logoText .mascoHogar {
+  font-size: 32px; /* Tamaño de fuente para "MascoHogar" */
 }
 
 /* Estilo del texto Hola, usuario */
@@ -115,12 +105,19 @@
 .navLink {
   font-family: "Lato", sans-serif;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 12px;
   color: #064e3b;
-  margin: 10px 0; /* Espaciado entre los enlaces */
+  margin: 10px 15px; /* Espaciado entre los enlaces */
   display: flex;
   align-items: center; /* Asegura la alineación vertical */
   text-decoration: none; /* Elimina el subrayado */
+}
+
+.navLinkIcon {
+  margin-right: 8px; /* Espaciado entre el ícono y el texto */
+  color: #65A30D; /* Color del ícono */
+  font-size: 16px; /* Tamaño del ícono */
+  display: none; /* Oculta los íconos por defecto */
 }
 
 /* Estilo del enlace Servicios */
@@ -181,7 +178,28 @@
 /* Media queries para móviles */
 @media (max-width: 480px) {
   .navbar .collapse {
-    background-color: #ecfdf5 !important; /* Asegura que el fondo sea visible en móviles */
+    position: fixed; /* Cambia a fixed para que no dependa del contenedor */
+    top: 70px;
+    left: 0;
+    background-color: #ecfdf5; /* Fondo blanco */
+    z-index: 10000; /* Asegura que el menú esté por encima de otros elementos */
+    width: 100%; /* Ocupa todo el ancho de la pantalla */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
+    border-radius: 8px; /* Bordes redondeados */
+    text-align: left; /* Alinea el contenido del menú a la izquierda */
+  }
+
+  .navbar-nav {
+    margin-left: 0 !important; /* Elimina el margen automático */
+    justify-content: flex-start !important; /* Alinea los elementos a la izquierda */
+    padding-left: 15px; /* Agrega espacio a la izquierda */
+  }
+
+  .navLink {
+    width: 100%; /* Asegura que los enlaces ocupen todo el ancho */
+  }
+  .navLinkIcon {
+    display: inline-flex; /* Muestra los íconos en dispositivos móviles */
   }
 }
 

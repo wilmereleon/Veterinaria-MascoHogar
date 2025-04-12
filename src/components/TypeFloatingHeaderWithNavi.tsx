@@ -2,6 +2,7 @@ import { FunctionComponent, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import styles from "./TypeFloatingHeaderWithNavi.module.css";
+import { FaHome, FaInfoCircle, FaUsers, FaSignInAlt, FaUserPlus, FaCog } from "react-icons/fa";
 
 const TypeFloatingHeaderWithNavi: FunctionComponent = () => {
   const navigate = useNavigate();
@@ -9,6 +10,7 @@ const TypeFloatingHeaderWithNavi: FunctionComponent = () => {
     localStorage.getItem("isAuthenticated") === "true"
   );
   const [username, setUsername] = useState<string>("");
+  const [menuOpen, setMenuOpen] = useState(false); // Estado para controlar el menú desplegable
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -24,45 +26,44 @@ const TypeFloatingHeaderWithNavi: FunctionComponent = () => {
   };
 
   const onLoginClick = () => {
-    navigate("/login"); // Navega a la vista de inicio de sesión
+    navigate("/login");
   };
 
   const onRegisterClick = () => {
-    navigate("/registro"); // Navega a la vista de registro
+    navigate("/registro");
   };
 
   const onHomeClick = () => {
-    navigate("/veterinaria-mascohogar-pc-home"); // Navega a la vista de VeterinariaMascoHogar
+    navigate("/veterinaria-mascohogar-pc-home");
   };
 
   return (
     <nav className={`navbar navbar-expand-lg navbar-light bg-light ${styles.navbar}`}>
       <div className="container-fluid">
-        {/* Botón de hamburguesa */}
         <button
           className="navbar-toggler"
           type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
+          onClick={() => setMenuOpen(!menuOpen)} // Cambia el estado del menú al hacer clic
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-
-        {/* Logo */}
         <a
           className={`navbar-brand ms-2 d-flex align-items-center ${styles.logo}`}
           onClick={onHomeClick}
           style={{ cursor: "pointer" }}
         >
           <img src="/icon.svg" alt="Logo" width="50" height="50" />
-          <span className={styles.logoText}>Veterinaria MascoHogar</span>
+          <div className={styles.logoText}>
+            <span className={styles.veterinaria}>Veterinaria</span>
+            <span className={styles.mascoHogar}>MascoHogar</span>
+          </div>
         </a>
-
-        {/* Menú desplegable */}
-        <div className="collapse navbar-collapse" id="navbarNav">
+        <div
+          className={`collapse navbar-collapse ${styles.collapse}`}
+          style={{
+            display: menuOpen ? "flex" : "none", // Controla la visibilidad del menú
+          }}
+        >
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
               <button
@@ -70,16 +71,25 @@ const TypeFloatingHeaderWithNavi: FunctionComponent = () => {
                 onClick={onHomeClick}
                 style={{ background: "none", border: "none", cursor: "pointer" }}
               >
+                <span className={styles.navLinkIcon}>
+                  <FaHome />
+                </span>
                 Inicio
               </button>
             </li>
             <li className="nav-item">
               <a className={`nav-link ${styles.navLink}`} href="/about">
+                <span className={styles.navLinkIcon}>
+                  <FaInfoCircle />
+                </span>
                 Acerca de
               </a>
             </li>
             <li className="nav-item">
               <a className={`nav-link ${styles.navLink}`} href="/team">
+                <span className={styles.navLinkIcon}>
+                  <FaUsers />
+                </span>
                 Equipo
               </a>
             </li>
@@ -87,6 +97,9 @@ const TypeFloatingHeaderWithNavi: FunctionComponent = () => {
               <>
                 <li className="nav-item">
                   <a className={`nav-link ${styles.servicesLink}`} href="/entorno-sesion">
+                    <span className={styles.navLinkIcon}>
+                      <FaCog />
+                    </span>
                     Servicios
                   </a>
                 </li>
@@ -95,6 +108,9 @@ const TypeFloatingHeaderWithNavi: FunctionComponent = () => {
                 </li>
                 <li className="nav-item">
                   <button className={`btn btn-link nav-link ${styles.logoutButton}`} onClick={onLogoutClick}>
+                    <span className={styles.navLinkIcon}>
+                      <FaSignInAlt />
+                    </span>
                     Cerrar sesión
                   </button>
                 </li>
