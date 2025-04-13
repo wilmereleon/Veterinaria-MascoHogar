@@ -1,3 +1,11 @@
+/* 
+
+  .contenedorServiciosFarmacia:
+  - Define un contenedor para los servicios de farmacia.
+  - Utiliza posicionamiento absoluto para colocarse en relación con su contenedor padre más cercano posicionado.
+  - Se posiciona a 99px desde la parte superior y 958px desde la izquierda.
+  - Tiene un ancho fijo de 482px y una altura fija de 765px.
+*/
 .contenedorServiciosFarmacia {
   position: absolute;
   top: 99px;
@@ -6,6 +14,14 @@
   height: 765px;
 }
 
+/* 
+.entornoDeBienvenida:
+  - Define un contenedor con posición absoluta.
+  - Se posiciona en la esquina superior izquierda de la pantalla (top: 0px; left: 0px).
+  - Utiliza un color de fondo definido por la variable CSS --color-mintcream.
+  - Establece un ancho fijo de 947px y una altura fija de 762px.
+  - Ideal para crear una sección de bienvenida o introducción en la interfaz de usuario.
+*/
 .entornoDeBienvenida {
   position: absolute;
   top: 0px;
@@ -15,6 +31,15 @@
   height: 762px;
 }
 
+/* 
+
+  .holaWlmer:
+  - Define un contenedor con posición absoluta.
+  - Se posiciona a 181.4px desde la parte superior y 87px desde la izquierda.
+  - Establece un interlineado del 120% y un peso de fuente de 900 (negrita).
+  - Utiliza un diseño de flexbox para alinear los elementos hijos en el centro.
+  - Tiene un ancho de 491px y una altura de 48px.
+*/
 .holaWlmer {
   position: absolute;
   top: 181.4px;
@@ -27,6 +52,17 @@
   height: 48px;
 }
 
+/* 
+  Estilo para la clase .bienvenido:
+  - Posiciona el elemento de forma absoluta dentro de su contenedor.
+  - Define la posición superior a 112.1px y la posición izquierda a 87px.
+  - Establece un tamaño de fuente grande utilizando la variable CSS --font-size-37xl.
+  - Configura el interlineado al 120% para un espaciado adecuado entre líneas.
+  - Aplica un peso de fuente de 900 para un texto en negrita.
+  - Define el color del texto utilizando la variable CSS --color-darkslategray-100.
+  - Muestra el elemento como un bloque en línea.
+  - Establece un ancho fijo de 598px y una altura fija de 69.4px.
+*/
 .bienvenido {
   position: absolute;
   top: 112.1px;
@@ -40,18 +76,48 @@
   height: 69.4px;
 }
 
+/* 
+  
+  .realizaFcilmenteTus:
+  Esta clase aplica la fuente definida en la variable CSS personalizada --font-lato.
+  Es útil para mantener consistencia tipográfica en los elementos que utilicen esta clase.
+*/
 .realizaFcilmenteTus {
   font-family: var(--font-lato);
 }
 
+/* 
+
+  .realizaFcilmenteTusDiligen:
+  Esta clase CSS se utiliza para eliminar los márgenes externos de un elemento,
+  estableciendo el valor de margen en 0. Esto asegura que el elemento no tenga
+  espacio adicional alrededor de su contenedor o elementos adyacentes.
+*/
 .realizaFcilmenteTusDiligen {
   margin: 0;
 }
 
+/* 
+
+  .realizaFcilmenteTusContainer1:
+  Esta clase CSS se utiliza para establecer un contenedor que ocupa el 100% del ancho disponible.
+  Es útil para crear elementos que se ajusten completamente al ancho del contenedor padre.
+*/
 .realizaFcilmenteTusContainer1 {
   width: 100%;
 }
 
+/* 
+
+  .realizaFcilmenteTusContainer:
+  - Define un contenedor con posición absoluta.
+  - Se posiciona a 229.5px desde la parte superior y 87px desde la izquierda.
+  - Aplica un tamaño de fuente definido por la variable CSS (--font-size-xl).
+  - Establece un interlineado del 150%.
+  - Utiliza un diseño flexible (flexbox) para alinear elementos hijos al centro.
+  - Tiene un ancho de 448px y una altura de 133.4px.
+  - Usa la fuente definida por la variable CSS (--font-lato).
+*/
 .realizaFcilmenteTusContainer {
   position: absolute;
   top: 229.5px;
@@ -65,6 +131,16 @@
   font-family: var(--font-lato);
 }
 
+/* 
+  .fotoDePerroYGato:
+  Esta clase se utiliza para posicionar una imagen de un perro y un gato en la página.
+  - position: absolute; -> Posiciona el elemento de forma absoluta respecto a su contenedor más cercano con posición relativa.
+  - top: 333px; -> Establece la distancia desde la parte superior del contenedor hasta el elemento.
+  - left: 559px; -> Establece la distancia desde el lado izquierdo del contenedor hasta el elemento.
+  - width: 388px; -> Define el ancho de la imagen.
+  - height: 429px; -> Define la altura de la imagen.
+  - object-fit: cover; -> Asegura que la imagen mantenga su proporción y llene completamente el área definida, recortando si es necesario.
+*/
 .fotoDePerroYGato {
   position: absolute;
   top: 333px;
@@ -74,6 +150,14 @@
   object-fit: cover;
 }
 
+/* 
+
+  .entornoDeBienvenidaParent:
+  - Define un contenedor principal para la sección de bienvenida.
+  - Utiliza posición absoluta para situarse en relación con su contenedor más cercano posicionado.
+  - Se posiciona a 100px desde la parte superior y 0px desde la izquierda.
+  - Establece un ancho fijo de 947px y una altura fija de 762px.
+*/
 .entornoDeBienvenidaParent {
   position: absolute;
   top: 100px;
@@ -82,6 +166,18 @@
   height: 762px;
 }
 
+/* 
+  Estilo para el componente "vistaDeEntornoDeSesinUsu":
+  - width: 100%; -> Establece el ancho completo del componente.
+  - position: relative; -> Define la posición relativa del componente para permitir posicionamiento interno.
+  - background-color: var(--color-white); -> Aplica un color de fondo blanco utilizando una variable CSS.
+  - height: 1024px; -> Fija la altura del componente en 1024 píxeles.
+  - overflow: hidden; -> Oculta cualquier contenido que exceda los límites del componente.
+  - text-align: left; -> Alinea el texto del componente a la izquierda.
+  - font-size: var(--font-size-11xl); -> Define el tamaño de fuente utilizando una variable CSS.
+  - color: var(--color-seagreen); -> Establece el color del texto en verde marino utilizando una variable CSS.
+  - font-family: var(--font-playfair-display); -> Aplica la fuente "Playfair Display" utilizando una variable CSS.
+*/
 .vistaDeEntornoDeSesinUsu {
   width: 100%;
   position: relative;
@@ -94,6 +190,14 @@
   font-family: var(--font-playfair-display);
 }
 
+/*
+
+  Estilos para el elemento contenedorFarmaciaYAutorizaChild:
+  - Posiciona el elemento de forma absoluta dentro de su contenedor.
+  - Ubica el elemento en la esquina superior izquierda (top: 0px, left: 0px).
+  - Aplica un color de fondo definido por la variable CSS --color-mintcream.
+  - Establece un ancho fijo de 482px y una altura fija de 433px.
+*/
 /* Estilos para ContenedorFarmaciaYAutoriza */
 .contenedorFarmaciaYAutorizaChild {
   position: absolute;
@@ -104,6 +208,15 @@
   height: 433px;
 }
 
+/* 
+  .mailUnreadIcon:
+  - Define un icono para correos no leídos con las siguientes propiedades:
+    - width: Establece un ancho fijo de 31px.
+    - position: Define la posición relativa del elemento.
+    - height: Establece una altura fija de 24px.
+    - overflow: Oculta cualquier contenido que exceda los límites del contenedor.
+    - flex-shrink: Evita que el elemento reduzca su tamaño en un contenedor flexible.
+*/
 .mailUnreadIcon {
   width: 31px;
   position: relative;
@@ -112,11 +225,25 @@
   flex-shrink: 0;
 }
 
+/* 
+  Estilo para la clase "reportes1":
+  - color: Define el color del texto utilizando la variable CSS personalizada (--color-darkolivegreen).
+  - white-space: Establece que el texto debe respetar los saltos de línea y espacios en blanco, 
+    utilizando el valor "pre-wrap" para que el contenido se ajuste automáticamente al ancho del contenedor.
+*/
 .reportes1 {
   color: var(--color-darkolivegreen);
   white-space: pre-wrap;
 }
 
+/* 
+  .cta:
+  - Estilo para un elemento con clase "cta".
+  - `position: relative;`: Establece la posición relativa del elemento, 
+    permitiendo ajustar su posición en relación con su posición normal.
+  - `line-height: 150%;`: Define la altura de línea del texto como el 150% 
+    del tamaño de fuente, mejorando la legibilidad.
+*/
 .cta {
   position: relative;
   line-height: 150%;

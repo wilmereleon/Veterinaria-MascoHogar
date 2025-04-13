@@ -37,15 +37,16 @@
   font-size: 32px; /* Tamaño de fuente para "MascoHogar" */
 }
 
-/* Estilo del texto Hola, usuario */
+/* Estilo del texto Hola, Usuario */
 .userGreeting {
   font-family: "Helvetica Rounded LT Std", sans-serif;
   font-weight: bold;
   font-size: 130%; /* Tres puntos más pequeño que el texto del logo */
   color: #064e3b;
-  margin-left: 8px;
+  margin: 0 15px; /* Ajusta el espaciado para alinearlo con los demás enlaces */
   display: flex;
-  align-items: center; /* Asegura que el texto esté alineado verticalmente */
+  align-items: center; /* Asegura la alineación vertical */
+  height: 100%; /* Asegura que ocupe toda la altura del navbar */
 }
 
 /* Ajuste del tamaño del texto en vista responsiva */
@@ -60,6 +61,25 @@
 
   .navbar .collapse {
     background-color: #ecfdf5 !important; /* Asegura que el fondo sea visible en tabletas */
+  }
+
+  .navbar {
+    justify-content: flex-start; /* Alinea los elementos al inicio en móviles */
+  }
+
+  .navbar-nav {
+    display: flex !important;
+    flex-direction: column !important; /* Coloca los elementos en columna */
+    align-items: flex-start !important; /* Alinea los elementos a la izquierda */
+    width: 100%; /* Asegura que el contenedor ocupe todo el ancho */
+    padding-left: 15px !important; /* Espaciado a la izquierda */
+  }
+
+  .navLink {
+    text-align: left !important; /* Asegura que el texto esté alineado a la izquierda */
+    width: 100%; /* Asegura que los enlaces ocupen todo el ancho */
+    padding: 10px 0; /* Espaciado entre los enlaces */
+    margin: 0; /* Elimina márgenes adicionales */
   }
 }
 
@@ -126,10 +146,11 @@
   font-weight: bold; /* Resalta el enlace en negrita */
   font-size: 12px;
   color: #064e3b;
-  margin-right: 20px;
-  margin-top: 5px; /* Mueve el enlace un poco más abajo */
+  margin: 0 15px; /* Ajusta el espaciado para alinearlo con los demás enlaces */
   display: flex;
   align-items: center; /* Asegura la alineación vertical */
+  text-decoration: none; /* Elimina el subrayado */
+  height: 100%; /* Asegura que ocupe toda la altura del navbar */
 }
 
 /* Botón de inicio de sesión */
@@ -163,30 +184,55 @@
   align-items: center; /* Asegura la alineación vertical */
 }
 
-/* Botón de cerrar sesión */
+/* Estilo del botón Cerrar sesión */
 .logoutButton {
   font-family: "Lato", sans-serif;
   font-weight: 400;
   font-size: 12px;
   color: #064e3b;
-  border-radius: 8px; /* Bordes redondeados */
-  margin-top: 5px; /* Mueve el botón un poco más abajo */
+  border: none; /* Elimina el borde */
+  background: none; /* Elimina el fondo */
+  margin: 0 15px; /* Ajusta el espaciado para alinearlo con los demás enlaces */
   display: flex;
   align-items: center; /* Asegura la alineación vertical */
+  height: 100%; /* Asegura que ocupe toda la altura del navbar */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
 }
 
 /* Media queries para móviles */
 @media (max-width: 480px) {
+  .logoText {
+    font-size: 70%; /* Reduce el tamaño del texto en pantallas pequeñas */
+  }
+
+  .navbar-nav {
+    display: flex !important;
+    flex-direction: column !important; /* Coloca los elementos en columna */
+    align-items: flex-start !important; /* Alinea los elementos a la izquierda */
+    width: 100%; /* Asegura que el contenedor ocupe todo el ancho */
+    padding-left: 15px !important; /* Espaciado a la izquierda */
+  }
+
+  .navLink {
+    text-align: left !important; /* Asegura que el texto esté alineado a la izquierda */
+    width: 100%; /* Asegura que los enlaces ocupen todo el ancho */
+    padding: 10px 0; /* Espaciado entre los enlaces */
+    margin: 0; /* Elimina márgenes adicionales */
+    display: flex; /* Asegura que el ícono y el texto estén en línea */
+    align-items: center; /* Alinea verticalmente el ícono y el texto */
+  }
+
   .navbar .collapse {
-    position: fixed; /* Cambia a fixed para que no dependa del contenedor */
-    top: 70px;
+    position: fixed; /* Fija el menú desplegable */
+    top: 70px; /* Asegura que el menú aparezca debajo del navbar */
     left: 0;
     background-color: #ecfdf5; /* Fondo blanco */
     z-index: 10000; /* Asegura que el menú esté por encima de otros elementos */
     width: 100%; /* Ocupa todo el ancho de la pantalla */
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
-    border-radius: 8px; /* Bordes redondeados */
+    border-radius: 0; /* Elimina bordes redondeados */
     text-align: left; /* Alinea el contenido del menú a la izquierda */
+    padding: 10px 0; /* Espaciado interno */
   }
 
   .navbar-nav {
@@ -195,18 +241,31 @@
     align-items: flex-start !important; /* Alinea los elementos a la izquierda */
     justify-content: flex-start !important; /* Asegura que los elementos estén alineados a la izquierda */
     padding-left: 15px !important; /* Agrega espacio a la izquierda */
-    margin: 0 !important; /* Elimina márgenes automáticos */
   }
 
   .navLink {
     text-align: left !important; /* Asegura que el texto esté alineado a la izquierda */
     width: 100%; /* Asegura que los enlaces ocupen todo el ancho */
-    padding: 10px 0; /* Agrega espacio entre los enlaces */
+    padding: 10px 0; /* Espaciado entre los enlaces */
+    margin: 0; /* Elimina márgenes adicionales */
+    display: flex; /* Asegura que el ícono y el texto estén en línea */
+    align-items: center; /* Alinea verticalmente el ícono y el texto */
   }
 
   .navLinkIcon {
     display: inline-flex; /* Muestra los íconos en dispositivos móviles */
     margin-right: 8px; /* Espaciado entre el ícono y el texto */
+  }
+
+  .navbar-toggler {
+    margin-right: 0; /* Ajusta el espacio del ícono de hamburguesa */
+    margin-left: 10px; /* Agrega espacio entre el ícono y el borde izquierdo */
+  }
+
+  .navbar-toggler-icon {
+    width: 20px; /* Reduce el tamaño del ícono de hamburguesa */
+    height: 20px;
+    background-color: #65a30d; /* Color del ícono */
   }
 }
 

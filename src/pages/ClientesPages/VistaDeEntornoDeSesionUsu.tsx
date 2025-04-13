@@ -1,8 +1,42 @@
 import { FunctionComponent, useEffect, useState, useCallback } from "react";
 import Medicamentos from "../../components/Medicamentos";
-import HeaderTop from "../../components/HeaderTop";
+import TypeFloatingHeaderWithNavi from "../../components/TypeFloatingHeaderWithNavi"; // Encabezado flotante con navegación
 import styles from "./VistaDeEntornoDeSesionUsu.module.css";
 
+/**
+ * Componente funcional `VistaDeEntornoDeSesinUsu`.
+ * Este componente representa la vista principal del entorno de sesión del usuario,
+ * mostrando opciones adicionales, servicios, farmacia y autorizaciones, así como
+ * un mensaje de bienvenida personalizado basado en el nombre del usuario almacenado
+ * en el `localStorage`.
+ *
+ * @returns {JSX.Element} El componente de la vista de entorno de sesión del usuario.
+ *
+ * @remarks
+ * - Utiliza el estado `username` para almacenar el nombre del usuario autenticado.
+ * - Al cargar el componente, se obtiene el nombre del usuario desde `localStorage`.
+ * - Contiene múltiples secciones como opciones adicionales, farmacia y autorizaciones,
+ *   servicios, y un mensaje de bienvenida.
+ *
+ * @component
+ *
+ * @example
+ * ```tsx
+ * <VistaDeEntornoDeSesinUsu />
+ * ```
+ *
+ * @dependencies
+ * - `useState` y `useEffect` de React para manejar el estado y efectos secundarios.
+ * - Componente `Medicamentos` para mostrar opciones relacionadas con medicamentos.
+ * - Componente `TypeFloatingHeaderWithNavi` para mostrar el encabezado superior.
+ *
+ * @styles
+ * - Utiliza clases CSS definidas en `styles` para el diseño y la disposición de los elementos.
+ *
+ * @event onMedicamentosContainerClick
+ * - Callback que se ejecuta al hacer clic en el contenedor de medicamentos.
+ * - Actualmente, contiene un comentario indicando que debe sincronizarse con el proyecto.
+ */
 const VistaDeEntornoDeSesinUsu: FunctionComponent = () => {
   const [username, setUsername] = useState<string>(""); // Estado para almacenar el nombre del usuario
 
@@ -13,11 +47,14 @@ const VistaDeEntornoDeSesinUsu: FunctionComponent = () => {
   }, []);
 
   const onMedicamentosContainerClick = useCallback(() => {
-    // Please sync "Vista de entorno de solicitud de citas usuario:cliente" to the project
+    // Acción al hacer clic en el contenedor de medicamentos
   }, []);
 
   return (
     <div className={styles.vistaDeEntornoDeSesinUsu}>
+      {/* Navbar ajustado desde TypeFloatingHeaderWithNavi */}
+      <TypeFloatingHeaderWithNavi />
+
       {/* Contenedor de Opciones Adicionales */}
       <div className={styles.opcionesAdicionales}>
         <div className={styles.opcionesAdicionalesChild} />
@@ -142,7 +179,6 @@ const VistaDeEntornoDeSesinUsu: FunctionComponent = () => {
           src="/foto-de-perro-y-gato@2x.png"
         />
       </div>
-      <HeaderTop />
     </div>
   );
 };
