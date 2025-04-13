@@ -38,8 +38,8 @@ const VistaDeEntornoDeSesinUsu: FunctionComponent = () => {
             <h2 className={styles.holaWlmer}>Hola, {username}</h2>
             <p className={styles.realizaFcilmenteTus}>
               Realiza fácilmente tus diligencias con <b>MascoHogar</b>. <br />
-              ¡Conoce aquí las soluciones virtuales que tenemos especialmente
-              para ti y tu animal de compañía!
+              ¡Conoce aquí las soluciones virtuales que tenemos <br />
+              especialmente para ti y tu animal de compañía!
             </p>
             <img
               className={`${styles.fotoDePerroYGato} mt-3`}

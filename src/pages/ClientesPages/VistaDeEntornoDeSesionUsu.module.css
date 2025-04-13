@@ -64,6 +64,7 @@
   font-weight: 900; /* Black */
   font-size: 56px; /* Tamaño de fuente */
   color: #064e3b; /* Verde oscuro */
+  margin-top: 20px; /* Aumenta el margen superior */
 }
 
 .holaWlmer {
@@ -71,7 +72,7 @@
   font-weight: 900; /* Black */
   font-size: 30px; /* Tamaño de fuente */
   color: #059669; /* Verde medio */
-  margin-top: 10px;
+  margin-top: 20px; /* Aumenta el margen superior */
 }
 
 .realizaFcilmenteTus {
@@ -88,7 +89,7 @@
   position: absolute; /* Posiciona la imagen dentro del contenedor */
   bottom: 0px; /* Ubica la imagen en la parte inferior del contenedor */
   right: 10px; /* Ubica la imagen en la parte derecha */
-  width: 250px; /* Ajusta el tamaño de la imagen */
+  width: 300px; /* Ajusta el tamaño de la imagen */
   height: auto; /* Mantén la proporción de la imagen */
   object-fit: cover; /* Asegura que la imagen se ajuste correctamente */
   z-index: 1; /* Asegura que la imagen no se superponga al texto */
