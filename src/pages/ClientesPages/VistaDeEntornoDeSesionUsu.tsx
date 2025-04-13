@@ -1,183 +1,334 @@
-import { FunctionComponent, useEffect, useState, useCallback } from "react";
-import Medicamentos from "../../components/Medicamentos";
-import TypeFloatingHeaderWithNavi from "../../components/TypeFloatingHeaderWithNavi"; // Encabezado flotante con navegación
+import { FunctionComponent, useEffect, useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css"; // Importa Bootstrap
 import styles from "./VistaDeEntornoDeSesionUsu.module.css";
+import TypeFloatingHeaderWithNavi from "../../components/TypeFloatingHeaderWithNavi"; // Importa el navbar
 
-/**
- * Componente funcional `VistaDeEntornoDeSesinUsu`.
- * Este componente representa la vista principal del entorno de sesión del usuario,
- * mostrando opciones adicionales, servicios, farmacia y autorizaciones, así como
- * un mensaje de bienvenida personalizado basado en el nombre del usuario almacenado
- * en el `localStorage`.
- *
- * @returns {JSX.Element} El componente de la vista de entorno de sesión del usuario.
- *
- * @remarks
- * - Utiliza el estado `username` para almacenar el nombre del usuario autenticado.
- * - Al cargar el componente, se obtiene el nombre del usuario desde `localStorage`.
- * - Contiene múltiples secciones como opciones adicionales, farmacia y autorizaciones,
- *   servicios, y un mensaje de bienvenida.
- *
- * @component
- *
- * @example
- * ```tsx
- * <VistaDeEntornoDeSesinUsu />
- * ```
- *
- * @dependencies
- * - `useState` y `useEffect` de React para manejar el estado y efectos secundarios.
- * - Componente `Medicamentos` para mostrar opciones relacionadas con medicamentos.
- * - Componente `TypeFloatingHeaderWithNavi` para mostrar el encabezado superior.
- *
- * @styles
- * - Utiliza clases CSS definidas en `styles` para el diseño y la disposición de los elementos.
- *
- * @event onMedicamentosContainerClick
- * - Callback que se ejecuta al hacer clic en el contenedor de medicamentos.
- * - Actualmente, contiene un comentario indicando que debe sincronizarse con el proyecto.
- */
+// Importa íconos de React Icons
+import { FaCalendarAlt, FaStethoscope, FaFileMedicalAlt } from "react-icons/fa";
+import { MdLocalPharmacy, MdOutlineAssignment, MdReport } from "react-icons/md";
+import { IoChatbubblesSharp, IoNotificationsSharp } from "react-icons/io5";
+
 const VistaDeEntornoDeSesinUsu: FunctionComponent = () => {
-  const [username, setUsername] = useState<string>(""); // Estado para almacenar el nombre del usuario
+  const [username, setUsername] = useState<string>("");
 
-  // Obtener el nombre del usuario desde localStorage al cargar el componente
   useEffect(() => {
-    const storedUsername = localStorage.getItem("username") || "Usuario"; // Valor predeterminado si no hay usuario
+    const storedUsername = localStorage.getItem("username") || "Usuario";
     setUsername(storedUsername);
   }, []);
 
-  const onMedicamentosContainerClick = useCallback(() => {
-    // Acción al hacer clic en el contenedor de medicamentos
-  }, []);
-
   return (
-    <div className={styles.vistaDeEntornoDeSesinUsu}>
-      {/* Navbar ajustado desde TypeFloatingHeaderWithNavi */}
+    <div className={`container-fluid ${styles.vistaDeEntornoDeSesinUsu}`}>
+      {/* Navbar */}
       <TypeFloatingHeaderWithNavi />
 
-      {/* Contenedor de Opciones Adicionales */}
-      <div className={styles.opcionesAdicionales}>
-        <div className={styles.opcionesAdicionalesChild} />
-        <div className={styles.opcionesAdicionales1}>Opciones adicionales</div>
-        <div className={styles.ctaButton}>
-          <div className={styles.textContainer}>
-            <img
-              className={styles.chatbubblesSharpIcon}
-              alt=""
-              src="/chatbubblessharp.svg"
-            />
-            <div className={styles.cta}>Contactar</div>
-          </div>
-        </div>
-        <div className={styles.ctaButton1}>
-          <div className={styles.textContainer1}>
-            <img
-              className={styles.chatbubblesSharpIcon}
-              alt=""
-              src="/notificationssharp.svg"
-            />
-            <div className={styles.cta1}>Notificaciones</div>
-          </div>
-        </div>
-      </div>
-
-      <div className={styles.contenedorServiciosFarmacia}>
-        {/* Contenedor de Farmacia y Autorizaciones */}
-        <div className={styles.contenedorFarmaciaYAutoriza}>
-          <div className={styles.contenedorFarmaciaYAutorizaChild} />
-          <div className={styles.reportes}>
-            <div className={styles.repoButton}>
-              <div className={styles.textContainer}>
-                <img
-                  className={styles.mailUnreadIcon}
-                  alt=""
-                  src="/mailunread.svg"
-                />
-                <div className={styles.cta}>
-                  <span>{` `}</span>
-                  <span className={styles.reportes1}>{`Reportes  `}</span>
-                  <span>{` `}</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className={styles.autorizaciones}>
-            <div className={styles.autoButton}>
-              <div className={styles.textContainer1}>
-                <img className={styles.vectorIcon} alt="" src="/vector.svg" />
-                <div className={styles.cta}>Autorizaciones</div>
-              </div>
-            </div>
-          </div>
-          <div className={styles.medicamentos}>
-            <div className={styles.medButton}>
-              <div className={styles.textContainer1}>
-                <img className={styles.medkitIcon} alt="" src="/medkit.svg" />
-                <div className={styles.cta}>Medicamentos</div>
-              </div>
-            </div>
-          </div>
-          <div className={styles.ttuloDeFarmaciaYAutorizac}>
-            <div className={styles.farmaciaYAutorizaciones}>
-              Farmacia y autorizaciones
-            </div>
-          </div>
-        </div>
-
-        {/* Contenedor de Servicios */}
-        <div className={styles.contenedorServicios}>
-          <div className={styles.contenedorDeServicios} />
-          <div className={styles.ttuloDeServicios}>
-            <div className={styles.servicios}>Servicios</div>
-          </div>
-          <Medicamentos
-            onMedicamentosContainerClick={onMedicamentosContainerClick}
-            medkit="/medkit1.svg"
-            cTA="Solicitud y cancelación de citas"
-          />
-          <Medicamentos
-            medicamentosLeft="255px"
-            medicamentosTop="72px"
-            medicamentosHeight="100px"
-            medkit="/medkit2.svg"
-            cTA="Solicitud y ayudas diagnósticas"
-            cTAWidth="144px"
-          />
-          <Medicamentos
-            medicamentosLeft="145px"
-            medicamentosTop="192px"
-            medicamentosHeight="69px"
-            medkit="/medkit3.svg"
-            cTA="Historia clínica"
-            cTAWidth="109px"
-          />
-        </div>
-      </div>
-      <div className={styles.entornoDeBienvenidaParent}>
-        <div className={styles.entornoDeBienvenida} />
-        {/* Mostrar el nombre del usuario autenticado */}
-        <div className={styles.holaWlmer}>Hola, {username}</div>
-        <div className={styles.bienvenido}>Bienvenido</div>
-        <div className={styles.realizaFcilmenteTusContainer}>
-          <span className={styles.realizaFcilmenteTusContainer1}>
-            <p className={styles.realizaFcilmenteTusDiligen}>
-              <span
-                className={styles.realizaFcilmenteTus}
-              >{`Realiza fácilmente tus diligencias con `}</span>
-              <b className={styles.realizaFcilmenteTus}>MascoHogar</b>
-              <span>.</span>
-            </p>
-            <p className={styles.realizaFcilmenteTusDiligen}>
+      {/* Contenedor principal */}
+      <div className="row mt-4">
+        {/* Contenedor de Bienvenida */}
+        <div className="col-lg-7 mb-4">
+          <div className={`${styles.bienvenidaContainer}`}>
+            <h1 className={styles.bienvenido}>Bienvenido</h1>
+            <h2 className={styles.holaWlmer}>Hola, {username}</h2>
+            <p className={styles.realizaFcilmenteTus}>
+              Realiza fácilmente tus diligencias con <b>MascoHogar</b>. <br />
               ¡Conoce aquí las soluciones virtuales que tenemos especialmente
               para ti y tu animal de compañía!
             </p>
-          </span>
+            <img
+              className={`${styles.fotoDePerroYGato} mt-3`}
+              src="/foto-de-perro-y-gato@2x.png"
+              alt="Perro y gato"
+            />
+          </div>
         </div>
-        <img
-          className={styles.fotoDePerroYGato}
-          alt=""
-          src="/foto-de-perro-y-gato@2x.png"
-        />
+
+        {/* Contenedores de Servicios y Farmacia */}
+        <div className="col-lg-5 d-flex flex-column gap-2">
+          {/* Servicios */}
+          <div
+            className={`${styles.serviciosContainer}`}
+            style={{
+              flex: 1,
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
+            }}
+          >
+            <h4 className={`${styles.cardHeader}`}>Servicios</h4>
+            <div className="card-body">
+              <ul
+                className="list-group"
+                style={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  gap: "10px",
+                  backgroundColor: "transparent",
+                  border: "none",
+                  padding: "0",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    gap: "10px",
+                    width: "100%",
+                  }}
+                >
+                  <li
+                    className="list-group-item w-100"
+                    style={{
+                      backgroundColor: "transparent",
+                      border: "none",
+                      boxShadow: "none",
+                      padding: "0",
+                    }}
+                  >
+                    <button
+                      className={`${styles.transparentButton} w-100`}
+                      style={{
+                        backgroundColor: "transparent",
+                        border: "1px solid #65A30D",
+                        borderRadius: "8px",
+                        color: "#65A30D",
+                        padding: "10px 15px",
+                        height: "60px", // Tamaño uniforme
+                        textAlign: "center",
+                      }}
+                    >
+                      <FaCalendarAlt
+                        className="me-2"
+                        size={24}
+                        style={{ color: "#65A30D" }}
+                      />
+                      Solicitud y cancelación de citas
+                    </button>
+                  </li>
+                  <li
+                    className="list-group-item w-100"
+                    style={{
+                      backgroundColor: "transparent",
+                      border: "none",
+                      boxShadow: "none",
+                      padding: "0",
+                    }}
+                  >
+                    <button
+                      className={`${styles.transparentButton} w-100`}
+                      style={{
+                        backgroundColor: "transparent",
+                        border: "1px solid #65A30D",
+                        borderRadius: "8px",
+                        color: "#65A30D",
+                        padding: "10px 15px",
+                        height: "60px", // Tamaño uniforme
+                        textAlign: "center",
+                      }}
+                    >
+                      <FaStethoscope
+                        className="me-2"
+                        size={24}
+                        style={{ color: "#65A30D" }}
+                      />
+                      Solicitud y ayudas diagnósticas
+                    </button>
+                  </li>
+                </div>
+                <li
+                  className="list-group-item w-100"
+                  style={{
+                    backgroundColor: "transparent",
+                    border: "none",
+                    boxShadow: "none",
+                    padding: "0",
+                  }}
+                >
+                  <button
+                    className={`${styles.transparentButton} w-100`}
+                    style={{
+                      backgroundColor: "transparent",
+                      border: "1px solid #65A30D",
+                      borderRadius: "8px",
+                      color: "#65A30D",
+                      padding: "10px 15px",
+                      height: "60px", // Tamaño uniforme
+                      textAlign: "center",
+                    }}
+                  >
+                    <FaFileMedicalAlt
+                      className="me-2"
+                      size={24}
+                      style={{ color: "#65A30D" }}
+                    />
+                    Historia clínica
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Farmacia y autorizaciones */}
+          <div
+            className={`${styles.farmaciaContainer}`}
+            style={{
+              flex: 1,
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
+            }}
+          >
+            <h4 className={`${styles.cardHeader}`}>Farmacia y autorizaciones</h4>
+            <div className="card-body">
+              <ul
+                className="list-group"
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "10px",
+                  backgroundColor: "transparent",
+                  border: "none",
+                  padding: "0",
+                }}
+              >
+                <li
+                  className="list-group-item w-100"
+                  style={{
+                    backgroundColor: "transparent",
+                    border: "none",
+                    boxShadow: "none",
+                    padding: "0",
+                  }}
+                >
+                  <button
+                    className={`${styles.transparentButton} w-100`}
+                    style={{
+                      backgroundColor: "transparent",
+                      border: "1px solid #65A30D",
+                      borderRadius: "8px",
+                      color: "#65A30D",
+                      padding: "10px 15px",
+                      height: "60px", // Tamaño uniforme
+                      textAlign: "center",
+                    }}
+                  >
+                    <MdLocalPharmacy
+                      className="me-2"
+                      size={24}
+                      style={{ color: "#65A30D" }}
+                    />
+                    Medicamentos
+                  </button>
+                </li>
+                <li
+                  className="list-group-item w-100"
+                  style={{
+                    backgroundColor: "transparent",
+                    border: "none",
+                    boxShadow: "none",
+                    padding: "0",
+                  }}
+                >
+                  <button
+                    className={`${styles.transparentButton} w-100`}
+                    style={{
+                      backgroundColor: "transparent",
+                      border: "1px solid #65A30D",
+                      borderRadius: "8px",
+                      color: "#65A30D",
+                      padding: "10px 15px",
+                      height: "60px", // Tamaño uniforme
+                      textAlign: "center",
+                    }}
+                  >
+                    <MdOutlineAssignment
+                      className="me-2"
+                      size={24}
+                      style={{ color: "#65A30D" }}
+                    />
+                    Autorizaciones
+                  </button>
+                </li>
+                <li
+                  className="list-group-item w-100"
+                  style={{
+                    backgroundColor: "transparent",
+                    border: "none",
+                    boxShadow: "none",
+                    padding: "0",
+                  }}
+                >
+                  <button
+                    className={`${styles.transparentButton} w-100`}
+                    style={{
+                      backgroundColor: "transparent",
+                      border: "1px solid #65A30D",
+                      borderRadius: "8px",
+                      color: "#65A30D",
+                      padding: "10px 15px",
+                      height: "60px", // Tamaño uniforme
+                      textAlign: "center",
+                    }}
+                  >
+                    <MdReport
+                      className="me-2"
+                      size={24}
+                      style={{ color: "#65A30D" }}
+                    />
+                    Reportes
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Contenedor de Opciones adicionales */}
+      <div className="row mt-2">
+        <div className="col-12 text-center">
+          <div className={`${styles.opcionesAdicionalesContainer}`}>
+            <h3
+              className="mb-2"
+              style={{
+                color: "#059669",
+                fontFamily: "Lato, sans-serif",
+                fontWeight: "400",
+                fontSize: "22px",
+              }}
+            >
+              Opciones adicionales
+            </h3>
+            <div
+              className="d-flex justify-content-center gap-3 flex-md-row flex-column"
+              style={{
+                gap: "157px", // Distancia entre los botones en PC
+              }}
+            >
+              <button
+                className="btn btn-success d-flex align-items-center"
+                style={{
+                  backgroundColor: "#65A30D",
+                  borderColor: "#65A30D",
+                  padding: "10px 15px", // Botones más angostos
+                  width: "auto", // Ajuste automático en PC
+                }}
+              >
+                <IoChatbubblesSharp className="me-2" size={24} />
+                Contactar
+              </button>
+              <button
+                className="btn btn-success d-flex align-items-center"
+                style={{
+                  backgroundColor: "#65A30D",
+                  borderColor: "#65A30D",
+                  padding: "10px 15px", // Botones más angostos
+                  width: "auto", // Ajuste automático en PC
+                }}
+              >
+                <IoNotificationsSharp className="me-2" size={24} />
+                Notificaciones
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

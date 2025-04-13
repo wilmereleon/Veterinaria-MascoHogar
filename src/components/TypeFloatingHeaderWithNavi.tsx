@@ -108,7 +108,7 @@ const TypeFloatingHeaderWithNavi: FunctionComponent = () => {
                   >
                     
                     <span className={styles.navLinkIcon}>
-                      <BsFillMenuButtonFill />
+                      <FaBars />
                     </span>
                     Menú
                   </button>
