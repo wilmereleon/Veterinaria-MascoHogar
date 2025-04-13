@@ -17,15 +17,23 @@ const VistaDeEntornoDeSesinUsu: FunctionComponent = () => {
   }, []);
 
   return (
-    <div className={`container-fluid ${styles.vistaDeEntornoDeSesinUsu}`}>
+    <div
+      className={`container-fluid ${styles.vistaDeEntornoDeSesinUsu}`}
+      style={{ marginTop: "0", paddingTop: "0" }} // Elimina cualquier margen o padding superior
+    >
       {/* Navbar */}
       <TypeFloatingHeaderWithNavi />
 
       {/* Contenedor principal */}
-      <div className="row mt-4">
+      <div className="row mt-0"> {/* Ajuste del margen superior */}
         {/* Contenedor de Bienvenida */}
-        <div className="col-lg-7 mb-4">
-          <div className={`${styles.bienvenidaContainer}`}>
+        <div className="col-lg-7 mb-3"> {/* Reducido el margen inferior */}
+          <div
+            className={`${styles.bienvenidaContainer}`}
+            style={{
+              borderRadius: "0", // Quitar bordes redondeados
+            }}
+          >
             <h1 className={styles.bienvenido}>Bienvenido</h1>
             <h2 className={styles.holaWlmer}>Hola, {username}</h2>
             <p className={styles.realizaFcilmenteTus}>
@@ -42,7 +50,7 @@ const VistaDeEntornoDeSesinUsu: FunctionComponent = () => {
         </div>
 
         {/* Contenedores de Servicios y Farmacia */}
-        <div className="col-lg-5 d-flex flex-column gap-2">
+        <div className="col-lg-5 d-flex flex-column gap-1"> {/* Reducido el espacio entre contenedores */}
           {/* Servicios */}
           <div
             className={`${styles.serviciosContainer}`}
@@ -51,6 +59,7 @@ const VistaDeEntornoDeSesinUsu: FunctionComponent = () => {
               display: "flex",
               flexDirection: "column",
               justifyContent: "space-between",
+              borderRadius: "0", // Quitar bordes redondeados
             }}
           >
             <h4 className={`${styles.cardHeader}`}>Servicios</h4>
@@ -87,7 +96,7 @@ const VistaDeEntornoDeSesinUsu: FunctionComponent = () => {
                       style={{
                         backgroundColor: "transparent",
                         border: "1px solid #65A30D",
-                        borderRadius: "8px",
+                        borderRadius: "0", // Quitar bordes redondeados
                         color: "#65A30D",
                         padding: "10px 15px",
                         height: "60px", // Tamaño uniforme
@@ -116,7 +125,7 @@ const VistaDeEntornoDeSesinUsu: FunctionComponent = () => {
                       style={{
                         backgroundColor: "transparent",
                         border: "1px solid #65A30D",
-                        borderRadius: "8px",
+                        borderRadius: "0", // Quitar bordes redondeados
                         color: "#65A30D",
                         padding: "10px 15px",
                         height: "60px", // Tamaño uniforme
@@ -146,7 +155,7 @@ const VistaDeEntornoDeSesinUsu: FunctionComponent = () => {
                     style={{
                       backgroundColor: "transparent",
                       border: "1px solid #65A30D",
-                      borderRadius: "8px",
+                      borderRadius: "0", // Quitar bordes redondeados
                       color: "#65A30D",
                       padding: "10px 15px",
                       height: "60px", // Tamaño uniforme
@@ -173,6 +182,7 @@ const VistaDeEntornoDeSesinUsu: FunctionComponent = () => {
               display: "flex",
               flexDirection: "column",
               justifyContent: "space-between",
+              borderRadius: "0", // Quitar bordes redondeados
             }}
           >
             <h4 className={`${styles.cardHeader}`}>Farmacia y autorizaciones</h4>
@@ -202,7 +212,7 @@ const VistaDeEntornoDeSesinUsu: FunctionComponent = () => {
                     style={{
                       backgroundColor: "transparent",
                       border: "1px solid #65A30D",
-                      borderRadius: "8px",
+                      borderRadius: "0", // Quitar bordes redondeados
                       color: "#65A30D",
                       padding: "10px 15px",
                       height: "60px", // Tamaño uniforme
@@ -231,7 +241,7 @@ const VistaDeEntornoDeSesinUsu: FunctionComponent = () => {
                     style={{
                       backgroundColor: "transparent",
                       border: "1px solid #65A30D",
-                      borderRadius: "8px",
+                      borderRadius: "0", // Quitar bordes redondeados
                       color: "#65A30D",
                       padding: "10px 15px",
                       height: "60px", // Tamaño uniforme
@@ -260,7 +270,7 @@ const VistaDeEntornoDeSesinUsu: FunctionComponent = () => {
                     style={{
                       backgroundColor: "transparent",
                       border: "1px solid #65A30D",
-                      borderRadius: "8px",
+                      borderRadius: "0", // Quitar bordes redondeados
                       color: "#65A30D",
                       padding: "10px 15px",
                       height: "60px", // Tamaño uniforme
@@ -284,7 +294,12 @@ const VistaDeEntornoDeSesinUsu: FunctionComponent = () => {
       {/* Contenedor de Opciones adicionales */}
       <div className="row mt-2">
         <div className="col-12 text-center">
-          <div className={`${styles.opcionesAdicionalesContainer}`}>
+          <div
+            className={`${styles.opcionesAdicionalesContainer}`}
+            style={{
+              borderRadius: "0", // Quitar bordes redondeados
+            }}
+          >
             <h3
               className="mb-2"
               style={{
