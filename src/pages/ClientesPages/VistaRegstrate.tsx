@@ -23,6 +23,7 @@ const VistaRegstrate: FunctionComponent = () => {
     age: "",
     weight: "",
     gender: "",
+    date_birth: "", // Nuevo campo para la fecha de nacimiento
   });
 
   const [showPassword, setShowPassword] = useState(false);
@@ -50,34 +51,30 @@ const VistaRegstrate: FunctionComponent = () => {
     if (!confirm) return;
 
     try {
-      // Enviar datos al microservicio de clientes
-      const clientResponse = await axios.post("http://msvc-client/api/clients", {
-        firstName: formData.firstName,
-        lastName: formData.lastName,
-        email: formData.email,
-        address: formData.address,
-        phone: formData.phone,
-        mobile: formData.mobile,
-        idType: formData.idType,
-        idNumber: formData.idNumber,
-        password: formData.password,
-      });
-
-      console.log("Cliente registrado:", clientResponse.data);
-
       // Enviar datos al microservicio de mascotas
-      const petResponse = await axios.post("http://msvc-pets/api/pets", {
+      const petResponse = await axios.post('/api/pets', {
         name: formData.petName,
-        species: formData.species,
         breed: formData.breed,
+        date_birth: formData.date_birth, // Fecha de nacimiento de la mascota
+        weight: parseFloat(formData.weight), // Convertir peso a número
         color: formData.color,
-        age: formData.age,
-        weight: formData.weight,
         gender: formData.gender,
-        ownerId: clientResponse.data.id, // Relacionar mascota con el cliente
       });
 
       console.log("Mascota registrada:", petResponse.data);
+
+      // Enviar datos al microservicio de clientes
+      const clientResponse = await axios.post('/api/clients', {
+        name: formData.firstName,
+        last_name: formData.lastName,
+        email: formData.email,
+        phone_number: formData.mobile,
+        address: formData.address,
+        registration_date: new Date().toISOString().split("T")[0], // Fecha actual en formato YYYY-MM-DD
+        pet_id: petResponse.data.id, // Relacionar cliente con la mascota
+      });
+
+      console.log("Cliente registrado:", clientResponse.data);
 
       alert("Registro exitoso.");
       navigate("/veterinaria-mascohogar-pc-home"); // Redirigir al Home
@@ -151,17 +148,6 @@ const VistaRegstrate: FunctionComponent = () => {
               />
             </div>
             <div className="col-md-4">
-              <label htmlFor="phone" className={`${styles.customFormLabel}`}>Teléfono fijo</label>
-              <input
-                type="text"
-                className="form-control"
-                id="phone"
-                placeholder="Ingresa tu teléfono fijo"
-                value={formData.phone}
-                onChange={handleChange}
-              />
-            </div>
-            <div className="col-md-4">
               <label htmlFor="mobile" className={`${styles.customFormLabel}`}>Teléfono celular</label>
               <input
                 type="text"
@@ -180,7 +166,6 @@ const VistaRegstrate: FunctionComponent = () => {
                 id="idType"
                 value={formData.idType}
                 onChange={handleChange}
-                required
               >
                 <option value="">Selecciona el tipo de identificación</option>
                 <option value="cc">Cédula de ciudadanía</option>
@@ -199,7 +184,6 @@ const VistaRegstrate: FunctionComponent = () => {
                 placeholder="Ingrese número de ID"
                 value={formData.idNumber}
                 onChange={handleChange}
-                required
               />
             </div>
             <div className="col-md-4">
@@ -212,7 +196,6 @@ const VistaRegstrate: FunctionComponent = () => {
                   placeholder="Por favor digita tu contraseña"
                   value={formData.password}
                   onChange={handleChange}
-                  required
                 />
                 <button
                   type="button"
@@ -233,7 +216,6 @@ const VistaRegstrate: FunctionComponent = () => {
                   placeholder="Por favor digita tu contraseña"
                   value={formData.confirmPassword}
                   onChange={handleChange}
-                  required
                 />
                 <button
                   type="button"
@@ -269,7 +251,6 @@ const VistaRegstrate: FunctionComponent = () => {
                 placeholder="Perro, gato, etc."
                 value={formData.species}
                 onChange={handleChange}
-                required
               />
             </div>
             <div className="col-md-4">
@@ -281,6 +262,31 @@ const VistaRegstrate: FunctionComponent = () => {
                 placeholder="Raza de tu mascota"
                 value={formData.breed}
                 onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="col-md-4">
+              <label htmlFor="date_birth" className={`${styles.customFormLabel}`}>Fecha de nacimiento</label>
+              <input
+                type="date"
+                className="form-control"
+                id="date_birth"
+                value={formData.date_birth}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="col-md-4">
+              <label htmlFor="weight" className={`${styles.customFormLabel}`}>Peso</label>
+              <input
+                type="number"
+                step="0.1"
+                className="form-control"
+                id="weight"
+                placeholder="Peso de tu mascota en kg"
+                value={formData.weight}
+                onChange={handleChange}
+                required
               />
             </div>
             <div className="col-md-4">
@@ -292,29 +298,7 @@ const VistaRegstrate: FunctionComponent = () => {
                 placeholder="Color de tu mascota"
                 value={formData.color}
                 onChange={handleChange}
-              />
-            </div>
-            <div className="col-md-4">
-              <label htmlFor="age" className={`${styles.customFormLabel}`}>Edad</label>
-              <input
-                type="number"
-                className="form-control"
-                id="age"
-                placeholder="Ingresa su edad en años"
-                value={formData.age}
-                onChange={handleChange}
-                min="0"
-              />
-            </div>
-            <div className="col-md-4">
-              <label htmlFor="weight" className={`${styles.customFormLabel}`}>Peso</label>
-              <input
-                type="text"
-                className="form-control"
-                id="weight"
-                placeholder="Peso de tu mascota"
-                value={formData.weight}
-                onChange={handleChange}
+                required
               />
             </div>
             <div className="col-md-4">
@@ -324,10 +308,11 @@ const VistaRegstrate: FunctionComponent = () => {
                 id="gender"
                 value={formData.gender}
                 onChange={handleChange}
+                required
               >
                 <option value="">Selecciona el género</option>
-                <option value="male">Macho</option>
-                <option value="female">Hembra</option>
+                <option value="Male">Macho</option>
+                <option value="Female">Hembra</option>
               </select>
             </div>
           </div>

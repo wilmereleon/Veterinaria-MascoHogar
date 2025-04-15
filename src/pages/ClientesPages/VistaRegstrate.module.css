@@ -87,6 +87,14 @@
   background-color: #558a25; /* Color más oscuro al pasar el cursor */
 }
 
+/* Estilos para vistas de celular */
+@media (max-width: 576px) {
+  .customButton {
+    font-size: 14px; /* Tamaño de fuente más pequeño */
+    padding: 8px 30px; /* Reducir el padding */
+  }
+}
+
 .registerText {
   font-family: "Inter", sans-serif; /* Fuente Inter */
   font-size: 14px;
@@ -96,8 +104,9 @@
 
 .loginLink {
   font-family: "Inter", sans-serif; /* Fuente Inter */
-  font-size: 14px;
-  color: #65a30d; /* Color del enlace */
+  font-weight: bold; /* Negrita */
+  font-size: 11px; /* Tamaño de fuente */
+  color: #65A30D; /* Color del enlace */
   text-decoration: none; /* Elimina el subrayado */
 }
 
