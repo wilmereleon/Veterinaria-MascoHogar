@@ -221,3 +221,79 @@
   color: var(--color-darkslategray-100);
   font-family: var(--font-playfair-display);
 }
+
+/* Media queries para tabletas */
+@media (max-width: 768px) {
+  .property1softwareHeroTripl {
+    flex-direction: column; /* Cambia la dirección a columna */
+    padding: 20px; /* Reduce el espaciado interno */
+  }
+
+  .heading {
+    font-size: 36px; /* Reduce el tamaño del título */
+    line-height: 1.3; /* Ajusta el interlineado */
+    text-align: center; /* Centra el texto */
+    white-space: normal; /* Permite que el texto pase a varias líneas */
+    word-wrap: break-word; /* Ajusta automáticamente las palabras largas */
+    word-break: break-word; /* Asegura que las palabras largas se ajusten */
+  }
+
+  .subheading {
+    font-size: 20px; /* Reduce el tamaño del subtítulo */
+    line-height: 1.4; /* Ajusta el interlineado */
+    text-align: center; /* Centra el texto */
+    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+    white-space: normal; /* Permite que el texto pase a varias líneas */
+    word-wrap: break-word; /* Ajusta automáticamente las palabras largas */
+    word-break: break-word; /* Asegura que las palabras largas se ajusten */
+  }
+
+  .buttonCombo {
+    gap: 15px; /* Reduce el espaciado entre botones */
+    flex-wrap: wrap; /* Permite que los botones se ajusten */
+  }
+
+  .ctaButton,
+  .secondaryButton {
+    font-size: 14px; /* Reduce el tamaño de fuente de los botones */
+    padding: 8px 16px; /* Reduce el espaciado interno */
+  }
+}
+
+/* Media queries para móviles */
+@media (max-width: 480px) {
+  .property1softwareHeroTripl {
+    flex-direction: column; /* Cambia la dirección a columna */
+    padding: 15px; /* Reduce aún más el espaciado interno */
+  }
+
+  .heading {
+    font-size: 18px; /* Reduce aún más el tamaño del título */
+    line-height: 1.2; /* Ajusta el interlineado */
+    text-align: center; /* Centra el texto */
+    white-space: normal; /* Permite que el texto pase a varias líneas */
+    word-wrap: break-word; /* Ajusta automáticamente las palabras largas */
+    word-break: break-word; /* Asegura que las palabras largas se ajusten */
+  }
+
+  .subheading {
+    font-size: 15px; /* Reduce aún más el tamaño del subtítulo */
+    line-height: 1.3; /* Ajusta el interlineado */
+    text-align: center; /* Centra el texto */
+    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+    white-space: normal; /* Permite que el texto pase a varias líneas */
+    word-wrap: break-word; /* Ajusta automáticamente las palabras largas */
+    word-break: break-word; /* Asegura que las palabras largas se ajusten */
+  }
+
+  .buttonCombo {
+    flex-direction: column; /* Apila los botones verticalmente */
+    gap: 10px; /* Reduce el espaciado entre botones */
+  }
+
+  .ctaButton,
+  .secondaryButton {
+    font-size: 12px; /* Reduce aún más el tamaño de fuente de los botones */
+    padding: 6px 12px; /* Reduce aún más el espaciado interno */
+  }
+}

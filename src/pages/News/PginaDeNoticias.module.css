@@ -63,7 +63,7 @@
   justify-content: flex-start;
   box-sizing: border-box;
   text-align: center;
-  font-size: 48px;
+  font-size: 20px;
   color: var(--color-paleturquoise);
   font-family: var(--font-playfair-display);
 }

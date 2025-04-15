@@ -4,8 +4,7 @@
   color: var(--color-darkslategray-100);
   background-color: #ffffff; /* Fondo blanco para toda la página */
   padding: 20px;
-  position: relative; /* Asegura que el contenedor no interfiera con el navbar */
-  z-index: 0; /* Coloca el contenedor detrás del navbar */
+  z-index: 1; /* Coloca el contenedor detrás del navbar */
   padding-top: 70px; /* Ajusta este valor según la altura del navbar */
 }
 

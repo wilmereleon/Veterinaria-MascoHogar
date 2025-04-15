@@ -1,5 +1,5 @@
 import { FunctionComponent, useState } from "react";
-import { useNavigate } from "react-router-dom"; // Para redirigir al usuario
+import { useNavigate, useLocation } from "react-router-dom"; // Para redirigir al usuario
 import styles from "./VistaInicioDeSesion.module.css";
 
 /**
@@ -18,6 +18,10 @@ const VistaInicioDeSesion: FunctionComponent = () => {
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
+  const location = useLocation();
+
+  // Ruta a la que se redirigirá después de iniciar sesión
+  const from = location.state?.from || "/";
 
   const adminUser = {
     email: "admin",
@@ -33,9 +37,10 @@ const VistaInicioDeSesion: FunctionComponent = () => {
     if (email === adminUser.email && password === adminUser.password) {
       // Guardar el estado de autenticación
       localStorage.setItem("isAuthenticated", "true");
+      localStorage.setItem("username", email);
 
-      // Redirigir al usuario a la vista de entorno de sesión
-      navigate("/entorno-sesion");
+      // Redirigir al usuario a la página previa o al Home
+      navigate(from, { replace: true });
     } else {
       alert("Correo o contraseña incorrectos"); // Muestra un mensaje de error
     }

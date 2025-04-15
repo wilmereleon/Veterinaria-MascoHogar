@@ -87,6 +87,7 @@ const Reviews: FunctionComponent<ReviewsType> = ({ className = "" }) => {
    */
   const handleCommentSubmit = useCallback(() => {
     if (!isAuthenticated) {
+      // Redirigir al inicio de sesión y guardar la ruta actual
       navigate("/login", { state: { from: location.pathname } });
     } else if (comment.trim() === "") {
       alert("Por favor, escribe un comentario antes de enviarlo.");
