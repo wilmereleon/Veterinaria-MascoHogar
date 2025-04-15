@@ -1,8 +1,12 @@
 .vistaDeEntornoDeSesinUsu {
+  position: relative; /* Mantén el posicionamiento relativo */
   font-family: "Lato", sans-serif;
   color: var(--color-darkslategray-100);
   background-color: #ffffff; /* Fondo blanco para toda la página */
   padding: 20px;
+  position: relative; /* Asegura que el contenedor no interfiera con el navbar */
+  z-index: 0; /* Coloca el contenedor detrás del navbar */
+  padding-top: 70px; /* Ajusta este valor según la altura del navbar */
 }
 
 .bienvenidaContainer {
@@ -121,3 +125,24 @@
   color: #1a3e00; /* Texto más oscuro al pasar el mouse */
   border-color: #1a3e00; /* Bordes más oscuros al pasar el mouse */
 }
+
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+  .transparentButton {
+    font-size: 14px; /* Reduce el tamaño del texto en pantallas pequeñas */
+    padding: 8px 10px; /* Ajusta el padding para que el botón sea más compacto */
+  }
+}
+
+@media (max-width: 480px) {
+  .transparentButton {
+    font-size: 12px; /* Reduce aún más el tamaño del texto en pantallas muy pequeñas */
+    padding: 6px 8px; /* Ajusta el padding para que el botón sea más compacto */
+  }
+
+  .logoSmall {
+    font-size: 8px; /* Reduce el tamaño del texto */
+  }
+}
+

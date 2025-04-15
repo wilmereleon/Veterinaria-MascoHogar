@@ -8,6 +8,37 @@ import { FaCalendarAlt, FaStethoscope, FaFileMedicalAlt } from "react-icons/fa";
 import { MdLocalPharmacy, MdOutlineAssignment, MdReport } from "react-icons/md";
 import { IoChatbubblesSharp, IoNotificationsSharp } from "react-icons/io5";
 
+/**
+ * Componente funcional `VistaDeEntornoDeSesinUsu`.
+ * Este componente representa la vista principal de la sesión del usuario en la aplicación.
+ * Incluye un encabezado flotante, un mensaje de bienvenida, y varias opciones y servicios
+ * disponibles para el usuario.
+ *
+ * @component
+ * @returns {JSX.Element} El componente de la vista de entorno de sesión del usuario.
+ *
+ * @remarks
+ * - Utiliza `useState` para manejar el estado del nombre de usuario.
+ * - Utiliza `useEffect` para recuperar el nombre de usuario almacenado en `localStorage`.
+ * - Incluye estilos personalizados y clases CSS para el diseño ya que Bootstrap afecta el comportamiento en la hoja de estilos.
+ *
+ * @dependencies
+ * - `useState` y `useEffect` de React.
+ * - Componentes externos como `TypeFloatingHeaderWithNavi`.
+ * - Iconos de librerías como `react-icons` (`FaCalendarAlt`, `FaStethoscope`, `FaFileMedicalAlt`, `MdLocalPharmacy`, `MdOutlineAssignment`, `MdReport`, `IoChatbubblesSharp`, `IoNotificationsSharp`).
+ *
+ * @example
+ * ```tsx
+ * <VistaDeEntornoDeSesinUsu />
+ * ```
+ *
+ * @section
+ * - **Encabezado flotante:** Incluye el componente `TypeFloatingHeaderWithNavi`.
+ * - **Mensaje de bienvenida:** Muestra un saludo personalizado con el nombre del usuario.
+ * - **Servicios:** Botones interactivos para gestionar citas, ayudas diagnósticas y la historia clínica.
+ * - **Farmacia y autorizaciones:** Botones para acceder a medicamentos, autorizaciones y reportes.
+ * - **Opciones adicionales:** Botones para contactar y ver notificaciones.
+ */
 const VistaDeEntornoDeSesinUsu: FunctionComponent = () => {
   const [username, setUsername] = useState<string>("");
 
@@ -23,7 +54,7 @@ const VistaDeEntornoDeSesinUsu: FunctionComponent = () => {
     >
       {/* Navbar */}
       <TypeFloatingHeaderWithNavi />
-
+        
       {/* Contenedor principal */}
       <div className="row mt-0"> {/* Ajuste del margen superior */}
         {/* Contenedor de Bienvenida */}

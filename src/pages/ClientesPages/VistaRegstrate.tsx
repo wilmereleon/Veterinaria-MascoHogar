@@ -1,258 +1,354 @@
 import { FunctionComponent, useState } from "react";
-import { useNavigate } from "react-router-dom"; // Importa useNavigate
+import { useNavigate } from "react-router-dom";
+import { FiEye, FiEyeOff } from "react-icons/fi";
+import axios from "axios"; // Para interactuar con los microservicios
 import styles from "./VistaRegstrate.module.css";
 
-// URLs de los microservicios
-const CLIENT_SERVICE_URL = "http://localhost:8060/api/clients"; // URL del microservicio de clientes
-const PET_SERVICE_URL = "http://localhost:8082/api/pets"; // URL del microservicio de mascotas
-
 const VistaRegstrate: FunctionComponent = () => {
-  const navigate = useNavigate(); // Inicializa el hook useNavigate
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    address: "",
+    phone: "",
+    mobile: "",
+    idType: "",
+    idNumber: "",
+    password: "",
+    confirmPassword: "",
+    petName: "",
+    species: "",
+    breed: "",
+    color: "",
+    age: "",
+    weight: "",
+    gender: "",
+  });
 
-  // Estados para almacenar los datos del formulario
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [petName, setPetName] = useState("");
-  const [petSpecies, setPetSpecies] = useState("");
-  const [petBreed, setPetBreed] = useState("");
-  const [petAge, setPetAge] = useState("");
-  const [petHistory, setPetHistory] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const navigate = useNavigate();
 
-  // Función para manejar el clic en "Registrar"
-  const handleRegister = async () => {
-    // Validación de campos vacíos
-    if (
-      !email ||
-      !password ||
-      !confirmPassword ||
-      !firstName ||
-      !lastName ||
-      !petName ||
-      !petSpecies ||
-      !petBreed ||
-      !petAge ||
-      !petHistory
-    ) {
-      alert("Por favor, completa todos los campos antes de continuar.");
-      return;
-    }
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.id]: e.target.value,
+    });
+  };
 
-    // Validación de formato de correo
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      alert("Por favor, ingresa un correo electrónico válido.");
-      return;
-    }
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
 
-    // Validación de contraseñas
-    if (password !== confirmPassword) {
+    // Validar que las contraseñas sean iguales
+    if (formData.password !== formData.confirmPassword) {
       alert("Las contraseñas no coinciden. Por favor, verifica.");
       return;
     }
 
+    // Confirmación de datos
+    const confirm = window.confirm("¿Estás seguro de que deseas registrar estos datos?");
+    if (!confirm) return;
+
     try {
-      // Crear cliente
-      const clientResponse = await fetch(CLIENT_SERVICE_URL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email,
-          name: firstName,
-          last_name: lastName,
-          address: "Dirección no especificada", // Puedes agregar un campo para la dirección
-          phone_number: "Teléfono no especificado", // Puedes agregar un campo para el teléfono
-          registration_date: new Date().toISOString(), // Fecha de registro
-        }),
+      // Enviar datos al microservicio de clientes
+      const clientResponse = await axios.post("http://msvc-client/api/clients", {
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        email: formData.email,
+        address: formData.address,
+        phone: formData.phone,
+        mobile: formData.mobile,
+        idType: formData.idType,
+        idNumber: formData.idNumber,
+        password: formData.password,
       });
 
-      if (!clientResponse.ok) {
-        throw new Error("Error al registrar el cliente");
-      }
+      console.log("Cliente registrado:", clientResponse.data);
 
-      const clientData = await clientResponse.json();
-
-      // Crear mascota asociada al cliente
-      const petResponse = await fetch(PET_SERVICE_URL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: petName,
-          breed: petBreed,
-          color: "Color no especificado", // Puedes agregar un campo para el color
-          gender: "Género no especificado", // Puedes agregar un campo para el género
-          date_birth: new Date(
-            new Date().setFullYear(new Date().getFullYear() - parseInt(petAge))
-          ).toISOString(), // Calcula la fecha de nacimiento
-          weight: "Peso no especificado", // Puedes agregar un campo para el peso
-          client_id: clientData.id, // Relación con el cliente
-        }),
+      // Enviar datos al microservicio de mascotas
+      const petResponse = await axios.post("http://msvc-pets/api/pets", {
+        name: formData.petName,
+        species: formData.species,
+        breed: formData.breed,
+        color: formData.color,
+        age: formData.age,
+        weight: formData.weight,
+        gender: formData.gender,
+        ownerId: clientResponse.data.id, // Relacionar mascota con el cliente
       });
 
-      if (!petResponse.ok) {
-        throw new Error("Error al registrar la mascota");
-      }
+      console.log("Mascota registrada:", petResponse.data);
 
-      alert("Registro exitoso");
-      navigate("/entorno-sesion"); // Redirige a la página de entorno de sesión
+      alert("Registro exitoso.");
+      navigate("/veterinaria-mascohogar-pc-home"); // Redirigir al Home
     } catch (error) {
-      console.error("Error durante el registro:", error);
-      alert("Ocurrió un error al registrar los datos. Por favor, intenta nuevamente.");
+      console.error("Error al registrar:", error);
+      alert("Ocurrió un error al registrar. Por favor, intenta nuevamente.");
     }
   };
 
   return (
-    <div className={styles.vistaRegstrate}>
-      <img
-        className={styles.vistaRegstrateChild}
-        alt=""
-        src="/rectangle-1.svg"
-      />
-      <div className={styles.emailParent}>
-        <label className={styles.email}>Correo</label>
-        <input
-          type="email"
-          className={styles.instanceChild}
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="ejemplo@email.com"
-        />
+    <div className={`container-fluid ${styles.vistaRegstrate}`}>
+      <div className="text-center my-4">
+        <img src="/icon4.svg" alt="Logo" className={styles.logo} />
+        <h1 className={styles.brandname}>
+          <span className={styles.veterinaria}>Veterinaria</span>
+          <span className={styles.mascohogar}>MascoHogar</span>
+        </h1>
+        <h2 className={styles.title}>Crea tu cuenta</h2>
       </div>
-      <div className={styles.creaTuCuentaContainer}>
-        <span className={styles.brandnameTxt}>
-          <p className={styles.creaTuCuenta}>
-            <span>Crea tu cuenta</span>
-            <span className={styles.span}>{` `}</span>
-          </p>
-        </span>
-      </div>
-      <div className={styles.tusDatos}>Tus datos</div>
-      <div className={styles.vistaRegstrateItem} />
-      <div className={styles.brand}>
-        <img className={styles.icon} alt="" src="/icon4.svg" />
-        <img className={styles.icon1} alt="" src="/icon1.png" />
-        <b className={styles.brandname}>
-          <span className={styles.brandnameTxt}>
-            <span>Veterinaria</span>
-            <span className={styles.span1}>{` `}</span>
-            <span className={styles.mascohogar}>MascoHogar</span>
-          </span>
-        </b>
-      </div>
-      <button
-        className={styles.cancelar}
-        onClick={() => navigate("/veterinaria-mascohogar-pc-home")} // Redirige a Home
-      >
-        Cancelar
-      </button>
-      <button
-        className={styles.regstrate}
-        onClick={handleRegister} // Llama a la función de validación y registro
-      >
-        Regístrate
-      </button>
-      <div className={styles.yaEstsRegistrado}>¿Ya estás registrado?</div>
-      <b
-        className={styles.iniciaSesin}
-        onClick={() => navigate("/login")} // Redirige a la vista de inicio de sesión
-      >
-        Inicia sesión
-      </b>
-      <div className={styles.datosDeTu}>Datos de Tu Mascota</div>
-      <div className={styles.emailGroup}>
-        <label className={styles.email}>Contraseña</label>
-        <input
-          type="password"
-          className={styles.instanceChild}
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Por favor digita tu contraseña"
-        />
-      </div>
-      <div className={styles.emailContainer}>
-        <label className={styles.email}>Confirma tu contraseña</label>
-        <input
-          type="password"
-          className={styles.instanceChild}
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-          placeholder="Por favor digita tu contraseña"
-        />
-      </div>
-      <div className={styles.groupDiv}>
-        <label className={styles.email}>Nombres</label>
-        <input
-          type="text"
-          className={styles.instanceChild}
-          value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
-          placeholder="Ingresa tu nombre aquí"
-        />
-      </div>
-      <div className={styles.emailParent1}>
-        <label className={styles.email}>Apellidos</label>
-        <input
-          type="text"
-          className={styles.instanceChild}
-          value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
-          placeholder="Ingresa tus apellidos aquí"
-        />
-      </div>
-      <div className={styles.emailParent2}>
-        <label className={styles.email}>Raza</label>
-        <input
-          type="text"
-          className={styles.instanceChild}
-          value={petBreed}
-          onChange={(e) => setPetBreed(e.target.value)}
-          placeholder="Raza de tu mascota"
-        />
-      </div>
-      <div className={styles.emailParent3}>
-        <label className={styles.email}>Edad en años</label>
-        <input
-          type="number"
-          className={styles.instanceChild}
-          value={petAge}
-          onChange={(e) => setPetAge(e.target.value)}
-          placeholder="Ingresa su edad en años"
-        />
-      </div>
-      <div className={styles.emailParent4}>
-        <label className={styles.email}>Historial</label>
-        <textarea
-          className={styles.instanceChild}
-          value={petHistory}
-          onChange={(e) => setPetHistory(e.target.value)}
-          placeholder="Vacunas, alergias, etc."
-        />
-      </div>
-      <div className={styles.emailParent5}>
-        <label className={styles.email}>Nombres</label>
-        <input
-          type="text"
-          className={styles.instanceChild}
-          value={petName}
-          onChange={(e) => setPetName(e.target.value)}
-          placeholder="Ingresa el nombre de tu mascota"
-        />
-      </div>
-      <div className={styles.emailParent6}>
-        <label className={styles.email}>Especie</label>
-        <input
-          type="text"
-          className={styles.instanceChild}
-          value={petSpecies}
-          onChange={(e) => setPetSpecies(e.target.value)}
-          placeholder="Perro, gato, etc."
-        />
+
+      <div className={`container ${styles.formContainer} p-4 rounded shadow-sm`}>
+        <form onSubmit={handleSubmit}>
+          <h3 className={styles.sectionTitle}>Tus datos</h3>
+          <div className="row g-3">
+            <div className="col-md-4">
+              <label htmlFor="firstName" className={`${styles.customFormLabel}`}>Nombres</label>
+              <input
+                type="text"
+                className="form-control"
+                id="firstName"
+                placeholder="Ingresa tu nombre aquí"
+                value={formData.firstName}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="col-md-4">
+              <label htmlFor="lastName" className={`${styles.customFormLabel}`}>Apellidos</label>
+              <input
+                type="text"
+                className="form-control"
+                id="lastName"
+                placeholder="Ingresa tus apellidos aquí"
+                value={formData.lastName}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="col-md-4">
+              <label htmlFor="email" className={`${styles.customFormLabel}`}>Correo</label>
+              <input
+                type="email"
+                className="form-control"
+                id="email"
+                placeholder="ejemplo@email.com"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="col-md-4">
+              <label htmlFor="address" className={`${styles.customFormLabel}`}>Dirección de residencia</label>
+              <input
+                type="text"
+                className="form-control"
+                id="address"
+                placeholder="Ingresa tu dirección"
+                value={formData.address}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="col-md-4">
+              <label htmlFor="phone" className={`${styles.customFormLabel}`}>Teléfono fijo</label>
+              <input
+                type="text"
+                className="form-control"
+                id="phone"
+                placeholder="Ingresa tu teléfono fijo"
+                value={formData.phone}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="col-md-4">
+              <label htmlFor="mobile" className={`${styles.customFormLabel}`}>Teléfono celular</label>
+              <input
+                type="text"
+                className="form-control"
+                id="mobile"
+                placeholder="Ingresa tu teléfono celular"
+                value={formData.mobile}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="col-md-4">
+              <label htmlFor="idType" className={`${styles.customFormLabel}`}>Tipo de identificación</label>
+              <select
+                className="form-control"
+                id="idType"
+                value={formData.idType}
+                onChange={handleChange}
+                required
+              >
+                <option value="">Selecciona el tipo de identificación</option>
+                <option value="cc">Cédula de ciudadanía</option>
+                <option value="ce">Cédula de extranjería</option>
+                <option value="ti">Tarjeta de identidad</option>
+                <option value="passport">Pasaporte</option>
+                <option value="nit">NIT</option>
+              </select>
+            </div>
+            <div className="col-md-4">
+              <label htmlFor="idNumber" className={`${styles.customFormLabel}`}>Número de identificación</label>
+              <input
+                type="text"
+                className="form-control"
+                id="idNumber"
+                placeholder="Ingrese número de ID"
+                value={formData.idNumber}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="col-md-4">
+              <label htmlFor="password" className={`${styles.customFormLabel}`}>Contraseña</label>
+              <div className="input-group">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  className="form-control"
+                  id="password"
+                  placeholder="Por favor digita tu contraseña"
+                  value={formData.password}
+                  onChange={handleChange}
+                  required
+                />
+                <button
+                  type="button"
+                  className="btn btn-outline-secondary"
+                  onClick={() => setShowPassword(!showPassword)}
+                >
+                  {showPassword ? <FiEyeOff /> : <FiEye />}
+                </button>
+              </div>
+            </div>
+            <div className="col-md-4">
+              <label htmlFor="confirmPassword" className={`${styles.customFormLabel}`}>Confirma tu contraseña</label>
+              <div className="input-group">
+                <input
+                  type={showConfirmPassword ? "text" : "password"}
+                  className="form-control"
+                  id="confirmPassword"
+                  placeholder="Por favor digita tu contraseña"
+                  value={formData.confirmPassword}
+                  onChange={handleChange}
+                  required
+                />
+                <button
+                  type="button"
+                  className="btn btn-outline-secondary"
+                  onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                >
+                  {showConfirmPassword ? <FiEyeOff /> : <FiEye />}
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <h3 className={`${styles.sectionTitle} mt-4`}>Datos de tu mascota</h3>
+          <div className="row g-3">
+            <div className="col-md-4">
+              <label htmlFor="petName" className={`${styles.customFormLabel}`}>Nombre</label>
+              <input
+                type="text"
+                className="form-control"
+                id="petName"
+                placeholder="Ingresa el nombre de tu mascota"
+                value={formData.petName}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="col-md-4">
+              <label htmlFor="species" className={`${styles.customFormLabel}`}>Especie</label>
+              <input
+                type="text"
+                className="form-control"
+                id="species"
+                placeholder="Perro, gato, etc."
+                value={formData.species}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="col-md-4">
+              <label htmlFor="breed" className={`${styles.customFormLabel}`}>Raza</label>
+              <input
+                type="text"
+                className="form-control"
+                id="breed"
+                placeholder="Raza de tu mascota"
+                value={formData.breed}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="col-md-4">
+              <label htmlFor="color" className={`${styles.customFormLabel}`}>Color</label>
+              <input
+                type="text"
+                className="form-control"
+                id="color"
+                placeholder="Color de tu mascota"
+                value={formData.color}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="col-md-4">
+              <label htmlFor="age" className={`${styles.customFormLabel}`}>Edad</label>
+              <input
+                type="number"
+                className="form-control"
+                id="age"
+                placeholder="Ingresa su edad en años"
+                value={formData.age}
+                onChange={handleChange}
+                min="0"
+              />
+            </div>
+            <div className="col-md-4">
+              <label htmlFor="weight" className={`${styles.customFormLabel}`}>Peso</label>
+              <input
+                type="text"
+                className="form-control"
+                id="weight"
+                placeholder="Peso de tu mascota"
+                value={formData.weight}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="col-md-4">
+              <label htmlFor="gender" className={`${styles.customFormLabel}`}>Género</label>
+              <select
+                className="form-control"
+                id="gender"
+                value={formData.gender}
+                onChange={handleChange}
+              >
+                <option value="">Selecciona el género</option>
+                <option value="male">Macho</option>
+                <option value="female">Hembra</option>
+              </select>
+            </div>
+          </div>
+
+          <div className="d-flex justify-content-center align-items-center mt-4 gap-3">
+            <button
+              type="button"
+              className={`${styles.customButton}`}
+              onClick={() => navigate("/veterinaria-mascohogar-pc-home")}
+            >
+              Cancelar
+            </button>
+            <button type="submit" className={`${styles.customButton}`}>Regístrate</button>
+          </div>
+        </form>
+
+        {/* Sección: ¿Ya estás registrado? */}
+        <div className="text-center mt-3">
+          <p className={styles.registerText}>¿Ya estás registrado?</p>
+          <a href="/VistaInicioDeSesion" className={styles.loginLink}>Inicia sesión</a>
+        </div>
       </div>
     </div>
   );
