@@ -137,6 +137,15 @@
     font-size: var(--font-size-lg); /* Reduce el tamaño de la fuente */
     text-align: center; /* Centra el texto */
   }
+  .title {
+    font-size: 28px; /* Reduce el tamaño del título en tabletas */
+    line-height: 36px;
+  }
+
+  .description {
+    font-size: 20px; /* Reduce el tamaño de la descripción en tabletas */
+    line-height: 1.4;
+  }
 }
 
 /* Media queries para móviles */
@@ -159,5 +168,14 @@
     width: 100%; /* Ocupa todo el ancho */
     font-size: var(--font-size-lg); /* Reduce el tamaño de la fuente */
     text-align: center; /* Centra el texto */
+  }
+  .title {
+    font-size: 22px; /* Reduce aún más el tamaño del título en móviles */
+    line-height: 30px;
+  }
+
+  .description {
+    font-size: 18px; /* Reduce aún más el tamaño de la descripción en móviles */
+    line-height: 1.3;
   }
 }

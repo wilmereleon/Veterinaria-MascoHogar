@@ -4,6 +4,58 @@ import { FiEye, FiEyeOff } from "react-icons/fi";
 import axios from "axios"; // Para interactuar con los microservicios
 import styles from "./VistaRegstrate.module.css";
 
+/**
+ * Componente funcional `VistaRegstrate` que representa una página de registro
+ * para clientes y sus mascotas en la aplicación de Veterinaria MascoHogar.
+ *
+ * @component
+ * @returns {JSX.Element} Interfaz de usuario para el registro de clientes y mascotas.
+ *
+ * @description
+ * Este componente permite a los usuarios registrar sus datos personales y los datos
+ * de su mascota. Incluye validaciones básicas, como la coincidencia de contraseñas,
+ * y envía los datos a los microservicios correspondientes para registrar tanto al
+ * cliente como a la mascota. También incluye opciones para mostrar/ocultar contraseñas
+ * y redirigir al usuario a otras páginas.
+ *
+ * @example
+ * ```tsx
+ * <VistaRegstrate />
+ * ```
+ *
+ * @state {Object} formData - Estado que almacena los datos del formulario.
+ * @state {boolean} showPassword - Estado para mostrar/ocultar la contraseña.
+ * @state {boolean} showConfirmPassword - Estado para mostrar/ocultar la confirmación de la contraseña.
+ *
+ * @function handleChange
+ * Maneja los cambios en los campos del formulario y actualiza el estado `formData`.
+ * @param {React.ChangeEvent<HTMLInputElement | HTMLSelectElement>} e - Evento de cambio del formulario.
+ *
+ * @function handleSubmit
+ * Maneja el envío del formulario, valida las contraseñas, confirma los datos con el usuario
+ * y envía los datos a los microservicios de clientes y mascotas.
+ * @param {React.FormEvent} e - Evento de envío del formulario.
+ *
+ * @state {Function} navigate - Hook de React Router para redirigir a otras páginas.
+ *
+ * @throws {Error} Error al registrar los datos en los microservicios.
+ *
+ * @dependencies
+ * - `axios`: Para realizar solicitudes HTTP a los microservicios.
+ * - `useNavigate`: Hook de React Router para la navegación.
+ * - `FiEye`, `FiEyeOff`: Iconos para mostrar/ocultar contraseñas.
+ *
+ * @styles
+ * - `styles.vistaRegstrate`: Clase CSS para el contenedor principal.
+ * - `styles.logo`: Clase CSS para el logo.
+ * - `styles.brandname`, `styles.veterinaria`, `styles.mascohogar`: Clases CSS para el nombre de la marca.
+ * - `styles.title`: Clase CSS para el título de la página.
+ * - `styles.formContainer`: Clase CSS para el contenedor del formulario.
+ * - `styles.sectionTitle`: Clase CSS para los títulos de las secciones.
+ * - `styles.customFormLabel`: Clase CSS para las etiquetas de los campos del formulario.
+ * - `styles.customButton`: Clase CSS para los botones personalizados.
+ * - `styles.registerText`, `styles.loginLink`: Clases CSS para el texto y enlace de inicio de sesión.
+ */
 const VistaRegstrate: FunctionComponent = () => {
   const [formData, setFormData] = useState({
     firstName: "",

@@ -183,3 +183,47 @@
 .commentInput::placeholder {
   color: var(--color-gray-400);
 }
+
+/* Media queries para dispositivos tablet */
+@media (max-width: 768px) {
+  .reviews {
+    padding: var(--padding-21xl) var(--padding-41xl); /* Reducir el padding en tabletas */
+    font-size: var(--font-size-xs); /* Reducir el tamaño de fuente */
+  }
+
+  .list {
+    max-height: 400px; /* Reducir la altura máxima del contenedor */
+    gap: var(--gap-xl); /* Reducir el espacio entre comentarios */
+  }
+
+  .row1 {
+    width: 160px; /* Reducir el ancho del botón */
+    font-size: var(--font-size-xxs); /* Reducir el tamaño de fuente del botón */
+  }
+
+  .commentInput {
+    height: 60px; /* Reducir la altura del textarea */
+  }
+}
+
+/* Media queries para dispositivos móviles */
+@media (max-width: 480px) {
+  .reviews {
+    padding: var(--padding-xl) var(--padding-lg); /* Reducir aún más el padding en móviles */
+    font-size: var(--font-size-xxs); /* Reducir el tamaño de fuente */
+  }
+
+  .list {
+    max-height: 300px; /* Reducir la altura máxima del contenedor */
+    gap: var(--gap-lg); /* Reducir el espacio entre comentarios */
+  }
+
+  .row1 {
+    width: 140px; /* Reducir aún más el ancho del botón */
+    font-size: var(--font-size-xxs); /* Reducir el tamaño de fuente del botón */
+  }
+
+  .commentInput {
+    height: 50px; /* Reducir aún más la altura del textarea */
+  }
+}
