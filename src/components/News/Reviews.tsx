@@ -102,16 +102,20 @@ const Reviews: FunctionComponent<ReviewsType> = ({ className = "" }) => {
       <div className={styles.list}>
         {/* Comentarios existentes */}
         <Row
+          rowBorder="unset"
+          cardBorder="1px solid #65a30d"
           avatar="/avatar1@2x.png"
           title="Suzana Vega"
-          title1="¡Gran artículo! A mi gato le está yendo bien después de seguir estos métodos de desparasión."
+          title1={`¡Gran artículo! A mi gato le está yendo\nbien.`}
+          className={styles.smallContainer} // Aplica la clase para achicar el contenedor
         />
         <Row
           rowBorder="unset"
           cardBorder="1px solid #65a30d"
           avatar="/avatar2@2x.png"
           title="Ana Patricia López"
-          title1="Gracias por las recomendaciones. Definitivamente los aplicará para mi gato interior."
+          title1={`Gracias por las recomendaciones.\n`}
+          className={styles.smallContainer} // Aplica la clase para achicar el contenedor
         />
         {/* Comentarios dinámicos */}
         {commentsList.map((commentItem, index) => (
@@ -119,7 +123,7 @@ const Reviews: FunctionComponent<ReviewsType> = ({ className = "" }) => {
             key={index}
             avatar="/avatar3@2x.png"
             title={commentItem.user}
-            title1={commentItem.text}
+            title1={commentItem.text} // Pasar el texto directamente como string
           />
         ))}
         <div className={styles.row}>
