@@ -21,7 +21,7 @@ const VistaInicioDeSesion: FunctionComponent = () => {
   const location = useLocation();
 
   // Ruta a la que se redirigirá después de iniciar sesión
-  const from = location.state?.from || "/";
+  const from = location.state?.from || "/entorno-sesion"; // Cambia la ruta por la vista de entorno de sesión
 
   const adminUser = {
     email: "admin",
@@ -39,7 +39,7 @@ const VistaInicioDeSesion: FunctionComponent = () => {
       localStorage.setItem("isAuthenticated", "true");
       localStorage.setItem("username", email);
 
-      // Redirigir al usuario a la página previa o al Home
+      // Redirigir al usuario a la vista de entorno de sesión
       navigate(from, { replace: true });
     } else {
       alert("Correo o contraseña incorrectos"); // Muestra un mensaje de error

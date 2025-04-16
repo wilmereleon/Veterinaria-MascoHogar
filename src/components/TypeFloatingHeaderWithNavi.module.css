@@ -52,7 +52,7 @@
 /* Ajuste del tamaño del texto en vista responsiva */
 @media (max-width: 768px) {
   .logoText {
-    font-size: 70%; /* Reduce el tamaño del texto en pantallas pequeñas */
+    font-size: 60%; /* Reduce el tamaño del texto en pantallas pequeñas */
   }
 
   .navbar-nav {
@@ -238,7 +238,15 @@
 /* Media queries para móviles */
 @media (max-width: 480px) {
   .logoText {
-    font-size: 70%; /* Reduce el tamaño del texto en pantallas pequeñas */
+    font-size: 12px; /* Reduce aún más el tamaño del texto en celulares */
+  }
+
+  .logoText .veterinaria {
+    font-size: 10px; /* Reduce el tamaño de "Veterinaria" en celulares */
+  }
+
+  .logoText .mascoHogar {
+    font-size: 20px; /* Reduce el tamaño de "MascoHogar" en celulares */
   }
 
   .navbar-nav {

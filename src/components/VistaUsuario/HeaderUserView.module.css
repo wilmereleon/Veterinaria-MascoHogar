@@ -1,119 +1,119 @@
 .typefloatingHeaderWithNavi {
-    width: 100%;
-    margin: 0 !important;
-    top: 0px;
-    right: 0px;
-    left: 0px;
-    height: 80px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: var(--padding-5xs);
-    box-sizing: border-box;
-    gap: var(--gap-0);
-    z-index: 1000; /* Asegura que esté por encima de otros elementos */
-    text-align: left;
-    font-size: var(--font-size-sm);
-    color: var(--color-darkslategray-100);
-    font-family: var(--font-helvetica-rounded-lt-std);
-    background-color: white;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .icon {
-    width: 66px;
-    position: relative;
-    height: 61px;
-  }
-  
-  .mascohogar {
-    font-size: var(--font-size-13xl);
-    color: var(--color-seagreen);
-  }
-  
-  .span {
-    font-size: var(--font-size-xs);
-  }
-  
-  .brandnameTxt {
-    width: 100%;
-  }
-  
-  .brandname {
-    width: 282px;
-    position: relative;
-    line-height: 160%;
-    display: flex;
-    align-items: center;
-    height: 49px;
-    flex-shrink: 0;
-  }
-  
-  .brand {
-    width: 390px;
-    border-radius: var(--br-base);
-    background-color: var(--color-mintcream);
-    height: 73px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 0px var(--padding-base) 0px var(--padding-5xs);
-    box-sizing: border-box;
-    gap: var(--gap-9xs);
-  }
-  
-  .navLabel {
-    position: relative;
-    line-height: 160%;
-    font-family: "Lato", sans-serif;
-    font-size: 12px;
-    font-weight: 400;
-  }
-  
-  .navLink {
-    align-self: stretch;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 0px var(--padding-base);
-    cursor: pointer;
-    transition: color 0.3s ease;
-  }
-  
-  .navLink:hover {
-    color: #1ABD8C;
-    text-decoration: none;
-  }
-  
-  .textContainer {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 0px var(--padding-9xs);
-  }
+  width: 100%;
+  margin: 0 !important;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--padding-5xs);
+  box-sizing: border-box;
+  gap: var(--gap-0);
+  z-index: 1000; /* Asegura que esté por encima de otros elementos */
+  text-align: left;
+  font-size: var(--font-size-sm);
+  color: var(--color-darkslategray-100);
+  font-family: var(--font-helvetica-rounded-lt-std);
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
 
-  
-  .navLinks1 {
-    align-self: stretch;
-    border-radius: var(--br-base);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-end;
-    gap: var(--gap-xs);
-  }
-  
-  .navLinks {
-    flex: 1;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-end;
-    font-size: 12px;
-    font-family: "Lato", sans-serif;
-    font-weight: 400;
-  }
+.icon {
+  width: 66px;
+  position: relative;
+  height: 61px;
+}
+
+.mascohogar {
+  font-size: var(--font-size-13xl);
+  color: var(--color-seagreen);
+}
+
+.span {
+  font-size: var(--font-size-xs);
+}
+
+.brandnameTxt {
+  width: 100%;
+}
+
+.brandname {
+  width: 282px;
+  position: relative;
+  line-height: 160%;
+  display: flex;
+  align-items: center;
+  height: 49px;
+  flex-shrink: 0;
+}
+
+.brand {
+  width: 390px;
+  border-radius: var(--br-base);
+  background-color: var(--color-mintcream);
+  height: 73px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0px var(--padding-base) 0px var(--padding-5xs);
+  box-sizing: border-box;
+  gap: var(--gap-9xs);
+}
+
+.navLabel {
+  position: relative;
+  line-height: 160%;
+  font-family: "Lato", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.navLink {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0px var(--padding-base);
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.navLink:hover {
+  color: #1ABD8C;
+  text-decoration: none;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0px var(--padding-9xs);
+}
+
+
+.navLinks1 {
+  align-self: stretch;
+  border-radius: var(--br-base);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--gap-xs);
+}
+
+.navLinks {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 12px;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+}

@@ -8,6 +8,7 @@ import { FaCalendarAlt, FaStethoscope, FaFileMedicalAlt } from "react-icons/fa";
 import { MdLocalPharmacy, MdOutlineAssignment, MdReport } from "react-icons/md";
 import { IoChatbubblesSharp, IoNotificationsSharp } from "react-icons/io5";
 
+
 /**
  * Componente funcional `VistaDeEntornoDeSesinUsu`.
  * Este componente representa la vista principal de la sesión del usuario en la aplicación.
@@ -53,7 +54,7 @@ const VistaDeEntornoDeSesinUsu: FunctionComponent = () => {
       style={{ marginTop: "0", paddingTop: "0" }} // Elimina cualquier margen o padding superior
     >
       {/* Navbar */}
-      <TypeFloatingHeaderWithNavi />
+      <TypeFloatingHeaderWithNavi/>
         
       {/* Contenedor principal */}
       <div className="row mt-0"> {/* Ajuste del margen superior */}
