@@ -129,18 +129,21 @@
 /* Ajustes para pantallas pequeñas */
 @media (max-width: 768px) {
   .transparentButton {
-    font-size: 9px; /* Reduce aún más el tamaño del texto en pantallas muy pequeñas */
+    font-size: 8px; /* Reduce aún más el tamaño del texto en pantallas muy pequeñas */
     padding: 12px 8px; /* Ajusta el padding para que el botón sea más compacto */
     width: 100%; /* Asegura que el botón ocupe todo el ancho disponible */
     text-align: center; /* Centra el texto dentro del botón */
     min-height: 50px; /* Establece una altura mínima para el botón */
     line-height: 1.2; /* Ajusta el espacio entre líneas para evitar desbordes */
   }
+  .logoSmall {
+    font-size: 6px; /* Reduce el tamaño del texto */
+  }
 }
 
 @media (max-width: 480px) {
   .transparentButton {
-    font-size: 9px; /* Reduce aún más el tamaño del texto en pantallas muy pequeñas */
+    font-size: 8px; /* Reduce aún más el tamaño del texto en pantallas muy pequeñas */
     padding: 12px 8px; /* Ajusta el padding para que el botón sea más compacto */
     width: 100%; /* Asegura que el botón ocupe todo el ancho disponible */
     text-align: center; /* Centra el texto dentro del botón */
@@ -149,7 +152,7 @@
   }
 
   .logoSmall {
-    font-size: 8px; /* Reduce el tamaño del texto */
+    font-size: 6px; /* Reduce el tamaño del texto */
   }
 }
 
