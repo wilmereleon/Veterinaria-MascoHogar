@@ -142,32 +142,7 @@ package "VETERINARIA" {
                     +handleLogin(): void
                     +render(): void
                 }
-                class "FormData" {
-                    +firstName: string
-                    +lastName: string
-                    +email: string
-                    +address: string
-                    +phone: string
-                    +mobile: string
-                    +idType: string
-                    +idNumber: string
-                    +password: string
-                    +confirmPassword: string
-                    +petName: string
-                    +species: string
-                    +breed: string
-                    +color: string
-                    +age: string
-                    +weight: string
-                    +gender: string
-                    +date_birth: string
-                }
-                class "VistaRegstrate" <<Page>> {
-                    -formData: FormData
-                    -showPassword: boolean
-                    -showConfirmPassword: boolean
-                    +handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>): void
-                    +handleSubmit(e: React.FormEvent): void
+                class "VistaRegistra" <<Page>> {
                     +render(): void
                 }
                 class "PasswordRecovery" <<Page>> {
@@ -239,8 +214,6 @@ package "VETERINARIA" {
 
 "LoginForm" --> "AuthUtils" : uses
 "RegisterForm" --> "AuthUtils" : uses
-"VistaRegstrate" --> "AuthUtils" : uses
-"VistaRegstrate" --> "FormData" : uses
 "Header" --> "AuthUtils" : uses
 "Footer" --> "TypeStackedSimpleFooter" : includes
 "VeterinariaMascoHogar" --> "Header" : includes
@@ -250,7 +223,7 @@ package "VETERINARIA" {
 "App" --> "VeterinariaMascoHogar" : routes to
 "App" --> "PaginaDeNoticias" : routes to
 "App" --> "VistaInicioDeSesion" : routes to
-"App" --> "VistaRegstrate" : routes to
+"App" --> "VistaDeEntornoDeSesionUsu" : routes to
 "index.tsx" --> "App" : renders
 "PginaDeNoticias" --> "TypeFloatingHeaderWithNavi" : includes
 "PginaDeNoticias" --> "Contents" : includes

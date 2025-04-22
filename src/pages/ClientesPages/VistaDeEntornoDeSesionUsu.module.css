@@ -136,7 +136,7 @@
 
 @media (max-width: 480px) {
   .transparentButton {
-    font-size: 12px; /* Reduce aún más el tamaño del texto en pantallas muy pequeñas */
+    font-size: 9px; /* Reduce aún más el tamaño del texto en pantallas muy pequeñas */
     padding: 6px 8px; /* Ajusta el padding para que el botón sea más compacto */
   }
 

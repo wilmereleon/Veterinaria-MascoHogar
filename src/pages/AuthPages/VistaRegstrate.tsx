@@ -384,7 +384,13 @@ const VistaRegstrate: FunctionComponent = () => {
         {/* Sección: ¿Ya estás registrado? */}
         <div className="text-center mt-3">
           <p className={styles.registerText}>¿Ya estás registrado?</p>
-          <a href="/VistaInicioDeSesion" className={styles.loginLink}>Inicia sesión</a>
+            <a
+            href="#"
+            className={styles.loginLink}
+            onClick={() => navigate("/login")}
+            >   
+              Inicia sesión
+            </a>
         </div>
       </div>
     </div>

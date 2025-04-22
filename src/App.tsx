@@ -12,7 +12,8 @@ import VeterinariaMascoHogar from "./pages/Home/VeterinariaMascoHogar";
 import PaginaDeNoticias from "./pages/News/PginaDeNoticias"; // Importación de la página de noticias
 import VistaInicioDeSesion from "./pages/AuthPages/VistaInicioDeSesion"; // Ruta corregida
 import VistaDeEntornoDeSesionUsu from "./pages/ClientesPages/VistaDeEntornoDeSesionUsu"; // Nueva vista integrada
-import VistaRegstrate from "./pages/ClientesPages/VistaRegstrate"; // Nueva vista integrada del módulo descargado
+import VistaRegstrate from "./pages/AuthPages/VistaRegstrate"; // Nueva vista integrada del módulo descargado
+import ProtectedRoute from "./components/AuthComponent/ProtectedRoute"; // Ruta protegida para las páginas que requieren autenticación
 
 /**
  * Componente principal `App`.

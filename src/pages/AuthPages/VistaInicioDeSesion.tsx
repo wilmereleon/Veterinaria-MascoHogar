@@ -114,7 +114,13 @@ const VistaInicioDeSesion: FunctionComponent = () => {
 
         <div className={styles.signupPrompt}>
           <span>¿Aún no tienes una cuenta?</span>
-          <a href="#" className={styles.signupLink}>Crear una cuenta</a>
+          <a
+            href="#"
+            className={styles.signupLink}
+            onClick={() => navigate("/registro")}
+          >
+          Crear una cuenta
+          </a>
         </div>
       </div>
     </div>
