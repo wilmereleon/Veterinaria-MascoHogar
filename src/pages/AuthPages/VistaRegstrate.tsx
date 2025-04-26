@@ -63,12 +63,12 @@ import styles from "./VistaRegstrate.module.css";
  */
 const VistaRegstrate: FunctionComponent = () => {
   const [formData, setFormData] = useState({
-    firstName: "",
+    name: "",
     lastName: "",
     email: "",
     address: "",
     phone: "",
-    mobile: "",
+    phoneNumber: "",
     idType: "",
     idNumber: "",
     password: "",
@@ -80,7 +80,7 @@ const VistaRegstrate: FunctionComponent = () => {
     age: "",
     weight: "",
     gender: "",
-    date_birth: "", // Nuevo campo para la fecha de nacimiento
+    dateOfbirth: "", // Nuevo campo para la fecha de nacimiento
   });
 
   const [showPassword, setShowPassword] = useState(false);
@@ -114,36 +114,66 @@ const VistaRegstrate: FunctionComponent = () => {
     }
 
     try {
+      // Verificar los datos de la mascota antes de enviarlos
+    console.log("Datos de la mascota:", {
+      name: formData.petName,
+      breed: formData.breed,
+      date_birth: formData.dateOfbirth,
+      weight: parseFloat(formData.weight),
+      color: formData.color,
+      gender: formData.gender,
+    });
       // Enviar datos al microservicio de mascotas
-      const petResponse = await axios.post('/api/pets', {
+      const petResponse = await axios.post('http://localhost:8080/api/pet/ceate', {
         name: formData.petName,
         breed: formData.breed,
-        date_birth: formData.date_birth, // Fecha de nacimiento de la mascota
+        dateOfbirth: formData.dateOfbirth, // Fecha de nacimiento de la mascota
         weight: parseFloat(formData.weight), // Convertir peso a número
         color: formData.color,
         gender: formData.gender,
       });
-
+    
       console.log("Mascota registrada:", petResponse.data);
 
+      // Verificar los datos del cliente antes de enviarlos
+    console.log("Datos del cliente:", {
+      name: formData.name,
+      lastName: formData.lastName,
+      email: formData.email,
+      phoneNumber: formData.phoneNumber,
+      address: formData.address,
+      registrationDate: new Date().toISOString().split("T")[0],
+      petId: petResponse.data.id, // Relacionar cliente con la mascota
+    });
+    
       // Enviar datos al microservicio de clientes
-      const clientResponse = await axios.post('/api/clients', {
-        name: formData.firstName,
-        last_name: formData.lastName,
+      const clientResponse = await axios.post('http://localhost:8080/api/client/ceate', {
+        name: formData.name,
+        lastName: formData.lastName,
         email: formData.email,
-        phone_number: formData.mobile,
+        phoneNumber: formData.phoneNumber,
         address: formData.address,
-        registration_date: new Date().toISOString().split("T")[0], // Fecha actual en formato YYYY-MM-DD
-        pet_id: petResponse.data.id, // Relacionar cliente con la mascota
+        registrationDate: new Date().toISOString().split("T")[0], // Fecha actual en formato YYYY-MM-DD
+        petId: petResponse.data.id, // Relacionar cliente con la mascota
       });
-
+    
       console.log("Cliente registrado:", clientResponse.data);
-
+    
       alert("Registro exitoso.");
       navigate("/veterinaria-mascohogar-pc-home"); // Redirigir al Home
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error al registrar:", error);
-      alert("Ocurrió un error al registrar. Por favor, intenta nuevamente.");
+    
+      if (error.response) {
+        // Error de respuesta del servidor
+        alert(`Error: ${error.response.data.message || "Ocurrió un error en el servidor."}`);
+      } else if (error.request) {
+        // Error en la solicitud (sin respuesta del servidor)
+        alert("Error: No se pudo conectar con el servidor.");
+      } else {
+        // Otro tipo de error
+        alert(`Error: ${error.message}`);
+      }
     }
   };
 
@@ -163,13 +193,13 @@ const VistaRegstrate: FunctionComponent = () => {
           <h3 className={styles.sectionTitle}>Tus datos</h3>
           <div className="row g-3">
             <div className="col-md-4">
-              <label htmlFor="firstName" className={`${styles.customFormLabel}`}>Nombres</label>
+              <label htmlFor="name" className={`${styles.customFormLabel}`}>Nombres</label>
               <input
                 type="text"
                 className="form-control"
-                id="firstName"
+                id="name"
                 placeholder="Ingresa tu nombre aquí"
-                value={formData.firstName}
+                value={formData.name}
                 onChange={handleChange}
                 required
               />
@@ -211,13 +241,13 @@ const VistaRegstrate: FunctionComponent = () => {
               />
             </div>
             <div className="col-md-4">
-              <label htmlFor="mobile" className={`${styles.customFormLabel}`}>Teléfono celular</label>
+              <label htmlFor="phoneNumber" className={`${styles.customFormLabel}`}>Teléfono celular</label>
               <input
                 type="text"
                 className="form-control"
-                id="mobile"
+                id="phoneNumber"
                 placeholder="Ingresa tu teléfono celular"
-                value={formData.mobile}
+                value={formData.phoneNumber}
                 onChange={handleChange}
                 required
               />
@@ -329,12 +359,12 @@ const VistaRegstrate: FunctionComponent = () => {
               />
             </div>
             <div className="col-md-4">
-              <label htmlFor="date_birth" className={`${styles.customFormLabel}`}>Fecha de nacimiento</label>
+              <label htmlFor="dateOfbirth" className={`${styles.customFormLabel}`}>Fecha de nacimiento</label>
               <input
                 type="date"
                 className="form-control"
-                id="date_birth"
-                value={formData.date_birth}
+                id="dateOfbirth"
+                value={formData.dateOfbirth}
                 onChange={handleChange}
                 required
               />
