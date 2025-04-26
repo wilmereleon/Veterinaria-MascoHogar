@@ -1,0 +1,35 @@
+@startuml
+left to right direction
+
+' Incluye los archivos donde están definidas las clases
+!include components.puml
+!include pages.puml
+!include styles.puml
+
+"Footer" --> "components.TypeStackedSimpleFooter" : includes
+"VeterinariaMascoHogar" --> "Header" : includes
+"VeterinariaMascoHogar" --> "Footer" : includes
+"VeterinariaMascoHogar" --> "pages.AuthPages.VistaInicioDeSesion" : uses
+"App" --> "VeterinariaMascoHogar" : routes to
+"App" --> "PaginaDeNoticias" : routes to
+"App" --> "pages.AuthPages.VistaInicioDeSesion" : routes to
+"App" --> "pages.AuthPages.VistaRegstrate" : routes to
+"index.tsx" --> "App" : renders
+"PaginaDeNoticias" --> "components.TypeFloatingHeaderWithNavi" : includes
+"PaginaDeNoticias" --> "News.Contents" : includes
+"PaginaDeNoticias" --> "News.Reviews" : includes
+"PaginaDeNoticias" --> "components.TypeStackedSimpleFooter" : includes
+"News.Reviews" --> "News.Row" : includes
+"News.Contents" --> "News.Article" : includes
+"GestionCitas" --> "CitasService" : uses
+"GestionCitas" --> "components.CitasPages.CitasService" : uses
+
+' Relaciones de VistaRegstrate
+"pages.AuthPages.VistaRegstrate" --> "components.AuthComponent.ProtectedRoute" : uses
+"pages.AuthPages.VistaRegstrate" --> "styles.VistaRegstrate.module.css" : styles
+"pages.AuthPages.VistaRegstrate" --> "pages.AuthPages.FormData" : uses
+
+' Relaciones de ProtectedRoute
+"components.AuthComponent.ProtectedRoute" --> "pages.AuthPages.VistaInicioDeSesion" : protects
+"components.AuthComponent.ProtectedRoute" --> "pages.AuthPages.VistaRegstrate" : protects
+@enduml

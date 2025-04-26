@@ -1,0 +1,58 @@
+@startuml
+left to right direction
+
+package "components" {
+    package "AuthComponent" {
+        class "ProtectedRoute" <<Component>> {
+            -isAuthenticated: boolean
+            +useEffect(): void
+            +render(children: ReactNode): JSX.Element
+        }
+    }
+
+    package "Shared" {
+        class "Button" <<Component>> {
+            +label: string
+            +onClick(): void
+        }
+        class "InputField" <<Component>> {
+            +value: string
+            +onChange(value: string): void
+        }
+        class "Modal" <<Component>> {
+            +isOpen: boolean
+            +toggle(): void
+        }
+    }
+
+    package "Layout" {
+        class "Header" <<Component>> {
+            +render(): void
+        }
+        class "Footer" <<Component>> {
+            +render(): void
+        }
+        class "Sidebar" <<Component>> {
+            +render(): void
+        }
+    }
+
+    package "ClientesPages" {
+        class "ClientsService" <<Service>> {
+            +getClients(): Client[]
+        }
+        class "VistaDeEntornoDeSesionUsu" <<Component>> {
+            -username: string
+            +useEffect(): void
+            +render(): JSX.Element
+        }
+    }
+
+    package "CitasPages" {
+        class "CitasService" <<Service>> {
+            +createCita(): void
+            +getCitas(): Cita[]
+        }
+    }
+}
+@enduml

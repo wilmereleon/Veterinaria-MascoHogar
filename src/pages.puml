@@ -1,0 +1,85 @@
+@startuml
+left to right direction
+
+package "pages" {
+    package "AuthPages" {
+        class "VistaInicioDeSesion" <<Page>> {
+            -showPassword: boolean
+            -email: string
+            -password: string
+            +togglePasswordVisibility(): void
+            +handleLogin(): void
+            +render(): void
+        }
+        class "VistaRegstrate" <<Page>> {
+            -formData: FormData
+            -showPassword: boolean
+            -showConfirmPassword: boolean
+            +handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>): void
+            +handleSubmit(e: React.FormEvent): Promise<void>
+            +render(): JSX.Element
+        }
+        class "FormData" <<Data>> {
+            +firstName: string
+            +lastName: string
+            +email: string
+            +address: string
+            +phone: string
+            +mobile: string
+            +idType: string
+            +idNumber: string
+            +password: string
+            +confirmPassword: string
+            +petName: string
+            +species: string
+            +breed: string
+            +color: string
+            +age: string
+            +weight: string
+            +gender: string
+            +date_birth: string
+        }
+        class "PasswordRecovery" <<Page>> {
+            +render(): void
+        }
+    }
+
+    package "Home" {
+        class "VeterinariaMascoHogar" <<Page>> {
+            -videoRef: HTMLVideoElement
+            +handleVideoClick(): void
+            +render(): void
+        }
+        class "Dashboard" <<Page>> {
+            +render(): void
+        }
+    }
+
+    package "CitasPages" {
+        class "GestionCitas" <<Page>> {
+            +render(): void
+        }
+        class "SolicitarCita" <<Page>> {
+            +render(): void
+        }
+    }
+
+    package "ClientesPages" {
+        class "GestionClientes" <<Page>> {
+            +render(): void
+        }
+        class "DetalleCliente" <<Page>> {
+            +render(): void
+        }
+        class "VistaDeEntornoDeSesionUsu" <<Page>> {
+            +render(): void
+        }
+    }
+
+    package "News" {
+        class "PaginaDeNoticias" <<Page>> {
+            +render(): void
+        }
+    }
+}
+@enduml

@@ -2,6 +2,7 @@ import { FunctionComponent, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import axios from "axios"; // Para interactuar con los microservicios
+import Modal from "../../components/Shared/Modal"; // Importa el Modal
 import styles from "./VistaRegstrate.module.css";
 
 /**
@@ -26,17 +27,20 @@ import styles from "./VistaRegstrate.module.css";
  * @state {Object} formData - Estado que almacena los datos del formulario.
  * @state {boolean} showPassword - Estado para mostrar/ocultar la contraseña.
  * @state {boolean} showConfirmPassword - Estado para mostrar/ocultar la confirmación de la contraseña.
+ * @state {boolean} isModalOpen - Estado para controlar la visibilidad del modal.
  *
  * @function handleChange
  * Maneja los cambios en los campos del formulario y actualiza el estado `formData`.
  * @param {React.ChangeEvent<HTMLInputElement | HTMLSelectElement>} e - Evento de cambio del formulario.
  *
- * @function handleSubmit
- * Maneja el envío del formulario, valida las contraseñas, confirma los datos con el usuario
- * y envía los datos a los microservicios de clientes y mascotas.
- * @param {React.FormEvent} e - Evento de envío del formulario.
+ * @function handleOpenModal
+ * Abre el modal de confirmación antes de enviar los datos.
  *
- * @state {Function} navigate - Hook de React Router para redirigir a otras páginas.
+ * @function handleCloseModal
+ * Cierra el modal de confirmación.
+ *
+ * @function handleConfirmModal
+ * Maneja la confirmación del modal y envía los datos a los microservicios.
  *
  * @throws {Error} Error al registrar los datos en los microservicios.
  *
@@ -44,6 +48,7 @@ import styles from "./VistaRegstrate.module.css";
  * - `axios`: Para realizar solicitudes HTTP a los microservicios.
  * - `useNavigate`: Hook de React Router para la navegación.
  * - `FiEye`, `FiEyeOff`: Iconos para mostrar/ocultar contraseñas.
+ * - `Modal`: Componente reutilizable para mostrar el modal de confirmación.
  *
  * @styles
  * - `styles.vistaRegstrate`: Clase CSS para el contenedor principal.
@@ -80,6 +85,7 @@ const VistaRegstrate: FunctionComponent = () => {
 
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [isModalOpen, setModalOpen] = useState(false); // Estado para el modal
   const navigate = useNavigate();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -89,18 +95,23 @@ const VistaRegstrate: FunctionComponent = () => {
     });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleOpenModal = (e: React.FormEvent) => {
     e.preventDefault();
+    setModalOpen(true); // Abre el modal
+  };
+
+  const handleCloseModal = () => {
+    setModalOpen(false); // Cierra el modal
+  };
+
+  const handleConfirmModal = async () => {
+    setModalOpen(false); // Cierra el modal
 
     // Validar que las contraseñas sean iguales
     if (formData.password !== formData.confirmPassword) {
       alert("Las contraseñas no coinciden. Por favor, verifica.");
       return;
     }
-
-    // Confirmación de datos
-    const confirm = window.confirm("¿Estás seguro de que deseas registrar estos datos?");
-    if (!confirm) return;
 
     try {
       // Enviar datos al microservicio de mascotas
@@ -148,7 +159,7 @@ const VistaRegstrate: FunctionComponent = () => {
       </div>
 
       <div className={`container ${styles.formContainer} p-4 rounded shadow-sm`}>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleOpenModal}>
           <h3 className={styles.sectionTitle}>Tus datos</h3>
           <div className="row g-3">
             <div className="col-md-4">
@@ -380,6 +391,16 @@ const VistaRegstrate: FunctionComponent = () => {
             <button type="submit" className={`${styles.customButton}`}>Regístrate</button>
           </div>
         </form>
+        
+        {/* Modal de confirmación */}
+      <Modal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        onConfirm={handleConfirmModal}
+        title="Confirma tu acción"
+        message="¿Estás seguro de que deseas proceder con el registro?"
+      />
+
 
         {/* Sección: ¿Ya estás registrado? */}
         <div className="text-center mt-3">
@@ -394,6 +415,8 @@ const VistaRegstrate: FunctionComponent = () => {
         </div>
       </div>
     </div>
+
+    
   );
 };
 

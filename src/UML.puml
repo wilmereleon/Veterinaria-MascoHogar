@@ -9,7 +9,7 @@ package "VETERINARIA" {
     }
 
     package "img" {
-        class "Recursos gráficos" <<Folder>>
+        class "Recursos graficos" <<Folder>>
     }
 
     package "public" {
@@ -199,12 +199,15 @@ package "VETERINARIA" {
                 class "DetalleCliente" <<Page>> {
                     +render(): void
                 }
+                class "VistaDeEntornoDeSesionUsu" <<Page>> {
+                    +render(): void
+                }
             }
             package "News" {
                 class "PaginaDeNoticias" <<Page>> {
                     +render(): void
                 }
-                class "PginaDeNoticias" <<Page>> {
+                class "PaginaDeNoticias" <<Page>> {
                     +render(): void
                 }
             }
@@ -214,6 +217,7 @@ package "VETERINARIA" {
             class "global.css" <<CSS>>
             class "variables.css" <<CSS>>
             class "mixins.css" <<CSS>>
+            class "VistaDeEntornoDeSesionUsu.module.css" <<CSS>>
         }
 
         class "App" <<Root>> {
@@ -252,10 +256,10 @@ package "VETERINARIA" {
 "App" --> "VistaInicioDeSesion" : routes to
 "App" --> "VistaRegstrate" : routes to
 "index.tsx" --> "App" : renders
-"PginaDeNoticias" --> "TypeFloatingHeaderWithNavi" : includes
-"PginaDeNoticias" --> "Contents" : includes
-"PginaDeNoticias" --> "Reviews" : includes
-"PginaDeNoticias" --> "TypeStackedSimpleFooter" : includes
+"PaginaDeNoticias" --> "TypeFloatingHeaderWithNavi" : includes
+"PaginaDeNoticias" --> "Contents" : includes
+"PaginaDeNoticias" --> "Reviews" : includes
+"PaginaDeNoticias" --> "TypeStackedSimpleFooter" : includes
 "Reviews" --> "Row" : includes
 "Contents" --> "Article" : includes
 "GestionCitas" --> "CitasService" : uses
@@ -263,5 +267,7 @@ package "VETERINARIA" {
 "BillingService" --> "MedicalHistoryService" : interacts
 "PaginaDeNoticias" --> "Reviews" : includes
 "PaginaDeNoticias" --> "MainHeader" : includes
+"VistaDeEntornoDeSesionUsu" --> "VistaDeEntornoDeSesionUsu.module.css" : uses
+"VistaDeEntornoDeSesionUsu" --> "ClientsService" : uses
 "App" --> "index.tsx" : entry point
 @enduml

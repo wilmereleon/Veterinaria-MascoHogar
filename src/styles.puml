@@ -1,0 +1,9 @@
+@startuml
+left to right direction
+
+package "styles" {
+    class "global.css" <<CSS>>
+    class "variables.css" <<CSS>>
+    class "mixins.css" <<CSS>>
+}
+@enduml
