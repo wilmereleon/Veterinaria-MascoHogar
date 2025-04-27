@@ -1,0 +1,15 @@
+@startuml
+start
+:Usuario ingresa los datos\ndel cliente y mascota;
+:VistaRegstrate.tsx (Frontend) recibe la información;
+:Frontend realiza POST /api/pet/create a MSVC-PET;
+:MSVC-PET inserta datos en msvc_pet_db;
+:msvc_pet_db devuelve el ID de la mascota;
+:MSVC-PET retorna el ID al Frontend;
+:Frontend realiza POST /api/client/create\n(incluyendo el ID de la mascota) a MSVC-CLIENT;
+:MSVC-CLIENT inserta datos en msvc_client_db;
+:msvc_client_db envía confirmación a MSVC-CLIENT;
+:MSVC-CLIENT retorna confirmación al Frontend;
+:Frontend muestra mensaje "Registro exitoso" al Usuario;
+stop
+@enduml

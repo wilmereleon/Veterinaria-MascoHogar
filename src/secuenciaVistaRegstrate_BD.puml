@@ -1,0 +1,22 @@
+@startuml
+actor Usuario as User
+
+participant "VistaRegstrate.tsx" as Frontend
+participant "MSVC-PET" as PetService
+participant "MSVC-CLIENT" as ClientService
+database "msvc_pet_db" as PetDB
+database "msvc_client_db" as ClientDB
+
+User -> Frontend: Ingresa datos del cliente y mascota
+Frontend -> PetService: POST /api/pet/create
+PetService -> PetDB: Inserta datos de la mascota
+PetDB --> PetService: ID de la mascota
+PetService --> Frontend: ID de la mascota
+
+Frontend -> ClientService: POST /api/client/create\n(con ID de la mascota)
+ClientService -> ClientDB: Inserta datos del cliente
+ClientDB --> ClientService: Confirmación
+ClientService --> Frontend: Confirmación
+
+Frontend --> User: Registro exitoso
+@enduml

@@ -1,0 +1,27 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+actor "Usuario" as User
+
+rectangle "Sistema de Registro MascoHogar" as System {
+  top to bottom direction
+  usecase "Ingresar datos de registro" as UC1
+  usecase "Validar datos del registro" as UC2
+  usecase "Crear registro de mascota" as UC3
+  usecase "Crear registro de cliente" as UC4
+  usecase "Mostrar confirmación" as UC5
+}
+
+' Conexión oculta para forzar la disposición: Actor a la izquierda del sistema
+User -[hidden]-> System
+
+User --> UC1
+UC1 --> UC2 : Verifica datos ingresados
+UC2 --> UC3 : Si los datos de mascota son válidos
+UC2 --> UC4 : Si los datos de cliente son válidos
+UC3 --> UC5 : Registra mascota
+UC4 --> UC5 : Registra cliente
+User <-- UC5
+
+@enduml
