@@ -95,6 +95,7 @@ const VistaRegstrate: FunctionComponent = () => {
     });
   };
 
+
   const handleOpenModal = (e: React.FormEvent) => {
     e.preventDefault();
     setModalOpen(true); // Abre el modal
@@ -105,77 +106,147 @@ const VistaRegstrate: FunctionComponent = () => {
   };
 
   const handleConfirmModal = async () => {
-    setModalOpen(false); // Cierra el modal
-
-    // Validar que las contraseñas sean iguales
+    setModalOpen(false);
+  
+    // Validaciones
     if (formData.password !== formData.confirmPassword) {
       alert("Las contraseñas no coinciden. Por favor, verifica.");
       return;
     }
-
-    try {
-      // Verificar los datos de la mascota antes de enviarlos
-    console.log("Datos de la mascota:", {
-      name: formData.petName,
-      breed: formData.breed,
-      date_birth: formData.dateOfbirth,
-      weight: parseFloat(formData.weight),
-      color: formData.color,
-      gender: formData.gender,
-    });
-      // Enviar datos al microservicio de mascotas
-      const petResponse = await axios.post('http://localhost:8080/api/pet/ceate', {
-        name: formData.petName,
-        breed: formData.breed,
-        dateOfbirth: formData.dateOfbirth, // Fecha de nacimiento de la mascota
-        weight: parseFloat(formData.weight), // Convertir peso a número
-        color: formData.color,
-        gender: formData.gender,
-      });
-    
-      console.log("Mascota registrada:", petResponse.data);
-
-      // Verificar los datos del cliente antes de enviarlos
-    console.log("Datos del cliente:", {
-      name: formData.name,
-      lastName: formData.lastName,
-      email: formData.email,
-      phoneNumber: formData.phoneNumber,
-      address: formData.address,
-      registrationDate: new Date().toISOString().split("T")[0],
-      petId: petResponse.data.id, // Relacionar cliente con la mascota
-    });
-    
-      // Enviar datos al microservicio de clientes
-      const clientResponse = await axios.post('http://localhost:8080/api/client/ceate', {
-        name: formData.name,
-        lastName: formData.lastName,
-        email: formData.email,
-        phoneNumber: formData.phoneNumber,
-        address: formData.address,
-        registrationDate: new Date().toISOString().split("T")[0], // Fecha actual en formato YYYY-MM-DD
-        petId: petResponse.data.id, // Relacionar cliente con la mascota
-      });
-    
-      console.log("Cliente registrado:", clientResponse.data);
-    
-      alert("Registro exitoso.");
-      navigate("/veterinaria-mascohogar-pc-home"); // Redirigir al Home
-    } catch (error: any) {
-      console.error("Error al registrar:", error);
-    
-      if (error.response) {
-        // Error de respuesta del servidor
-        alert(`Error: ${error.response.data.message || "Ocurrió un error en el servidor."}`);
-      } else if (error.request) {
-        // Error en la solicitud (sin respuesta del servidor)
-        alert("Error: No se pudo conectar con el servidor.");
-      } else {
-        // Otro tipo de error
-        alert(`Error: ${error.message}`);
+  
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      alert("Por favor ingresa un email válido");
+      return;
+    }
+  
+    const phoneRegex = /^\d{10,}$/;
+    if (!phoneRegex.test(formData.phoneNumber)) {
+      alert("El teléfono debe contener solo números y al menos 10 dígitos");
+      return;
+    }
+  
+    const requiredFields = [
+      'name', 'lastName', 'email', 'phoneNumber', 'address',
+      'idType', 'idNumber', 'password',
+      'petName', 'species', 'breed', 'dateOfbirth', 'gender'
+    ];
+  
+    for (const field of requiredFields) {
+      if (!formData[field as keyof typeof formData]) {
+        alert(`El campo ${field} es obligatorio`);
+        return;
       }
     }
+  
+    // Crear objeto local para guardar en localStorage
+    const userData = {
+      user: {
+        firstName: formData.name,
+        lastName: formData.lastName,
+        email: formData.email,
+        address: formData.address,
+        phoneNumber: formData.phoneNumber,
+        idType: formData.idType,
+        idNumber: formData.idNumber,
+        password: formData.password,
+      },
+      pet: {
+        petName: formData.petName,
+        species: formData.species,
+        breed: formData.breed,
+        color: formData.color,
+        age: formData.age,
+        weight: formData.weight,
+        gender: formData.gender,
+        dateOfbirth: formData.dateOfbirth,
+      }
+    };
+  
+    try {
+      // Guardar en localStorage
+      const existingData = localStorage.getItem('vetUsers');
+      const users = existingData ? JSON.parse(existingData) : [];
+  
+      if (users.some((user: any) => user.user.email === formData.email)) {
+        alert("El email ya está registrado");
+        return;
+      }
+  
+      users.push(userData);
+      localStorage.setItem('vetUsers', JSON.stringify(users));
+  
+      localStorage.setItem("isAuthenticated", "true");
+      localStorage.setItem("currentUser", JSON.stringify({
+        user: {
+          name: formData.name,
+          lastName: formData.lastName,
+          email: formData.email
+        },
+        pet: {
+          petName: formData.petName
+        }
+      }));
+  
+      // Intentar registro en backend (NO detener el flujo si falla)
+      try {
+        console.log("Intentando registrar mascota en servidor...");
+        const petResponse = await axios.post('http://localhost:8080/api/pet/ceate', {
+          name: formData.petName,
+          species: formData.species,
+          breed: formData.breed,
+          color: formData.color,
+          age: formData.age,
+          weight: parseFloat(formData.weight),
+          gender: formData.gender,
+          dateOfbirth: formData.dateOfbirth,
+        });
+  
+        console.log("Mascota registrada:", petResponse.data);
+  
+        console.log("Intentando registrar cliente en servidor...");
+        const clientResponse = await axios.post('http://localhost:8080/api/client/ceate', {
+          name: formData.name,
+          lastName: formData.lastName,
+          email: formData.email,
+          phoneNumber: formData.phoneNumber,
+          address: formData.address,
+          registrationDate: new Date().toISOString().split("T")[0],
+          petId: petResponse.data.id,
+        });
+  
+        console.log("Cliente registrado:", clientResponse.data);
+  
+      } catch (apiError: any) {
+        console.error("Error al registrar en servidor:", apiError);
+  
+        if (apiError.response) {
+          alert(`Advertencia: ${apiError.response.data.message || "No se pudo registrar en el servidor, pero te registramos localmente."}`);
+        } else if (apiError.request) {
+          alert("Advertencia: No se pudo conectar con el servidor. Se guardó tu registro localmente.");
+        } else {
+          alert(`Advertencia: ${apiError.message}`);
+        }
+      }
+  
+      // Mostrar mensaje de éxito general (local)
+      alert("¡Registro exitoso! Bienvenido a Veterinaria MascoHogar");
+  
+      // Redirigir
+      navigate("/entorno-sesion", {
+        state: {
+          justRegistered: true,
+          userName: formData.name,
+          petName: formData.petName
+        }
+      });
+  
+    } catch (error) {
+      console.error("Error al guardar los datos localmente:", error);
+      alert("Ocurrió un error al guardar los datos localmente");
+    }
   };
+  
 
   return (
     <div className={`container-fluid ${styles.vistaRegstrate}`}>
