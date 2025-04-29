@@ -95,6 +95,7 @@ const VistaRegstrate: FunctionComponent = () => {
     });
   };
 
+
   const handleOpenModal = (e: React.FormEvent) => {
     e.preventDefault();
     setModalOpen(true); // Abre el modal
@@ -105,9 +106,9 @@ const VistaRegstrate: FunctionComponent = () => {
   };
 
   const handleConfirmModal = async () => {
-    setModalOpen(false); // Cierra el modal
-
-    // Validar que las contraseñas sean iguales
+    setModalOpen(false);
+  
+    // Validaciones
     if (formData.password !== formData.confirmPassword) {
       alert("Las contraseñas no coinciden. Por favor, verifica.");
       return;
@@ -115,36 +116,38 @@ const VistaRegstrate: FunctionComponent = () => {
 
     try {
       // Verificar los datos de la mascota antes de enviarlos
-      console.log("Datos de la mascota:", {
-        name: formData.petName,
-        breed: formData.breed,
-        date_birth: formData.dateOfBirth,
-        weight: parseFloat(formData.weight),
-        color: formData.color,
-        gender: formData.gender,
-      });
+    console.log("Datos de la mascota:", {
+      name: formData.petName,
+      breed: formData.breed,
+      date_birth: formData.dateOfbirth,
+      weight: parseFloat(formData.weight),
+      color: formData.color,
+      gender: formData.gender,
+    });
       // Enviar datos al microservicio de mascotas
       const petResponse = await axios.post('http://localhost:8080/api/pet/ceate', {
         name: formData.petName,
         breed: formData.breed,
-        dateOfBirth: formData.dateOfBirth, // Fecha de nacimiento de la mascota
+        dateOfbirth: formData.dateOfbirth, // Fecha de nacimiento de la mascota
         weight: parseFloat(formData.weight), // Convertir peso a número
         color: formData.color,
+        age: formData.age,
+        weight: formData.weight,
         gender: formData.gender,
       });
     
       console.log("Mascota registrada:", petResponse.data);
 
       // Verificar los datos del cliente antes de enviarlos
-      console.log("Datos del cliente:", {
-        name: formData.name,
-        lastName: formData.lastName,
-        email: formData.email,
-        phoneNumber: formData.phoneNumber,
-        address: formData.address,
-        registrationDate: new Date().toISOString().split("T")[0],
-        petId: petResponse.data.id, // Relacionar cliente con la mascota
-      });
+    console.log("Datos del cliente:", {
+      name: formData.name,
+      lastName: formData.lastName,
+      email: formData.email,
+      phoneNumber: formData.phoneNumber,
+      address: formData.address,
+      registrationDate: new Date().toISOString().split("T")[0],
+      petId: petResponse.data.id, // Relacionar cliente con la mascota
+    });
     
       // Enviar datos al microservicio de clientes
       const clientResponse = await axios.post('http://localhost:8080/api/client/ceate', {
@@ -156,32 +159,27 @@ const VistaRegstrate: FunctionComponent = () => {
         registrationDate: new Date().toISOString().split("T")[0], // Fecha actual en formato YYYY-MM-DD
         petId: petResponse.data.id, // Relacionar cliente con la mascota
       });
-
+    
       console.log("Cliente registrado:", clientResponse.data);
-
-      //console.log("Actualizando clientId en la mascota...");
-      //await axios.put(`http://localhost:8080/api/pet/update/${petResponse.data.id}`, {
-      //  clientId: clientResponse.data.id,
-      //});
-      //console.log("Mascota actualizada con clientId:", clientResponse.data.id);
     
       alert("Registro exitoso.");
-      navigate("/veterinaria-mascohogar-pc-home");
+      navigate("/veterinaria-mascohogar-pc-home"); // Redirigir al Home
     } catch (error: any) {
       console.error("Error al registrar:", error);
     
       if (error.response) {
-        console.error("Detalles del error:", error.response.data);
+        // Error de respuesta del servidor
         alert(`Error: ${error.response.data.message || "Ocurrió un error en el servidor."}`);
       } else if (error.request) {
-        console.error("Error en la solicitud:", error.request);
+        // Error en la solicitud (sin respuesta del servidor)
         alert("Error: No se pudo conectar con el servidor.");
       } else {
-        console.error("Error desconocido:", error.message);
+        // Otro tipo de error
         alert(`Error: ${error.message}`);
       }
     }
   };
+  
 
   return (
     <div className={`container-fluid ${styles.vistaRegstrate}`}>

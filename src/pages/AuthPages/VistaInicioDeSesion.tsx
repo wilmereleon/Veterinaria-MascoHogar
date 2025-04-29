@@ -1,48 +1,55 @@
 import { FunctionComponent, useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom"; // Para redirigir al usuario
+import { useNavigate, useLocation } from "react-router-dom";
 import styles from "./VistaInicioDeSesion.module.css";
 
-/**
- * Componente `VistaInicioDeSesion`.
- *
- * Este componente representa la página de inicio de sesión para los usuarios.
- * Permite a los usuarios ingresar sus credenciales (correo y contraseña) para autenticarse.
- * Si las credenciales son correctas, el usuario es redirigido a la página previa o al Home.
- *
- * @component
- * @returns {JSX.Element} La vista de inicio de sesión.
- */
 const VistaInicioDeSesion: FunctionComponent = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const navigate = useNavigate();
   const location = useLocation();
 
   // Ruta a la que se redirigirá después de iniciar sesión
-  const from = location.state?.from || "/entorno-sesion"; // Cambia la ruta por la vista de entorno de sesión
-
-  const adminUser = {
-    email: "admin",
-    password: "1234",
-  };
+  const from = location.state?.from || "/entorno-sesion";
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
 
-  const handleLogin = () => {
-    // Validar las credenciales
-    if (email === adminUser.email && password === adminUser.password) {
-      // Guardar el estado de autenticación
-      localStorage.setItem("isAuthenticated", "true");
-      localStorage.setItem("username", email);
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    setError("");
 
-      // Redirigir al usuario a la vista de entorno de sesión
-      navigate(from, { replace: true });
-    } else {
-      alert("Correo o contraseña incorrectos"); // Muestra un mensaje de error
+    try {
+      // Obtener usuarios registrados del localStorage
+      const storedUsers = localStorage.getItem('vetUsers');
+      if (!storedUsers) {
+        setError("No hay usuarios registrados");
+        return;
+      }
+
+      const users = JSON.parse(storedUsers);
+      
+      // Buscar usuario por email y contraseña
+      const user = users.find((u: any) => 
+        u.user.email === email && u.user.password === password
+      );
+
+      if (user) {
+        // Guardar datos de sesión
+        localStorage.setItem("isAuthenticated", "true");
+        localStorage.setItem("currentUser", JSON.stringify(user));
+        
+        // Redirigir al área privada
+        navigate(from, { replace: true });
+      } else {
+        setError("Correo o contraseña incorrectos");
+      }
+    } catch (err) {
+      console.error("Error al iniciar sesión:", err);
+      setError("Ocurrió un error al iniciar sesión");
     }
   };
 
@@ -62,55 +69,62 @@ const VistaInicioDeSesion: FunctionComponent = () => {
       <div className={styles.formContainer}>
         <h2 className={styles.subtitle}>Iniciar sesión</h2>
 
-        <div className={styles.formGroup}>
-          <label htmlFor="email" className={styles.label}>Correo</label>
-          <input
-            id="email"
-            className={styles.input}
-            type="text"
-            placeholder="Ingresa tu correo"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
+        {error && (
+          <div className={styles.errorMessage}>
+            {error}
+          </div>
+        )}
 
-        <div className={styles.formGroup}>
-          <label htmlFor="password" className={styles.label}>Contraseña</label>
-          <div className={styles.passwordInput}>
+        <form onSubmit={handleLogin}>
+          <div className={styles.formGroup}>
+            <label htmlFor="email" className={styles.label}>Correo</label>
             <input
-              id="password"
+              id="email"
               className={styles.input}
-              type={showPassword ? "text" : "password"}
-              placeholder="Ingresa tu contraseña"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              type="email"
+              placeholder="Ingresa tu correo"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               required
             />
-            <button
-              type="button"
-              className={styles.showPassword}
-              onClick={togglePasswordVisibility}
-              aria-label={showPassword ? "Ocultar contraseña" : "Mostrar contraseña"}
-            >
-              <img
-                src={showPassword ? "/eye-slash.svg" : "/eyefill.svg"}
-                alt={showPassword ? "Ocultar contraseña" : "Mostrar contraseña"}
+          </div>
+
+          <div className={styles.formGroup}>
+            <label htmlFor="password" className={styles.label}>Contraseña</label>
+            <div className={styles.passwordInput}>
+              <input
+                id="password"
+                className={styles.input}
+                type={showPassword ? "text" : "password"}
+                placeholder="Ingresa tu contraseña"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
               />
+              <button
+                type="button"
+                className={styles.showPassword}
+                onClick={togglePasswordVisibility}
+                aria-label={showPassword ? "Ocultar contraseña" : "Mostrar contraseña"}
+              >
+                <img
+                  src={showPassword ? "/eye-slash.svg" : "/eyefill.svg"}
+                  alt={showPassword ? "Ocultar contraseña" : "Mostrar contraseña"}
+                />
+              </button>
+            </div>
+          </div>
+
+          <div className={styles.actionsRow}>
+            <a href="#" className={styles.forgotPassword}>¿Has olvidado tu contraseña?</a>
+            <button
+              className={styles.loginButton}
+              type="submit"
+            >
+              Iniciar sesión
             </button>
           </div>
-        </div>
-
-        <div className={styles.actionsRow}>
-          <a href="#" className={styles.forgotPassword}>¿Has olvidado tu contraseña?</a>
-          <button
-            className={styles.loginButton}
-            type="button"
-            onClick={handleLogin}
-          >
-            Iniciar sesión
-          </button>
-        </div>
+        </form>
 
         <div className={styles.signupPrompt}>
           <span>¿Aún no tienes una cuenta?</span>
@@ -119,7 +133,7 @@ const VistaInicioDeSesion: FunctionComponent = () => {
             className={styles.signupLink}
             onClick={() => navigate("/registro")}
           >
-          Crear una cuenta
+            Crear una cuenta
           </a>
         </div>
       </div>
