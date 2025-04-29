@@ -4,6 +4,7 @@ import { FiEye, FiEyeOff } from "react-icons/fi";
 import axios from "axios"; // Para interactuar con los microservicios
 import Modal from "../../components/Shared/Modal"; // Importa el Modal
 import styles from "./VistaRegstrate.module.css";
+import UserStorage from "../../utils/UserStorage"; // Importar la clase UserStorage
 
 /**
  * Componente funcional `VistaRegstrate` que representa una página de registro
@@ -61,6 +62,8 @@ import styles from "./VistaRegstrate.module.css";
  * - `styles.customButton`: Clase CSS para los botones personalizados.
  * - `styles.registerText`, `styles.loginLink`: Clases CSS para el texto y enlace de inicio de sesión.
  */
+
+
 const VistaRegstrate: FunctionComponent = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -88,13 +91,13 @@ const VistaRegstrate: FunctionComponent = () => {
   const [isModalOpen, setModalOpen] = useState(false); // Estado para el modal
   const navigate = useNavigate();
 
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setFormData({
       ...formData,
       [e.target.id]: e.target.value,
     });
   };
-
 
   const handleOpenModal = (e: React.FormEvent) => {
     e.preventDefault();
@@ -106,48 +109,58 @@ const VistaRegstrate: FunctionComponent = () => {
   };
 
   const handleConfirmModal = async () => {
-    setModalOpen(false);
-  
-    // Validaciones
+    setModalOpen(false); // Cierra el modal
+
+    // Validar que las contraseñas sean iguales
     if (formData.password !== formData.confirmPassword) {
       alert("Las contraseñas no coinciden. Por favor, verifica.");
       return;
     }
 
     try {
-      // Verificar los datos de la mascota antes de enviarlos
-    console.log("Datos de la mascota:", {
-      name: formData.petName,
-      breed: formData.breed,
-      date_birth: formData.dateOfbirth,
-      weight: parseFloat(formData.weight),
-      color: formData.color,
-      gender: formData.gender,
+      // Verificar si el usuario ya existe
+    if (UserStorage.userExists(formData.email)) {
+      alert("El correo ya está registrado. Por favor, usa otro.");
+      return;
+    }
+    // Guardar el usuario en localStorage
+    UserStorage.addUser({
+      email: formData.email,
+      password: formData.password,
+      name: formData.name, // Asegúrate de incluir el campo "name"
     });
+
+      // Verificar los datos de la mascota antes de enviarlos
+      console.log("Datos de la mascota:", {
+        name: formData.petName,
+        breed: formData.breed,
+        date_birth: formData.dateOfBirth,
+        weight: parseFloat(formData.weight),
+        color: formData.color,
+        gender: formData.gender,
+      });
       // Enviar datos al microservicio de mascotas
       const petResponse = await axios.post('http://localhost:8080/api/pet/ceate', {
         name: formData.petName,
         breed: formData.breed,
-        dateOfbirth: formData.dateOfbirth, // Fecha de nacimiento de la mascota
+        dateOfBirth: formData.dateOfBirth, // Fecha de nacimiento de la mascota
         weight: parseFloat(formData.weight), // Convertir peso a número
         color: formData.color,
-        age: formData.age,
-        weight: formData.weight,
         gender: formData.gender,
       });
     
       console.log("Mascota registrada:", petResponse.data);
 
       // Verificar los datos del cliente antes de enviarlos
-    console.log("Datos del cliente:", {
-      name: formData.name,
-      lastName: formData.lastName,
-      email: formData.email,
-      phoneNumber: formData.phoneNumber,
-      address: formData.address,
-      registrationDate: new Date().toISOString().split("T")[0],
-      petId: petResponse.data.id, // Relacionar cliente con la mascota
-    });
+      console.log("Datos del cliente:", {
+        name: formData.name,
+        lastName: formData.lastName,
+        email: formData.email,
+        phoneNumber: formData.phoneNumber,
+        address: formData.address,
+        registrationDate: new Date().toISOString().split("T")[0],
+        petId: petResponse.data.id, // Relacionar cliente con la mascota
+      });
     
       // Enviar datos al microservicio de clientes
       const clientResponse = await axios.post('http://localhost:8080/api/client/ceate', {
@@ -159,27 +172,32 @@ const VistaRegstrate: FunctionComponent = () => {
         registrationDate: new Date().toISOString().split("T")[0], // Fecha actual en formato YYYY-MM-DD
         petId: petResponse.data.id, // Relacionar cliente con la mascota
       });
-    
+
       console.log("Cliente registrado:", clientResponse.data);
+
+      //console.log("Actualizando clientId en la mascota...");
+      //await axios.put(`http://localhost:8080/api/pet/update/${petResponse.data.id}`, {
+      //  clientId: clientResponse.data.id,
+      //});
+      //console.log("Mascota actualizada con clientId:", clientResponse.data.id);
     
       alert("Registro exitoso.");
-      navigate("/veterinaria-mascohogar-pc-home"); // Redirigir al Home
+      navigate("/login");
     } catch (error: any) {
       console.error("Error al registrar:", error);
     
       if (error.response) {
-        // Error de respuesta del servidor
+        console.error("Detalles del error:", error.response.data);
         alert(`Error: ${error.response.data.message || "Ocurrió un error en el servidor."}`);
       } else if (error.request) {
-        // Error en la solicitud (sin respuesta del servidor)
+        console.error("Error en la solicitud:", error.request);
         alert("Error: No se pudo conectar con el servidor.");
       } else {
-        // Otro tipo de error
+        console.error("Error desconocido:", error.message);
         alert(`Error: ${error.message}`);
       }
     }
   };
-  
 
   return (
     <div className={`container-fluid ${styles.vistaRegstrate}`}>

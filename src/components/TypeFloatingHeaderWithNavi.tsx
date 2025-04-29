@@ -2,7 +2,7 @@ import { FunctionComponent, useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import styles from "./TypeFloatingHeaderWithNavi.module.css";
-import { FaBars, FaUser, FaCog, FaHome, FaInfoCircle, FaUsers} from "react-icons/fa";
+import { FaBars, FaUser, FaCog, FaHome, FaInfoCircle, FaUsers } from "react-icons/fa";
 import { MdViewSidebar } from "react-icons/md";
 import { BsFillMenuButtonFill } from "react-icons/bs";
 
@@ -12,12 +12,12 @@ const TypeFloatingHeaderWithNavi: FunctionComponent = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(
     localStorage.getItem("isAuthenticated") === "true"
   );
-  const [username, setUsername] = useState<string>("");
+  const [username, setUsername] = useState<string>(""); // Estado para el nombre del usuario
   const [menuOpen, setMenuOpen] = useState(false); // Estado para controlar el menú desplegable
 
   useEffect(() => {
     if (isAuthenticated) {
-      const storedUsername = localStorage.getItem("username") || "Usuario";
+      const storedUsername = localStorage.getItem("username") || "Usuario"; // Recuperar el nombre del usuario
       setUsername(storedUsername);
     }
   }, [isAuthenticated]);
@@ -106,7 +106,6 @@ const TypeFloatingHeaderWithNavi: FunctionComponent = () => {
                     onClick={onMenuClick}
                     style={{ background: "none", border: "none", cursor: "pointer" }}
                   >
-                    
                     <span className={styles.navLinkIcon}>
                       <FaBars />
                     </span>
@@ -119,7 +118,6 @@ const TypeFloatingHeaderWithNavi: FunctionComponent = () => {
                     onClick={onProfileClick}
                     style={{ background: "none", border: "none", cursor: "pointer" }}
                   >
-                    
                     <span className={styles.navLinkIcon}>
                       <FaUser />
                     </span>
@@ -132,7 +130,6 @@ const TypeFloatingHeaderWithNavi: FunctionComponent = () => {
                     onClick={onSettingsClick}
                     style={{ background: "none", border: "none", cursor: "pointer" }}
                   >
-                    
                     <span className={styles.navLinkIcon}>
                       <FaCog />
                     </span>
@@ -188,7 +185,6 @@ const TypeFloatingHeaderWithNavi: FunctionComponent = () => {
                       onClick={onServicesClick}
                       style={{ background: "none", border: "none", cursor: "pointer" }}
                     >
-                      
                       <span className={styles.navLinkIcon}>
                         <MdViewSidebar />
                       </span>
