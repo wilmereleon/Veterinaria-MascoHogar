@@ -1,0 +1,51 @@
+@startuml
+skinparam componentStyle uml2
+skinparam packageStyle rectangle
+
+actor "Cliente" as Client
+
+component "API Gateway" as APIGateway
+
+package "Microservicios Veterinaria" as MicroVeterinaria {
+  component "Facturación\nMicroservicio" as Facturacion
+  component "Autenticación\nMicroservicio" as Autenticacion
+  component "Clientes\nMicroservicio" as Clientes
+  component "Mascotas\nMicroservicio" as Mascotas
+  component "Citas\nMicroservicio" as Citas
+  component "Servicios Veterinarios\nMicroservicio" as ServiciosVete
+}
+
+component "Eureka\nServidor de Registro" as Eureka
+component "Config Server\n(Configuración)" as ConfigServer
+
+package "BD" as BD {
+  database "BD_Facturación\n(MySQL)" as BD_Facturacion
+  database "BD_Autenticación\n(H2)" as BD_Autenticacion
+  database "BD_Clientes\n(MySQL)" as BD_Clientes
+  database "BD_Mascotas\n(MySQL)" as BD_Mascotas
+  database "BD_Citas\n(MySQL)" as BD_Citas
+  database "BD_Servicios_Vete\n(H2)" as BD_Servicios
+}
+
+Client --> APIGateway : "Solicita\nservicios"
+
+' Relaciones visibles únicamente para los microservicios Clientes y Mascotas:
+APIGateway --> Clientes : "Solicita\nClientes"
+APIGateway --> Mascotas : "Solicita\nMascotas"
+
+Clientes --> BD_Clientes : "Maneja\ninformación"
+Mascotas --> BD_Mascotas : "Registra\nmascotas"
+
+' Se han ELIMINADO las relaciones directas de Clientes y Mascotas con Eureka y Config Server
+
+' Relaciones adicionales (dotted) según la imagen:
+' El contenedor BD tiene una flecha punteada hacia Config Server
+BD -[dotted]-> ConfigServer
+
+' El Config Server tiene una línea punteada hacia Eureka
+ConfigServer -[dotted]-> Eureka
+
+' Eureka tiene una línea punteada hacia el contenedor de Microservicios Veterinaria
+Eureka -[dotted]-> MicroVeterinaria
+
+@enduml
