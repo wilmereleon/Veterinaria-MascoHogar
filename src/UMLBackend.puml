@@ -1,0 +1,200 @@
+@startuml
+skinparam packageStyle rectangle
+
+package "Microservices Architecture" {
+    package "microservices-client" {
+        class ClientController {
+            + saveClient(Client client): void
+            + findAllClient(): ResponseEntity
+            + findById(Long id): ResponseEntity
+            + findByIdPet(Long idPet): ResponseEntity
+        }
+
+        class ClientService {
+            + save(Client client): void
+            + findAll(): List<Client>
+            + findById(Long id): Client
+            + findByIdPet(Long idPet): Client
+        }
+
+        class Client {
+            - Long id
+            - String name
+            - String lastName
+            - String email
+            - String phoneNumber
+            - String address
+            - LocalDate registrationDate
+            - Long petId
+        }
+
+        interface ClientRepository {
+            + findAllByPetId(Long petId): List<Client>
+        }
+
+        class MicroservicesClientApplication {
+            + main(String[] args): void
+        }
+
+        database "Clients Table" {
+            entity "Clients" {
+                * id : Long
+                * name : String
+                * last_name : String
+                * email : String
+                * phone_number : String
+                * address : String
+                * registration_date : LocalDate
+                * pet_id : Long
+            }
+        }
+    }
+
+    package "microservices-pet" {
+        class PetController {
+            + saveClient(Pet pet): void
+            + findAllClient(): ResponseEntity
+            + findById(Long id): ResponseEntity
+            + findClientByIdPet(Long idPet): ResponseEntity
+        }
+
+        class PetService {
+            + save(Pet pet): void
+            + findAll(): List<Pet>
+            + findById(Long id): Pet
+            + findClientByIdPet(Long idPet): Client
+        }
+
+        class Pet {
+            - Long id
+            - String name
+            - String breed
+            - LocalDate dateOfBirth
+            - Double weight
+            - String color
+            - String gender
+            - Long clientId
+        }
+
+        interface ClientClients {
+            + findAllClientByPet(Long idPet): List<ClientDTO>
+        }
+
+        class ClientDTO {
+            - Long id
+            - String name
+            - String lastName
+            - String email
+            - String phoneNumber
+            - String address
+            - LocalDate registrationDate
+            - Long petId
+        }
+
+        class ClientByPetResponse {
+            - String name
+            - String breed
+            - String color
+            - String gender
+            - List<ClientDTO> clientDTOList
+        }
+
+        interface IPetRepository {
+            + save(Pet pet): Pet
+            + findById(Long id): Optional<Pet>
+            + findAll(): Iterable<Pet>
+        }
+
+        class MicroservicesPetApplication {
+            + main(String[] args): void
+        }
+
+        database "Pets Table" {
+            entity "Pets" {
+                * id : Long
+                * name : String
+                * breed : String
+                * date_birth : LocalDate
+                * weight : Double
+                * color : String
+                * gender : String
+                * client_id : Long
+            }
+        }
+    }
+
+    package "microservices-eureka" {
+        class MicroservicesEurekaApplication {
+            + main(String[] args): void
+        }
+
+        class EurekaServer {
+            + registerService(String serviceName): void
+            + discoverService(String serviceName): String
+        }
+    }
+
+    package "microservices-gateway" {
+        class MicroservicesGatewayApplication {
+            + main(String[] args): void
+        }
+
+        class ApiGateway {
+            + routeRequest(String serviceName, String endpoint): ResponseEntity
+        }
+
+        class CorsConfig {
+            + corsWebFilter(): CorsWebFilter
+        }
+    }
+
+    package "microservices-config" {
+        class MicroservicesConfigApplication {
+            + main(String[] args): void
+        }
+
+        component "application.yml" {
+            note right
+                - server.port: 8888
+                - spring.profiles.active: native
+                - spring.application.name: config-server
+                - spring.cloud.config.server.native.search-locations: classpath:/configurations
+            end note
+        }
+    }
+}
+
+ClientController --> ClientService : uses
+ClientService --> Client : manages
+ClientService --> ClientRepository : uses
+ClientRepository --> Client : manages
+ClientRepository --> "Clients Table" : persists
+PetController --> PetService : uses
+PetService --> Pet : manages
+PetService --> Client : interacts with
+PetService --> ClientClients : uses
+PetService --> IPetRepository : uses
+IPetRepository --> Pet : manages
+IPetRepository --> "Pets Table" : persists
+ClientClients --> ClientDTO : returns
+ClientClients --> Client : interacts with
+ClientByPetResponse --> ClientDTO : contains
+Pet --> Client : references (clientId)
+
+ApiGateway --> ClientController : routes to
+ApiGateway --> PetController : routes to
+ClientController --> PetController : interacts with
+EurekaServer --> ClientController : service discovery
+EurekaServer --> PetController : service discovery
+EurekaServer --> ApiGateway : service discovery
+MicroservicesEurekaApplication --> EurekaServer : enables
+MicroservicesGatewayApplication --> ApiGateway : enables
+MicroservicesGatewayApplication --> CorsConfig : configures
+MicroservicesPetApplication --> PetController : enables
+MicroservicesPetApplication --> ClientClients : enables Feign
+MicroservicesPetApplication --> EurekaServer : enables Discovery
+MicroservicesClientApplication --> ClientController : enables
+MicroservicesClientApplication --> EurekaServer : enables Discovery
+MicroservicesConfigApplication --> EurekaServer : integrates
+
+@enduml

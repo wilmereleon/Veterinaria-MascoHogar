@@ -1,0 +1,101 @@
+@startuml
+skinparam packageStyle rectangle
+
+actor User as "Usuario"
+
+package "Front-End (React)" {
+    component "VistaRegstrate" {
+        note right
+            - Captura datos del cliente y mascota
+            - Valida contraseñas
+            - Abre un modal de confirmación
+            - Envía solicitudes HTTP al backend:
+                - POST /api/pet/create
+                - POST /api/client/create
+            - Muestra mensajes de éxito o error
+            - Redirige al usuario tras el registro
+        end note
+    }
+
+    component "Modal" {
+        note right
+            - isOpen: boolean
+            - onClose(): void
+            - onConfirm(): void
+            - title: string
+            - message: string
+        end note
+    }
+
+    component "axios" {
+        note right
+            - post(url: string, data: object): Promise
+        end note
+    }
+
+    component "useNavigate" {
+        note right
+            - (): function
+        end note
+    }
+
+    component "FiEye" {
+        note right
+            - Icono para mostrar contraseña
+        end note
+    }
+
+    component "FiEyeOff" {
+        note right
+            - Icono para ocultar contraseña
+        end note
+    }
+}
+
+package "Back-End (Microservices)" {
+    package "microservices-client" {
+        component "ClientController"
+        component "ClientService"
+        component "Clients Table"
+    }
+
+    package "microservices-pet" {
+        component "PetController"
+        component "PetService"
+        component "Pets Table"
+    }
+
+    package "microservices-gateway" {
+        component "ApiGateway"
+    }
+
+    package "microservices-eureka" {
+        component "EurekaServer"
+    }
+}
+
+"VistaRegstrate" --> "Modal" : Usa para confirmación
+"VistaRegstrate" --> "axios" : Realiza solicitudes HTTP
+"VistaRegstrate" --> "useNavigate" : Navegación entre páginas
+"VistaRegstrate" --> "FiEye" : Icono para mostrar contraseña
+"VistaRegstrate" --> "FiEyeOff" : Icono para ocultar contraseña
+
+"VistaRegstrate" --> "ApiGateway" : POST /api/pet/create
+"ApiGateway" --> "PetController" : Redirige solicitud
+"PetController" --> "PetService" : Guarda mascota
+"PetService" --> "Pets Table" : Inserta registro
+"PetService" --> "PetController" : Retorna ID mascota
+"PetController" --> "ApiGateway" : Respuesta con ID mascota
+"ApiGateway" --> "VistaRegstrate" : Respuesta con ID mascota
+
+"VistaRegstrate" --> "ApiGateway" : POST /api/client/create
+"ApiGateway" --> "ClientController" : Redirige solicitud
+"ClientController" --> "ClientService" : Guarda cliente
+"ClientService" --> "Clients Table" : Inserta registro
+"ClientService" --> "ClientController" : Retorna ID cliente
+"ClientController" --> "ApiGateway" : Respuesta con ID cliente
+"ApiGateway" --> "VistaRegstrate" : Respuesta con ID cliente
+
+"VistaRegstrate" --> User : Muestra mensaje de éxito
+
+@enduml
